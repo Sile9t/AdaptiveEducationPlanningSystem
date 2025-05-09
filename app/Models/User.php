@@ -25,6 +25,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role_id',
+        'branch_id'
     ];
 
     /**
@@ -53,5 +54,13 @@ class User extends Authenticatable
     public function role():BelongsTo
     {
         return $this->belongsTo(Role::class);
+    }
+
+    /**
+     * Get the user branch.
+    */
+    public function branch():BelongsTo
+    {
+        return $this->belongsTo(Branch::class);
     }
 }
