@@ -28,4 +28,14 @@ class TrainingProgram extends Model
     {
         return $this->hasMany(TrainingProgramAlias::class);
     }
+
+    /**
+     * Get all permits for specified program.
+     *
+     * @var array<int, Permit>
+     */
+    public function permits():HasMany
+    {
+        return $this->hasMany(Permit::class);
+    }
 }

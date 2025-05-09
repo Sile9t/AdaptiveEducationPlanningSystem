@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class EmployeeCategory extends Model
 {
@@ -19,4 +20,13 @@ class EmployeeCategory extends Model
         'description',
     ];
 
+    /**
+     * Get permits for specified category.
+     *
+     * @var array<int, Permit>
+     */
+    public function permits():HasMany
+    {
+        return $this->hasMany(Permit::class);
+    }
 }
