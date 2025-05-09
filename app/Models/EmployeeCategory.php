@@ -29,4 +29,14 @@ class EmployeeCategory extends Model
     {
         return $this->hasMany(Permit::class);
     }
+
+    /**
+     * Get employees for specified category.
+     *
+     * @var array<int, Employee>
+     */
+    public function employees():HasMany
+    {
+        return $this->hasMany(Employee::class);
+    }
 }

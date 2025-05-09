@@ -29,4 +29,14 @@ class Branch extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    /**
+     * Get employees for the role.
+     * 
+     * @var array<int, Employee>
+    */
+    public function employees():HasMany
+    {
+        return $this->hasMany(Employee::class);
+    }
 }
