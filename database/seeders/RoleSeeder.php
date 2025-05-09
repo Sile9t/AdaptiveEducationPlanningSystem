@@ -32,7 +32,7 @@ class RoleSeeder extends Seeder
         $ids = Role::all(['id']);
         if ($ids->count() == 0) {
             // Seeding basic user roles
-            Role::factory()->count(4)->state($defaultRoles)->create();
+            Role::factory()->count(3)->state($defaultRoles)->create();
         }
     }
 }
