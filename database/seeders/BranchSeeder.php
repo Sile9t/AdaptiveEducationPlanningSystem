@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Branch;
-use Doctrine\DBAL\Schema\Sequence;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
 
 class BranchSeeder extends Seeder
