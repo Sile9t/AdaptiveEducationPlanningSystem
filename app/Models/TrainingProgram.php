@@ -38,4 +38,14 @@ class TrainingProgram extends Model
     {
         return $this->hasMany(Permit::class);
     }
+
+    /**
+     * Get all training events for specified program.
+     *
+     * @var array<int, TrainingEvent>
+     */
+    public function events():HasMany
+    {
+        return $this->hasMany(TrainingEvent::class);
+    }
 }

@@ -44,12 +44,12 @@ class Employee extends Model
     }
 
     /**
-     * Get employees for the role.
-     * 
-     * @var array<int, Employee>
-    */
-    public function employees():HasMany
+     * Get all training events for specified program.
+     *
+     * @var array<int, TrainingEvent>
+     */
+    public function events():HasMany
     {
-        return $this->hasMany(Employee::class);
+        return $this->hasMany(TrainingEvent::class);
     }
 }
