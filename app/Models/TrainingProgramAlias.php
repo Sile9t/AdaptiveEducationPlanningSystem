@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class TrainingProgram extends Model
+class TrainingProgramAlias extends Model
 {
     use HasFactory;
 
@@ -16,16 +16,16 @@ class TrainingProgram extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'title',
+        'alias',
+        'comment',
+        'program_id'
     ];
 
     /**
-     * Get all aliases for specified program.
-     *
-     * @var array<int, TrainingProgramAlias>
-     */
-    public function aliases():HasMany
+     * Get the user role.
+    */
+    public function programs():BelongsTo
     {
-        return $this->hasMany(TrainingProgramAlias::class);
+        return $this->belongsTo(TrainingProgram::class);
     }
 }
