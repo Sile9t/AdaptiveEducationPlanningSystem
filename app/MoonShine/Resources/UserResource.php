@@ -67,8 +67,10 @@ class UserResource extends ModelResource
                     Tab::make(__('moonshine::ui.resource.password'), [
                         Heading::make(__('moonshine::ui.resource.change_password')),
 
-                        Password::make('Password'),
-                        PasswordRepeat::make('Password repeat'),
+                        Password::make('Password')
+                            ->hideOnIndex(),
+                        PasswordRepeat::make('Password repeat')
+                            ->hideOnIndex(),
                     ]),
                 ]),
             ]),
