@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\MoonShine\Resources\BranchResource;
+use App\MoonShine\Resources\RoleResource;
 use MoonShine\Providers\MoonShineApplicationServiceProvider;
 use MoonShine\MoonShine;
 use MoonShine\Menu\MenuGroup;
@@ -52,7 +53,8 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
             ]),
 
             MenuGroup::make("", [
-                MenuItem::make('Branch', new BranchResource())->icon('heroicons.outline.user-group')
+                MenuItem::make('Role', new RoleResource())->icon('heroicons.outline.bookmark'),
+                MenuItem::make('Branch', new BranchResource())->icon('heroicons.outline.user-group'),
             ]),
 
             // MenuItem::make('Documentation', 'https://moonshine-laravel.com/docs')
