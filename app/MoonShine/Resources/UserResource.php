@@ -61,6 +61,7 @@ class UserResource extends ModelResource
                         BelongsTo::make(
                             'Role', 
                             'role', 
+                            static fn(Role $model) => $model->name,
                             resource: new RoleResource)->sortable(),
                     ]),
 

@@ -4,25 +4,26 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Resources;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Models\TrainingProgram;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\TrainingProgramAlias;
 
 use MoonShine\Resources\ModelResource;
 use MoonShine\Decorations\Block;
 use MoonShine\Fields\ID;
 use MoonShine\Fields\Field;
 use MoonShine\Components\MoonShineComponent;
-use MoonShine\Fields\Relationships\HasMany;
+use MoonShine\Fields\Relationships\BelongsTo;
 use MoonShine\Fields\Text;
 
 /**
- * @extends ModelResource<TrainingProgram>
+ * @extends ModelResource<TrainingProgramAlias>
  */
-class TrainingProgramResource extends ModelResource
+class TrainingProgramAliasResource extends ModelResource
 {
-    protected string $model = TrainingProgram::class;
+    protected string $model = TrainingProgramAlias::class;
 
-    protected string $title = 'TrainingProgram';
+    protected string $title = 'TrainingProgramAlias';
 
     /**
      * @return list<MoonShineComponent|Field>
@@ -32,19 +33,20 @@ class TrainingProgramResource extends ModelResource
         return [
             Block::make([
                 ID::make()->sortable(),
-                Text::make('Title')->sortable(),
-                HasMany::make(
-                    'Aliases',
-                    'aliases',
-                    resource: new TrainingProgramAliasResource()
-                )
-                //TODO: add 'permits' and 'events' columns
+                Text::make("Alias")->sortable(),
+                Text::make("Comment"),
+                BelongsTo::make(
+                    'Program', 
+                    'program',
+                    static fn(TrainingProgram $model) => $model->title, 
+                    resource: new TrainingProgramResource()
+                ),
             ]),
         ];
     }
 
     /**
-     * @param TrainingProgram $item
+     * @param TrainingProgramAlias $item
      *
      * @return array<string, string[]|string>
      * @see https://laravel.com/docs/validation#available-validation-rules

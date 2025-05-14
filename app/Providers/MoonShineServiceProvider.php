@@ -6,6 +6,7 @@ namespace App\Providers;
 
 use App\MoonShine\Resources\BranchResource;
 use App\MoonShine\Resources\RoleResource;
+use App\MoonShine\Resources\TrainingProgramAliasResource;
 use App\MoonShine\Resources\TrainingProgramResource;
 use App\MoonShine\Resources\UserResource;
 use MoonShine\Providers\MoonShineApplicationServiceProvider;
@@ -59,6 +60,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                 MenuItem::make('Roles', new RoleResource())->icon('heroicons.outline.bookmark'),
                 MenuItem::make('Branches', new BranchResource())->icon('heroicons.outline.user-group'),
                 MenuItem::make('Training Programs', new TrainingProgramResource()),
+                MenuItem::make('Training Programs Aliases', new TrainingProgramAliasResource()),
             ]),
 
             // MenuItem::make('Documentation', 'https://moonshine-laravel.com/docs')
