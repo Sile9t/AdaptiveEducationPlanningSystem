@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aef43d835b5b0d332067276108cf59b5",
+    "content-hash": "66bbe1cb535251985c632761499cca81",
     "packages": [
         {
             "name": "brick/math",
@@ -2539,7 +2539,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2025-05-15T07:22:16+00:00"
+            "time": "2025-05-05T09:18:53+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -6672,7 +6672,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2025-05-13T13:34:34+00:00"
+            "time": "2025-04-29T14:26:46+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -8438,7 +8438,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2025-05-08T15:41:09+00:00"
+            "time": "2025-04-28T14:55:53+00:00"
         },
         {
             "name": "spatie/error-solutions",
@@ -8886,7 +8886,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.1"
+        "php": "^8.2"
     },
     "platform-dev": {},
     "plugin-api-version": "2.6.0"
