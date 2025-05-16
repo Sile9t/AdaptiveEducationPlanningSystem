@@ -7,13 +7,13 @@ namespace App\MoonShine\Resources;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\TrainingProgram;
 
-use MoonShine\Resources\ModelResource;
-use MoonShine\Decorations\Block;
-use MoonShine\Fields\ID;
-use MoonShine\Fields\Field;
-use MoonShine\Components\MoonShineComponent;
-use MoonShine\Fields\Relationships\HasMany;
-use MoonShine\Fields\Text;
+use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\UI\Components\Layout\Box;
+use MoonShine\UI\Fields\ID;
+use MoonShine\UI\Fields\Text;
+use MoonShine\Contracts\UI\FieldContract;
+use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\Laravel\Fields\Relationships\HasMany;
 
 /**
  * @extends ModelResource<TrainingProgram>
@@ -24,22 +24,61 @@ class TrainingProgramResource extends ModelResource
 
     protected string $title = 'TrainingProgram';
 
+    protected string $column = 'title';
+    
     /**
-     * @return list<MoonShineComponent|Field>
+     * @return list<FieldContract>
      */
-    public function fields(): array
+    protected function indexFields(): iterable
     {
         return [
-            Block::make([
-                ID::make()->sortable(),
-                Text::make('Title')->sortable(),
+            ID::make()->sortable(),
+            Text::make('Title')->sortable(),
+            HasMany::make(
+                'Aliases',
+                'aliases',
+                formatted: 'alias',
+                resource: TrainingProgramAliasResource::class
+            )->relatedLink(),
+            //TODO: add 'permits' and 'events' columns
+        ];
+    }
+
+    /**
+     * @return list<ComponentContract|FieldContract>
+     */
+    protected function formFields(): iterable
+    {
+        return [
+            Box::make([
+                ID::make(),
+                Text::make('Title'),
                 HasMany::make(
                     'Aliases',
                     'aliases',
-                    resource: new TrainingProgramAliasResource()
-                )
+                    formatted: 'alias',
+                    resource: TrainingProgramAliasResource::class
+                ),
                 //TODO: add 'permits' and 'events' columns
-            ]),
+            ])
+        ];
+    }
+
+    /**
+     * @return list<FieldContract>
+     */
+    protected function detailFields(): iterable
+    {
+        return [
+            ID::make(),
+            Text::make('Title'),
+            HasMany::make(
+                'Aliases',
+                'aliases',
+                formatted: 'alias',
+                resource: TrainingProgramAliasResource::class
+            ),
+            //TODO: add 'permits' and 'events' columns
         ];
     }
 
@@ -49,9 +88,8 @@ class TrainingProgramResource extends ModelResource
      * @return array<string, string[]|string>
      * @see https://laravel.com/docs/validation#available-validation-rules
      */
-    public function rules(Model $item): array
+    protected function rules(mixed $item): array
     {
-        //TODO:
         return [];
     }
 }

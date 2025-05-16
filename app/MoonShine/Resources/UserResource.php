@@ -9,19 +9,18 @@ use App\Models\Role;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 
-use MoonShine\Resources\ModelResource;
-use MoonShine\Decorations\Block;
-use MoonShine\Fields\ID;
-use MoonShine\Fields\Field;
-use MoonShine\Components\MoonShineComponent;
-use MoonShine\Decorations\Heading;
-use MoonShine\Decorations\Tab;
-use MoonShine\Decorations\Tabs;
-use MoonShine\Fields\Email;
-use MoonShine\Fields\Password;
-use MoonShine\Fields\PasswordRepeat;
-use MoonShine\Fields\Relationships\BelongsTo;
-use MoonShine\Fields\Text;
+use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\UI\Components\Layout\Box;
+use MoonShine\UI\Components\Heading;
+use MoonShine\UI\Components\Tabs\Tab;
+use MoonShine\UI\Fields\ID;
+use MoonShine\UI\Fields\Text;
+use MoonShine\UI\Fields\Email;
+use MoonShine\UI\Fields\Password;
+use MoonShine\UI\Fields\PasswordRepeat;
+use MoonShine\Contracts\UI\FieldContract;
+use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 /**
  * @extends ModelResource<User>
@@ -32,57 +31,98 @@ class UserResource extends ModelResource
 
     protected string $title = 'User';
     
-    protected array $with = [
-        'branch', 
-        'role',
-    ];
-
-    protected string $column = 'id';
-
     /**
-     * @return list<MoonShineComponent|Field>
+     * @return list<FieldContract>
      */
-    public function fields(): array
+    protected function indexFields(): iterable
     {
         return [
-            Block::make([
-                Tabs::make([
-                    Tab::make(__('moonshine::ui.resource.main_information'), [
-                        ID::make()->sortable(),
-                        Text::make('First name')->sortable(),
-                        Text::make('Last name')->sortable(),
-                        Text::make('Patronymic')->sortable(),
-                        Email::make('Email')->sortable(),
-                        BelongsTo::make(
-                            'Branch', 
-                            'branch', 
-                            static fn(Branch $model) => $model->name, 
-                            resource: new BranchResource)->sortable(),
-                        BelongsTo::make(
-                            'Role', 
-                            'role', 
-                            static fn(Role $model) => $model->name,
-                            resource: new RoleResource)->sortable(),
-                    ]),
+            ID::make()->sortable(),
+            Text::make('First name')->sortable(),
+            Text::make('Last name')->sortable(),
+            Text::make('Patronymic')->sortable(),
+            Email::make('Email')->sortable(),
+            BelongsTo::make(
+                'Branch', 
+                'branch', 
+                static fn(Branch $model) => $model->name, 
+                resource: BranchResource::class
+            )->sortable(),
+            BelongsTo::make(
+                'Role', 
+                'role', 
+                static fn(Role $model) => $model->name,
+                resource: RoleResource::class
+            )->sortable(),
+        ];
+    }
 
-                    Tab::make(__('moonshine::ui.resource.password'), [
-                        Heading::make(__('moonshine::ui.resource.change_password')),
+    /**
+     * @return list<ComponentContract|FieldContract>
+     */
+    protected function formFields(): iterable
+    {
+        return [
+            Tab::make(__('moonshine::ui.resource.main_information'), [
+                ID::make(),
+                Text::make('First name'),
+                Text::make('Last name'),
+                Text::make('Patronymic'),
+                Email::make('Email'),
+                BelongsTo::make(
+                    'Branch', 
+                    'branch', 
+                    static fn(Branch $model) => $model->name, 
+                    resource: BranchResource::class
+                ),
+                BelongsTo::make(
+                    'Role', 
+                    'role', 
+                    static fn(Role $model) => $model->name,
+                    resource: RoleResource::class
+                ),
+            ]),
 
-                        Password::make('Password')
-                            ->hideOnIndex()
-                            ->hideOnDetail()
-                            ->eye(),
-                        PasswordRepeat::make('Password repeat')
-                            ->hideOnIndex()
-                            ->hideOnDetail()
-                            ->eye(),
-                    ]),
-                ]),
+            Tab::make(__('moonshine::ui.resource.password'), [
+                Heading::make(__('moonshine::ui.resource.change_password')),
+
+                Password::make('Password')
+                    ->hideOnIndex()
+                    ->hideOnDetail()
+                    ->eye(),
+                PasswordRepeat::make('Password repeat')
+                    ->hideOnIndex()
+                    ->hideOnDetail()
+                    ->eye(),
             ]),
         ];
     }
 
-    protected bool $errorsAbove = false;
+    /**
+     * @return list<FieldContract>
+     */
+    protected function detailFields(): iterable
+    {
+        return [
+            ID::make(),
+            Text::make('First name'),
+            Text::make('Last name'),
+            Text::make('Patronymic'),
+            Email::make('Email'),
+            BelongsTo::make(
+                'Branch', 
+                'branch', 
+                static fn(Branch $model) => $model->name, 
+                resource: BranchResource::class
+            ),
+            BelongsTo::make(
+                'Role', 
+                'role', 
+                static fn(Role $model) => $model->name,
+                resource: RoleResource::class
+            ),
+        ];
+    }
 
     /**
      * @param User $item
@@ -90,7 +130,7 @@ class UserResource extends ModelResource
      * @return array<string, string[]|string>
      * @see https://laravel.com/docs/validation#available-validation-rules
      */
-    public function rules(Model $item): array
+    protected function rules(mixed $item): array
     {
         return [
             'first_name' => ['required', 'string', 'min:3'],

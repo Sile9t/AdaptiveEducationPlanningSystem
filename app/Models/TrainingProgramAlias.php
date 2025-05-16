@@ -26,6 +26,6 @@ class TrainingProgramAlias extends Model
     */
     public function program():BelongsTo
     {
-        return $this->belongsTo(TrainingProgram::class);
+        return $this->belongsTo(TrainingProgram::class, 'program_id');
     }
 }

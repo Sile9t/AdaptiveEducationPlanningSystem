@@ -26,7 +26,7 @@ class TrainingProgram extends Model
      */
     public function aliases():HasMany
     {
-        return $this->hasMany(TrainingProgramAlias::class);
+        return $this->hasMany(TrainingProgramAlias::class, 'program_id');
     }
 
     /**

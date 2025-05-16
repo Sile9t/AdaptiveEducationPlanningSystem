@@ -7,12 +7,12 @@ namespace App\MoonShine\Resources;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Role;
 
-use MoonShine\Resources\ModelResource;
-use MoonShine\Decorations\Block;
-use MoonShine\Fields\ID;
-use MoonShine\Fields\Text;
-use MoonShine\Fields\Field;
-use MoonShine\Components\MoonShineComponent;
+use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\UI\Components\Layout\Box;
+use MoonShine\UI\Fields\ID;
+use MoonShine\UI\Fields\Text;
+use MoonShine\Contracts\UI\FieldContract;
+use MoonShine\Contracts\UI\ComponentContract;
 
 /**
  * @extends ModelResource<Role>
@@ -22,18 +22,42 @@ class RoleResource extends ModelResource
     protected string $model = Role::class;
 
     protected string $title = 'Role';
-
+    
     /**
-     * @return list<MoonShineComponent|Field>
+     * @return list<FieldContract>
      */
-    public function fields(): array
+    protected function indexFields(): iterable
     {
         return [
-            Block::make([
-                ID::make()->sortable(),
-                Text::make('Name')->sortable(),
-                Text::make('Description')->sortable(),
-            ]),
+            ID::make()->sortable(),
+            Text::make('Name')->sortable(),
+            Text::make('Description')->sortable(),
+        ];
+    }
+
+    /**
+     * @return list<ComponentContract|FieldContract>
+     */
+    protected function formFields(): iterable
+    {
+        return [
+            Box::make([
+                ID::make(),
+                Text::make('Name'),
+                Text::make('Description'),
+            ])
+        ];
+    }
+
+    /**
+     * @return list<FieldContract>
+     */
+    protected function detailFields(): iterable
+    {
+        return [
+            ID::make(),
+            Text::make('Name'),
+            Text::make('Description'),
         ];
     }
 
@@ -43,9 +67,8 @@ class RoleResource extends ModelResource
      * @return array<string, string[]|string>
      * @see https://laravel.com/docs/validation#available-validation-rules
      */
-    public function rules(Model $item): array
+    protected function rules(mixed $item): array
     {
-        //TODO:
         return [];
     }
 }
