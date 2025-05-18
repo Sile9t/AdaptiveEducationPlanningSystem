@@ -37,6 +37,7 @@ use App\MoonShine\Resources\RoleResource;
 use App\MoonShine\Resources\TrainingProgramResource;
 use App\MoonShine\Resources\TrainingProgramAliasResource;
 use App\MoonShine\Resources\UserResource;
+use App\MoonShine\Resources\EmployeeCategoryResource;
 
 final class MoonShineLayout extends AppLayout
 {
@@ -56,8 +57,13 @@ final class MoonShineLayout extends AppLayout
                 MenuItem::make('Users', UserResource::class)->icon('users'),
                 MenuItem::make('Roles', RoleResource::class)->icon('bookmark'),
                 MenuItem::make('Branch', BranchResource::class)->icon('user-group'),
-                MenuItem::make('Training Programs', TrainingProgramResource::class),
-                MenuItem::make('Training Program Aliases', TrainingProgramAliasResource::class),
+                MenuGroup::make('Training', [
+                    MenuItem::make('Programs', TrainingProgramResource::class),
+                    MenuItem::make('Program Aliases', TrainingProgramAliasResource::class),
+                ]),
+                MenuGroup::make('Staff', [
+                    MenuItem::make('Employee Categories', EmployeeCategoryResource::class),
+                ]),
             ]),
         ];
     }
