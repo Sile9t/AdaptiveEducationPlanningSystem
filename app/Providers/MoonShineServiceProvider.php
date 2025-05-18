@@ -32,6 +32,7 @@ class MoonShineServiceProvider extends ServiceProvider
     {
         // $config->authEnable();
         $config->title('AEPS');
+        $config->logo('vendor/moonshine/gaspromLogo.svg');
 
         $core
             ->resources([
