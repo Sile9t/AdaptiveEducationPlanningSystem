@@ -72,6 +72,8 @@ class BranchResource extends ModelResource
      */
     protected function rules(mixed $item): array
     {
-        return [];
+        return [
+            'name' => ['required', 'string', 'min:3'],
+        ];
     }
 }
