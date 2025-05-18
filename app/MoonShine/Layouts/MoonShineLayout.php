@@ -116,6 +116,29 @@ final class MoonShineLayout extends AppLayout
         // $colorManager->content('#2B61EC');
     }
 
+    public function getFooterMenu():array
+    {
+        return [
+            '#' => 'Documentation',
+        ];
+    }
+    
+    public function getFooterCopyright():string
+    {
+        return sprintf(
+            <<<'HTML'
+                &copy; %d Made with ❤️ by
+                <a href="https://asapeducation.online"
+                    class="font-semibold text-primary hover:text-secondary"
+                    target="_blank"
+                >
+                    ASAP
+                </a>
+                HTML,
+            now()->year,
+        );
+    }
+
     public function build(): Layout
     {
         return parent::build();
