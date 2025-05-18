@@ -14,6 +14,7 @@ use MoonShine\UI\Fields\Text;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Laravel\Fields\Relationships\HasMany;
+use MoonShine\Support\Enums\SortDirection;
 
 /**
  * @extends ModelResource<TrainingProgram>
@@ -25,6 +26,10 @@ class TrainingProgramResource extends ModelResource
     protected string $title = 'TrainingProgram';
 
     protected string $column = 'title';
+
+    protected string $sortColumn = 'id';
+
+    protected SortDirection $sortDirection = SortDirection::ASC;
     
     /**
      * @return list<FieldContract>
@@ -45,7 +50,6 @@ class TrainingProgramResource extends ModelResource
                 'permits',
                 resource: PermitResource::class
             )->relatedLink(),
-            //TODO: add 'events' columns
         ];
     }
 
@@ -54,19 +58,7 @@ class TrainingProgramResource extends ModelResource
      */
     protected function formFields(): iterable
     {
-        return [
-            Box::make([
-                ID::make(),
-                Text::make('Title'),
-                HasMany::make(
-                    'Aliases',
-                    'aliases',
-                    formatted: 'alias',
-                    resource: TrainingProgramAliasResource::class
-                ),
-                //TODO: add 'permits' and 'events' columns
-            ])
-        ];
+        return $this->indexFields();
     }
 
     /**
@@ -74,17 +66,7 @@ class TrainingProgramResource extends ModelResource
      */
     protected function detailFields(): iterable
     {
-        return [
-            ID::make(),
-            Text::make('Title'),
-            HasMany::make(
-                'Aliases',
-                'aliases',
-                formatted: 'alias',
-                resource: TrainingProgramAliasResource::class
-            ),
-            //TODO: add 'permits' and 'events' columns
-        ];
+        return $this->indexFields();
     }
 
     /**
@@ -95,6 +77,8 @@ class TrainingProgramResource extends ModelResource
      */
     protected function rules(mixed $item): array
     {
-        return [];
+        return [
+            'title' => ['required', 'string', 'min:3']
+        ];
     }
 }
