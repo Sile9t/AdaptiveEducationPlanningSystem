@@ -13,6 +13,7 @@ use MoonShine\UI\Fields\ID;
 use MoonShine\UI\Fields\Text;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\Laravel\Fields\Relationships\HasMany;
 
 /**
  * @extends ModelResource<Role>
@@ -32,6 +33,11 @@ class RoleResource extends ModelResource
             ID::make()->sortable(),
             Text::make('Name')->sortable(),
             Text::make('Description')->sortable(),
+            HasMany::make(
+                'Users',
+                'users',
+                resource: UserResource::class
+            )->relatedLink(),
         ];
     }
 
@@ -40,13 +46,7 @@ class RoleResource extends ModelResource
      */
     protected function formFields(): iterable
     {
-        return [
-            Box::make([
-                ID::make(),
-                Text::make('Name'),
-                Text::make('Description'),
-            ])
-        ];
+        return $this->indexFields();
     }
 
     /**
@@ -54,11 +54,7 @@ class RoleResource extends ModelResource
      */
     protected function detailFields(): iterable
     {
-        return [
-            ID::make(),
-            Text::make('Name'),
-            Text::make('Description'),
-        ];
+        return $this->indexFields();
     }
 
     /**
@@ -69,6 +65,8 @@ class RoleResource extends ModelResource
      */
     protected function rules(mixed $item): array
     {
-        return [];
+        return [
+            'name' => ['required', 'string', 'min:3'],
+        ];
     }
 }
