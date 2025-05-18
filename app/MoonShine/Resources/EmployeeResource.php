@@ -24,6 +24,8 @@ class EmployeeResource extends ModelResource
 
     protected string $title = 'Employees';
     
+    protected string $column = 'full_name';
+
     /**
      * @return list<FieldContract>
      */

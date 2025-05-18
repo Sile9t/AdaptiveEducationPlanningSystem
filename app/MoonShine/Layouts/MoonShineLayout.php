@@ -40,6 +40,7 @@ use App\MoonShine\Resources\UserResource;
 use App\MoonShine\Resources\EmployeeCategoryResource;
 use App\MoonShine\Resources\EmployeeResource;
 use App\MoonShine\Resources\PermitResource;
+use App\MoonShine\Resources\TrainingEventResource;
 
 final class MoonShineLayout extends AppLayout
 {
@@ -62,6 +63,7 @@ final class MoonShineLayout extends AppLayout
                 MenuGroup::make('Training', [
                     MenuItem::make('Programs', TrainingProgramResource::class),
                     MenuItem::make('Program Aliases', TrainingProgramAliasResource::class),
+                    MenuItem::make('Events', TrainingEventResource::class),
                 ]),
                 MenuGroup::make('Staff', [
                     MenuItem::make('Employees', EmployeeResource::class),

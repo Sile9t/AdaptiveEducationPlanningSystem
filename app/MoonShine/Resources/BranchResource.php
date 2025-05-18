@@ -14,6 +14,7 @@ use MoonShine\UI\Fields\Text;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Laravel\Fields\Relationships\HasMany;
+use MoonShine\Support\Enums\SortDirection;
 
 /**
  * @extends ModelResource<Branch>
@@ -25,6 +26,10 @@ class BranchResource extends ModelResource
     protected string $title = 'Branch';
 
     protected string $column = 'name';
+
+    protected string $sortColumn = 'id';
+
+    protected SortDirection $sortDirection = SortDirection::ASC;
     
     /**
      * @return list<FieldContract>
