@@ -14,6 +14,7 @@ use MoonShine\UI\Fields\Text;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
+use MoonShine\Support\Enums\SortDirection;
 
 /**
  * @extends ModelResource<TrainingProgramAlias>
@@ -24,7 +25,11 @@ class TrainingProgramAliasResource extends ModelResource
 
     protected string $title = 'TrainingProgramAlias';
 
-    protected string $column = "alias"; 
+    protected string $column = 'alias'; 
+
+    protected string $sortColumn = 'id';
+
+    protected SortDirection $sortDirection = SortDirection::ASC;
     
     /**
      * @return list<FieldContract>
@@ -33,14 +38,14 @@ class TrainingProgramAliasResource extends ModelResource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Alias')->sortable(),
-            Text::make('Comment')->sortable(),
             BelongsTo::make(
                 'Program',
                 'program',
                 formatted: 'title',
                 resource: TrainingProgramResource::class
             )->sortable(),
+            Text::make('Alias')->sortable(),
+            Text::make('Comment')->sortable(),
         ];
     }
 
@@ -52,14 +57,14 @@ class TrainingProgramAliasResource extends ModelResource
         return [
             Box::make([
                 ID::make(),
-                Text::make('Alias'),
-                Text::make('Comment'),
                 BelongsTo::make(
                     'Program',
                     'program',
                     formatted: 'title',
                     resource: TrainingProgramResource::class
                 ),
+                Text::make('Alias'),
+                Text::make('Comment'),
             ])
         ];
     }
@@ -71,17 +76,33 @@ class TrainingProgramAliasResource extends ModelResource
     {
         return [
             ID::make(),
-            Text::make('Alias'),
-            Text::make('Comment'),
             BelongsTo::make(
                 'Program',
                 'program',
                 formatted: 'title',
                 resource: TrainingProgramResource::class
             ),
+            Text::make('Alias'),
+            Text::make('Comment'),
         ];
     }
 
+    /**
+     * @return list<FieldContract>
+     */
+    protected function filters(): iterable
+    {
+        return [
+            BelongsTo::make(
+                'Program',
+                'program',
+                formatted: 'title',
+                resource: TrainingProgramResource::class
+            ),
+            Text::make('Alias'),
+        ];
+    }
+    
     /**
      * @param TrainingProgramAlias $item
      *
@@ -90,6 +111,8 @@ class TrainingProgramAliasResource extends ModelResource
      */
     protected function rules(mixed $item): array
     {
-        return [];
+        return [
+            'alias' => ['required', 'string', 'min:2'],
+        ];
     }
 }
