@@ -28,7 +28,7 @@ class Permit extends Model
      */
     public function program():BelongsTo
     {
-        return $this->belongsTo(TrainingProgram::class);
+        return $this->belongsTo(TrainingProgram::class, 'program_id');
     }
 
     /**
@@ -38,6 +38,6 @@ class Permit extends Model
      */
     public function category():BelongsTo
     {
-        return $this->belongsTo(EmployeeCategory::class);
+        return $this->belongsTo(EmployeeCategory::class, 'category_id');
     }
 }

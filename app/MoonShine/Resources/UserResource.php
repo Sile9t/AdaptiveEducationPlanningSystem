@@ -21,6 +21,7 @@ use MoonShine\UI\Fields\PasswordRepeat;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
+use MoonShine\UI\Components\Tabs;
 
 /**
  * @extends ModelResource<User>
@@ -63,37 +64,35 @@ class UserResource extends ModelResource
     protected function formFields(): iterable
     {
         return [
-            Tab::make(__('moonshine::ui.resource.main_information'), [
-                ID::make(),
-                Text::make('First name'),
-                Text::make('Last name'),
-                Text::make('Patronymic'),
-                Email::make('Email'),
-                BelongsTo::make(
-                    'Branch', 
-                    'branch', 
-                    static fn(Branch $model) => $model->name, 
-                    resource: BranchResource::class
-                ),
-                BelongsTo::make(
-                    'Role', 
-                    'role', 
-                    static fn(Role $model) => $model->name,
-                    resource: RoleResource::class
-                ),
-            ]),
-
-            Tab::make(__('moonshine::ui.resource.password'), [
-                Heading::make(__('moonshine::ui.resource.change_password')),
-
-                Password::make('Password')
-                    ->hideOnIndex()
-                    ->hideOnDetail()
-                    ->eye(),
-                PasswordRepeat::make('Password repeat')
-                    ->hideOnIndex()
-                    ->hideOnDetail()
-                    ->eye(),
+            Tabs::make([
+                Tab::make(__('moonshine::ui.resource.main_information'), [
+                    ID::make(),
+                    Text::make('First name'),
+                    Text::make('Last name'),
+                    Text::make('Patronymic'),
+                    Email::make('Email'),
+                    BelongsTo::make(
+                        'Branch', 
+                        'branch', 
+                        static fn(Branch $model) => $model->name, 
+                        resource: BranchResource::class
+                    ),
+                    BelongsTo::make(
+                        'Role', 
+                        'role', 
+                        static fn(Role $model) => $model->name,
+                        resource: RoleResource::class
+                    ),
+                ]),
+    
+                Tab::make(__('moonshine::ui.resource.password'), [
+                    Heading::make(__('moonshine::ui.resource.change_password')),
+    
+                    Password::make('Password')
+                        ->eye(),
+                    PasswordRepeat::make('Password repeat')
+                        ->eye(),
+                ]),
             ]),
         ];
     }

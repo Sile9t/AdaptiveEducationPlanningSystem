@@ -18,6 +18,7 @@ use App\MoonShine\Resources\TrainingProgramAliasResource;
 use App\MoonShine\Resources\UserResource;
 use App\MoonShine\Resources\EmployeeCategoryResource;
 use App\MoonShine\Resources\EmployeeResource;
+use App\MoonShine\Resources\PermitResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -43,6 +44,7 @@ class MoonShineServiceProvider extends ServiceProvider
                 UserResource::class,
                 EmployeeCategoryResource::class,
                 EmployeeResource::class,
+                PermitResource::class,
             ])
             ->pages([
                 ...$config->getPages(),

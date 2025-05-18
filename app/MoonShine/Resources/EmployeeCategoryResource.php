@@ -40,6 +40,11 @@ class EmployeeCategoryResource extends ModelResource
                 'employees',
                 resource: EmployeeResource::class
             )->relatedLink(),
+            HasMany::make(
+                'Permits',
+                'permits',
+                resource: PermitResource::class
+            )->relatedLink(),
         ];
     }
 

@@ -40,7 +40,12 @@ class TrainingProgramResource extends ModelResource
                 formatted: 'alias',
                 resource: TrainingProgramAliasResource::class
             )->relatedLink(),
-            //TODO: add 'permits' and 'events' columns
+            HasMany::make(
+                'Permits',
+                'permits',
+                resource: PermitResource::class
+            )->relatedLink(),
+            //TODO: add 'events' columns
         ];
     }
 

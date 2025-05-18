@@ -39,6 +39,7 @@ use App\MoonShine\Resources\TrainingProgramAliasResource;
 use App\MoonShine\Resources\UserResource;
 use App\MoonShine\Resources\EmployeeCategoryResource;
 use App\MoonShine\Resources\EmployeeResource;
+use App\MoonShine\Resources\PermitResource;
 
 final class MoonShineLayout extends AppLayout
 {
@@ -66,6 +67,7 @@ final class MoonShineLayout extends AppLayout
                     MenuItem::make('Employees', EmployeeResource::class),
                     MenuItem::make('Employee Categories', EmployeeCategoryResource::class),
                 ]),
+                MenuItem::make('Permits', PermitResource::class),
             ]),
         ];
     }
