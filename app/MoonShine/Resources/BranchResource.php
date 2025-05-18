@@ -13,6 +13,7 @@ use MoonShine\UI\Fields\ID;
 use MoonShine\UI\Fields\Text;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\Laravel\Fields\Relationships\HasMany;
 
 /**
  * @extends ModelResource<Branch>
@@ -22,6 +23,8 @@ class BranchResource extends ModelResource
     protected string $model = Branch::class;
 
     protected string $title = 'Branch';
+
+    protected string $column = 'name';
     
     /**
      * @return list<FieldContract>
@@ -32,6 +35,11 @@ class BranchResource extends ModelResource
             ID::make()->sortable(),
             Text::make('Name')->sortable(),
             Text::make('Description'),
+            HasMany::make(
+                'Employees',
+                'employees',
+                resource: EmployeeResource::class
+            )->relatedLink(),
         ];
     }
 
@@ -40,13 +48,7 @@ class BranchResource extends ModelResource
      */
     protected function formFields(): iterable
     {
-        return [
-            Box::make([
-                ID::make(),
-                Text::make('Name'),
-                Text::make('Description'),
-            ])
-        ];
+        return $this->indexFields();
     }
 
     /**
@@ -54,11 +56,7 @@ class BranchResource extends ModelResource
      */
     protected function detailFields(): iterable
     {
-        return [
-            ID::make(),
-            Text::make('Name'),
-            Text::make('Description'),
-        ];
+        return $this->indexFields();
     }
 
     /**

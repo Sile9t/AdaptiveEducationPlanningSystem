@@ -12,6 +12,7 @@ use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\ID;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\Laravel\Fields\Relationships\HasMany;
 use MoonShine\UI\Fields\Text;
 
 /**
@@ -22,6 +23,8 @@ class EmployeeCategoryResource extends ModelResource
     protected string $model = EmployeeCategory::class;
 
     protected string $title = 'EmployeeCategories';
+
+    protected string $column = 'name';
     
     /**
      * @return list<FieldContract>
@@ -32,6 +35,11 @@ class EmployeeCategoryResource extends ModelResource
             ID::make()->sortable(),
             Text::make('Name')->sortable(),
             Text::make('Description'),
+            HasMany::make(
+                'Employees',
+                'employees',
+                resource: EmployeeResource::class
+            )->relatedLink(),
         ];
     }
 
