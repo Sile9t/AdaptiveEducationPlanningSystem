@@ -63,4 +63,14 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Branch::class);
     }
+
+    public function full_name():string
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
+
+    public function full_name_with_patronymic():string
+    {
+        return $this->full_name() . ' ' . $this->patronymic;
+    }
 }

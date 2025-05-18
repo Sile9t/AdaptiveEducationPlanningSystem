@@ -21,6 +21,7 @@ use MoonShine\UI\Fields\PasswordRepeat;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
+use MoonShine\Support\Enums\SortDirection;
 use MoonShine\UI\Components\Tabs;
 
 /**
@@ -31,7 +32,13 @@ class UserResource extends ModelResource
     protected string $model = User::class;
 
     protected string $title = 'User';
+
+    protected string $column = 'full_name';
     
+    protected string $sortColumn = 'id';
+
+    protected SortDirection $sortDirection = SortDirection::ASC;
+
     /**
      * @return list<FieldContract>
      */
@@ -104,6 +111,41 @@ class UserResource extends ModelResource
     {
         return [
             ID::make(),
+            Text::make('First name'),
+            Text::make('Last name'),
+            Text::make('Patronymic'),
+            Email::make('Email'),
+            BelongsTo::make(
+                'Branch', 
+                'branch', 
+                static fn(Branch $model) => $model->name, 
+                resource: BranchResource::class
+            ),
+            BelongsTo::make(
+                'Role', 
+                'role', 
+                static fn(Role $model) => $model->name,
+                resource: RoleResource::class
+            ),
+        ];
+    }
+
+    /**
+     * @return list<FieldContract>
+     */
+    protected function search(): array
+    {
+        return [
+            'first_name', 'last_name', 'patronymic', 'email'
+        ];
+    }
+
+    /**
+     * @return list<FieldContract>
+     */
+    protected function filters(): iterable
+    {
+        return [
             Text::make('First name'),
             Text::make('Last name'),
             Text::make('Patronymic'),
