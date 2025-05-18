@@ -33,8 +33,6 @@ class UserResource extends ModelResource
 
     protected string $title = 'User';
 
-    protected string $column = 'full_name';
-    
     protected string $sortColumn = 'id';
 
     protected SortDirection $sortDirection = SortDirection::ASC;

@@ -82,6 +82,38 @@ final class MoonShineLayout extends AppLayout
         parent::colors($colorManager);
 
         // $colorManager->primary('#00000');
+
+        // $colorManager->bulkAssign([
+        //     'primary' => '#1A4FDA',
+        //     'secondary' => '#0D80EC',
+        //     'body' => '#1A4FDA',
+
+        //     'dark' => [
+        //         50 => '#1A5DDA',
+        //         100 => '#FFFFFF',  //dividers
+        //         200 => '#FFFFFF',  //dividers
+        //         300 => '#0D80EC',  //borders
+                
+        //         400 => '#FFFFFF',  //dropdowns, btns, paginations
+                
+        //         500 => '#0D80EC',  //btn bg
+        //         600 => '#1A5DDA',  //table rows
+
+        //         700 => '#0D80EC',  //content bg
+        //         800 => '#0D80EC',  //sidebar bg
+        //         900 => '#0D80EC',  //bg
+        //     ],
+        // ]);
+
+        // $colorManager->primary('#2B61EC');
+        // $colorManager->secondary('#0D80EC');
+        // $colorManager->background('#1A4FDA');
+        // $colorManager->tableRow('#0D80EC');
+        // $colorManager->borders('#006CD8');
+        // $colorManager->dropdowns('#006CD8');
+        // $colorManager->buttons('#2B61EC');
+        // $colorManager->dividers('#2B61EC');
+        // $colorManager->content('#2B61EC');
     }
 
     public function build(): Layout
