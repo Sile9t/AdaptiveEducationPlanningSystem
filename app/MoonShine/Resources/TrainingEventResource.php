@@ -15,6 +15,7 @@ use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Support\Enums\SortDirection;
 use MoonShine\UI\Fields\Date;
+use MoonShine\UI\Fields\DateRange;
 
 /**
  * @extends ModelResource<TrainingEvent>
@@ -73,6 +74,13 @@ class TrainingEventResource extends ModelResource
         return $this->indexFields();
     }
 
+    protected function search(): array
+    {
+        return ['id', 'program.title', 'employee.full_name'];
+    }
+
+    protected bool $saveQueryState = true;
+
     /**
      * @return list<FieldContract>
      */
@@ -83,17 +91,17 @@ class TrainingEventResource extends ModelResource
                 'Program',
                 'program',
                 resource: TrainingProgramResource::class
-            ),
+            )->nullable(),
             BelongsTo::make(
                 'Employee',
                 'employee',
                 resource: EmployeeResource::class
-            ),
-            Date::make(
+            )->nullable(),
+            DateRange::make(
                 'Passed at',
                 'passed_at'
             ),
-            Date::make(
+            DateRange::make(
                 'Expired at',
                 'expired_at'
             ),
