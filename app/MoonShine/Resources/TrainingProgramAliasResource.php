@@ -88,6 +88,18 @@ class TrainingProgramAliasResource extends ModelResource
     }
 
     /**
+     * @param TrainingProgramAlias $item
+     *
+     * @return array<string, string[]|string>
+     */
+    protected function search(): array
+    {
+        return ['id', 'program.title', 'alias'];
+    }
+
+    protected bool $saveQueryState = true;
+
+    /**
      * @return list<FieldContract>
      */
     protected function filters(): iterable
