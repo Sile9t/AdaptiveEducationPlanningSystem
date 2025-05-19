@@ -59,7 +59,7 @@ final class MoonShineLayout extends AppLayout
             MenuGroup::make('Main', [
                 MenuItem::make('Users', UserResource::class)->icon('users'),
                 MenuItem::make('Roles', RoleResource::class)->icon('bookmark'),
-                MenuItem::make('Branch', BranchResource::class)->icon('user-group'),
+                MenuItem::make('Branches', BranchResource::class)->icon('user-group'),
                 MenuGroup::make('Training', [
                     MenuItem::make('Programs', TrainingProgramResource::class),
                     MenuItem::make('Program Aliases', TrainingProgramAliasResource::class),
@@ -105,8 +105,8 @@ final class MoonShineLayout extends AppLayout
         //     ],
         // ]);
 
-        // $colorManager->primary('#2B61EC');
-        // $colorManager->secondary('#0D80EC');
+        $colorManager->primary('#2B61EC');
+        $colorManager->secondary('#0D80EC');
         // $colorManager->background('#1A4FDA');
         // $colorManager->tableRow('#0D80EC');
         // $colorManager->borders('#006CD8');

@@ -21,6 +21,7 @@ class Employee extends Model
         'position',
         'category_id',
         'branch_id'
+        //TODO: add id number field
     ];
 
     /**

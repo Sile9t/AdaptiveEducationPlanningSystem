@@ -80,6 +80,34 @@ class EmployeeResource extends ModelResource
         return $this->formFields();
     }
 
+    protected function search(): array
+    {
+        return ['id', 'full_name', 'position', 'category.title', 'branch.name' ];
+    }
+    
+    protected bool $saveQueryState = true;
+
+    /**
+     * @return list<FieldContract>
+     */
+    protected function filters(): iterable
+    {
+        return [
+            Text::make('Full name'),
+            Text::make('Position'),
+            BelongsTo::make(
+                'Category',
+                'category',
+                resource: EmployeeCategoryResource::class
+            ),
+            BelongsTo::make(
+                'Branch',
+                'branch',
+                resource: BranchResource::class
+            ),
+        ];
+    }
+
     /**
      * @param Employee $item
      *
