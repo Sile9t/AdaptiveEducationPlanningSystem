@@ -14,6 +14,7 @@ use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\UI\Fields\Number;
+use MoonShine\UI\Fields\Range;
 
 /**
  * @extends ModelResource<Permit>
@@ -62,6 +63,36 @@ class PermitResource extends ModelResource
     protected function detailFields(): iterable
     {
         return $this->indexFields();
+    }
+    
+    protected function search(): array
+    {
+        return ['id', 'program.title', 'category.name'];
+    }
+
+    protected bool $saveQueryState = true;
+
+    /**
+     * @return list<FieldContract>
+     */
+    protected function filters(): iterable
+    {
+        return [
+            BelongsTo::make(
+                'Program',
+                'program',
+                resource: TrainingProgramResource::class
+            )->nullable(),
+            BelongsTo::make(
+                'Category',
+                'category',
+                resource: EmployeeCategoryResource::class
+            )->nullable(),
+            Range::make(
+                'Periodicity (years)',
+                'periodicity_years'
+            ),
+        ];
     }
 
     /**
