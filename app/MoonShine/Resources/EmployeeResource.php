@@ -99,12 +99,12 @@ class EmployeeResource extends ModelResource
                 'Category',
                 'category',
                 resource: EmployeeCategoryResource::class
-            ),
+            )->nullable(),
             BelongsTo::make(
                 'Branch',
                 'branch',
                 resource: BranchResource::class
-            ),
+            )->nullable(),
         ];
     }
 
