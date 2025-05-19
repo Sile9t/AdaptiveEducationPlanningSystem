@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66bbe1cb535251985c632761499cca81",
+    "content-hash": "78ba37cd1a7d3b26addde73711330ce0",
     "packages": [
         {
             "name": "brick/math",
@@ -2434,16 +2434,16 @@
         },
         {
             "name": "moonshine/moonshine",
-            "version": "3.12.5",
+            "version": "3.12.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moonshine-software/moonshine.git",
-                "reference": "7102fb113627870fb1cb7176e1d0d95bb47a7fd4"
+                "reference": "64dbe91dcf36b9daf967bb6902405551cdab000f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moonshine-software/moonshine/zipball/7102fb113627870fb1cb7176e1d0d95bb47a7fd4",
-                "reference": "7102fb113627870fb1cb7176e1d0d95bb47a7fd4",
+                "url": "https://api.github.com/repos/moonshine-software/moonshine/zipball/64dbe91dcf36b9daf967bb6902405551cdab000f",
+                "reference": "64dbe91dcf36b9daf967bb6902405551cdab000f",
                 "shasum": ""
             },
             "require": {
@@ -2539,7 +2539,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2025-05-05T09:18:53+00:00"
+            "time": "2025-05-16T13:41:55+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -6672,7 +6672,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2025-04-29T14:26:46+00:00"
+            "time": "2025-05-13T13:34:34+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -8438,7 +8438,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2025-04-28T14:55:53+00:00"
+            "time": "2025-05-08T15:41:09+00:00"
         },
         {
             "name": "spatie/error-solutions",
