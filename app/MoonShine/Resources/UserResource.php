@@ -138,6 +138,7 @@ class UserResource extends ModelResource
         ];
     }
 
+    protected bool $saveQueryState = true;
     /**
      * @return list<FieldContract>
      */
