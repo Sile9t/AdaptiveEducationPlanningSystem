@@ -13,6 +13,7 @@ use MoonShine\UI\Fields\ID;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
+use MoonShine\Support\Enums\SortDirection;
 use MoonShine\UI\Fields\Text;
 
 /**
@@ -26,6 +27,10 @@ class EmployeeResource extends ModelResource
     
     protected string $column = 'full_name';
 
+    protected string $sortColumn = 'id';
+
+    protected SortDirection $sortDirection = SortDirection::ASC;
+
     /**
      * @return list<FieldContract>
      */
@@ -33,6 +38,7 @@ class EmployeeResource extends ModelResource
     {
         return [
             ID::make()->sortable(),
+            Text::make('Personnel number'),
             Text::make('Full name')->sortable(),
             Text::make('Position')->sortable(),
             BelongsTo::make(
@@ -56,6 +62,7 @@ class EmployeeResource extends ModelResource
         return [
             Box::make([
                 ID::make(),
+                Text::make('Personnel number'),
                 Text::make('Full name'),
                 Text::make('Position')->sortable(),
                 BelongsTo::make(
@@ -82,7 +89,7 @@ class EmployeeResource extends ModelResource
 
     protected function search(): array
     {
-        return ['id', 'full_name', 'position', 'category.title', 'branch.name' ];
+        return ['id', 'personnel_number', 'full_name', 'position', 'category.title', 'branch.name' ];
     }
     
     protected bool $saveQueryState = true;
@@ -93,6 +100,7 @@ class EmployeeResource extends ModelResource
     protected function filters(): iterable
     {
         return [
+            Text::make('Personnel number'),
             Text::make('Full name'),
             Text::make('Position'),
             BelongsTo::make(

@@ -21,8 +21,10 @@ use MoonShine\UI\Fields\PasswordRepeat;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
+use MoonShine\Support\Enums\Color;
 use MoonShine\Support\Enums\SortDirection;
 use MoonShine\UI\Components\Tabs;
+use MoonShine\UI\Fields\Switcher;
 
 /**
  * @extends ModelResource<User>
@@ -36,6 +38,8 @@ class UserResource extends ModelResource
     protected string $sortColumn = 'id';
 
     protected SortDirection $sortDirection = SortDirection::ASC;
+    
+    protected bool $columnSelection = true;
 
     /**
      * @return list<FieldContract>
@@ -44,22 +48,24 @@ class UserResource extends ModelResource
     {
         return [
             ID::make()->sortable(),
-            Text::make('First name')->sortable(),
-            Text::make('Last name')->sortable(),
-            Text::make('Patronymic')->sortable(),
-            Email::make('Email')->sortable(),
+            Text::make('Personnel number'),
+            BelongsTo::make(
+                'Role', 
+                'role', 
+                static fn(Role $model) => $model->name,
+                resource: RoleResource::class
+            )->sortable()->badge(Color::BLUE),
             BelongsTo::make(
                 'Branch', 
                 'branch', 
                 static fn(Branch $model) => $model->name, 
                 resource: BranchResource::class
             )->sortable(),
-            BelongsTo::make(
-                'Role', 
-                'role', 
-                static fn(Role $model) => $model->name,
-                resource: RoleResource::class
-            )->sortable(),
+            Text::make('First name')->sortable(),
+            Text::make('Last name')->sortable(),
+            Text::make('Patronymic')->sortable(),
+            Email::make('Email')->sortable(),
+            Switcher::make('Must change password'),
         ];
     }
 
@@ -72,6 +78,7 @@ class UserResource extends ModelResource
             Tabs::make([
                 Tab::make(__('moonshine::ui.resource.main_information'), [
                     ID::make(),
+                    Text::make('Personnel number'),
                     Text::make('First name'),
                     Text::make('Last name'),
                     Text::make('Patronymic'),
@@ -88,6 +95,7 @@ class UserResource extends ModelResource
                         static fn(Role $model) => $model->name,
                         resource: RoleResource::class
                     ),
+                    Switcher::make('Must change password'),
                 ]),
     
                 Tab::make(__('moonshine::ui.resource.password'), [
@@ -134,7 +142,8 @@ class UserResource extends ModelResource
     protected function search(): array
     {
         return [
-            'first_name', 'last_name', 'patronymic', 'email'
+            'personnel_number', 'first_name', 'last_name', 'patronymic', 'email',
+            'branch.name', 'role.name'
         ];
     }
 
@@ -145,6 +154,7 @@ class UserResource extends ModelResource
     protected function filters(): iterable
     {
         return [
+            Text::make('Personnel number'),
             Text::make('First name'),
             Text::make('Last name'),
             Text::make('Patronymic'),
@@ -154,13 +164,14 @@ class UserResource extends ModelResource
                 'branch', 
                 static fn(Branch $model) => $model->name, 
                 resource: BranchResource::class
-            ),
+            )->nullable(),
             BelongsTo::make(
                 'Role', 
                 'role', 
                 static fn(Role $model) => $model->name,
                 resource: RoleResource::class
-            ),
+            )->nullable(),
+            Switcher::make('Must change password'),
         ];
     }
 

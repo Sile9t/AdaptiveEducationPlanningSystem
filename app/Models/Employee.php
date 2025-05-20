@@ -20,8 +20,8 @@ class Employee extends Model
         'full_name',
         'position',
         'category_id',
-        'branch_id'
-        //TODO: add id number field
+        'branch_id',
+        'personnel_number'
     ];
 
     /**
