@@ -115,25 +115,7 @@ class UserResource extends ModelResource
      */
     protected function detailFields(): iterable
     {
-        return [
-            ID::make(),
-            Text::make('First name'),
-            Text::make('Last name'),
-            Text::make('Patronymic'),
-            Email::make('Email'),
-            BelongsTo::make(
-                'Branch', 
-                'branch', 
-                static fn(Branch $model) => $model->name, 
-                resource: BranchResource::class
-            ),
-            BelongsTo::make(
-                'Role', 
-                'role', 
-                static fn(Role $model) => $model->name,
-                resource: RoleResource::class
-            ),
-        ];
+        return $this->indexFields();
     }
 
     /**
@@ -142,8 +124,7 @@ class UserResource extends ModelResource
     protected function search(): array
     {
         return [
-            'personnel_number', 'first_name', 'last_name', 'patronymic', 'email',
-            'branch.name', 'role.name'
+            'personnel_number', 'first_name', 'last_name', 'patronymic', 'email'
         ];
     }
 
