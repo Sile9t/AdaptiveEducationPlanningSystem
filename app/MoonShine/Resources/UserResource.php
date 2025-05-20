@@ -115,27 +115,7 @@ class UserResource extends ModelResource
      */
     protected function detailFields(): iterable
     {
-        return [
-            ID::make(),
-            Text::make('Personnel number'),
-            Text::make('First name'),
-            Text::make('Last name'),
-            Text::make('Patronymic'),
-            Email::make('Email'),
-            BelongsTo::make(
-                'Branch', 
-                'branch', 
-                static fn(Branch $model) => $model->name, 
-                resource: BranchResource::class
-            ),
-            BelongsTo::make(
-                'Role', 
-                'role', 
-                static fn(Role $model) => $model->name,
-                resource: RoleResource::class
-            ),
-            Switcher::make('Must change password'),
-        ];
+        return $this->indexFields();
     }
 
     /**
