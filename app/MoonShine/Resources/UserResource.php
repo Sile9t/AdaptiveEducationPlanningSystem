@@ -117,6 +117,7 @@ class UserResource extends ModelResource
     {
         return [
             ID::make(),
+            Text::make('Personnel number'),
             Text::make('First name'),
             Text::make('Last name'),
             Text::make('Patronymic'),
@@ -133,6 +134,7 @@ class UserResource extends ModelResource
                 static fn(Role $model) => $model->name,
                 resource: RoleResource::class
             ),
+            Switcher::make('Must change password'),
         ];
     }
 
@@ -142,8 +144,7 @@ class UserResource extends ModelResource
     protected function search(): array
     {
         return [
-            'personnel_number', 'first_name', 'last_name', 'patronymic', 'email',
-            'branch.name', 'role.name'
+            'personnel_number', 'first_name', 'last_name', 'patronymic', 'email'
         ];
     }
 
