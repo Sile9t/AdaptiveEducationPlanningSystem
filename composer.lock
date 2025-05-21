@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bfabd5c6def14f4ce5347e06a29f4048",
+    "content-hash": "44d826beb6cd3081b90f264db828dffe",
     "packages": [
         {
             "name": "brick/math",
@@ -2600,6 +2600,67 @@
                 }
             ],
             "time": "2025-05-16T13:41:55+00:00"
+        },
+        {
+            "name": "moonshine/ru",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/moonshine-software/ru.git",
+                "reference": "3f77be40b34ad779ff27159a4a0c92280bdeeabc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/moonshine-software/ru/zipball/3f77be40b34ad779ff27159a4a0c92280bdeeabc",
+                "reference": "3f77be40b34ad779ff27159a4a0c92280bdeeabc",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2|^8.3"
+            },
+            "conflict": {
+                "laravel/framework": "<10.48.0",
+                "moonshine/moonshine": "<3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "MoonShine\\Ru\\Providers\\RuServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MoonShine\\Ru\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Danil Shutsky",
+                    "email": "info@cutcode.ru",
+                    "homepage": "https://cutcode.dev"
+                }
+            ],
+            "description": "Russian localization for MoonShine",
+            "homepage": "https://moonshine-laravel.com",
+            "keywords": [
+                "admin",
+                "dashboard",
+                "laravel",
+                "localization",
+                "moonshine",
+                "ru"
+            ],
+            "support": {
+                "issues": "https://github.com/moonshine-software/ru/issues",
+                "source": "https://github.com/moonshine-software/ru"
+            },
+            "time": "2024-07-27T15:57:26+00:00"
         },
         {
             "name": "nesbot/carbon",
