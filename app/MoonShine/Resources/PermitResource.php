@@ -12,19 +12,26 @@ use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\ID;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\ImportExport\Contracts\HasImportExportContract;
+use MoonShine\ImportExport\Traits\ImportExportConcern;
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
+use MoonShine\Support\Enums\SortDirection;
 use MoonShine\UI\Fields\Number;
 use MoonShine\UI\Fields\Range;
 
 /**
  * @extends ModelResource<Permit>
  */
-class PermitResource extends ModelResource
+class PermitResource extends ModelResource implements HasImportExportContract
 {
     protected string $model = Permit::class;
 
     protected string $title = 'Permits';
     
+    protected string $sortColumn = 'id';
+
+    protected SortDirection $sortDirection = SortDirection::ASC;
+
     /**
      * @return list<FieldContract>
      */
@@ -36,12 +43,12 @@ class PermitResource extends ModelResource
                 'Program',
                 'program',
                 resource: TrainingProgramResource::class
-            )->sortable(),
+            )->sortable()->creatable(),
             BelongsTo::make(
                 'Category',
                 'category',
                 resource: EmployeeCategoryResource::class
-            )->sortable(),
+            )->sortable()->creatable(),
             Number::make(
                 'Periodicity (years)',
                 'periodicity_years'
@@ -82,12 +89,12 @@ class PermitResource extends ModelResource
                 'Program',
                 'program',
                 resource: TrainingProgramResource::class
-            )->nullable(),
+            )->nullable()->searchable(),
             BelongsTo::make(
                 'Category',
                 'category',
                 resource: EmployeeCategoryResource::class
-            )->nullable(),
+            )->nullable()->searchable(),
             Range::make(
                 'Periodicity (years)',
                 'periodicity_years'
@@ -105,6 +112,54 @@ class PermitResource extends ModelResource
     {
         return [
             'periodicity_years' => ['required', 'Integer']
+        ];
+    }
+
+    use ImportExportConcern;
+
+    protected function importFields(): iterable
+    {
+        return [
+            ID::make(),
+            BelongsTo::make(
+                'Program',
+                'program',
+                formatted: 'title',
+                resource: TrainingProgramResource::class,
+            ),
+            BelongsTo::make(
+                'Category',
+                'category',
+                formatted: 'name',
+                resource: EmployeeResource::class,
+            ),
+            Number::make(
+                'Periodicity (years)',
+                'periodicity_years'
+            ),
+        ];
+    }
+
+    protected function exportFields(): iterable
+    {
+        return [
+            ID::make(),
+            BelongsTo::make(
+                'Program',
+                'program',
+                formatted: 'title',
+                resource: TrainingProgramResource::class,
+            )->creatable(),
+            BelongsTo::make(
+                'Category',
+                'category',
+                formatted: 'name',
+                resource: EmployeeResource::class,
+            )->creatable(),
+            Number::make(
+                'Periodicity (years)',
+                'periodicity_years'
+            ),
         ];
     }
 }
