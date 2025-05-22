@@ -57,20 +57,20 @@ final class MoonShineLayout extends AppLayout
             ...parent::menu(),
             
             MenuGroup::make('Main', [
-                MenuItem::make('Users', UserResource::class)->icon('users'),
-                MenuItem::make('Roles', RoleResource::class)->icon('bookmark'),
-                MenuItem::make('Branches', BranchResource::class)->icon('user-group'),
+                MenuItem::make('Users', UserResource::class)->icon('users')->translatable('menu'),
+                MenuItem::make('Roles', RoleResource::class)->icon('bookmark')->translatable('menu'),
+                MenuItem::make('Branches', BranchResource::class)->icon('user-group')->translatable('menu'),
                 MenuGroup::make('Training', [
-                    MenuItem::make('Programs', TrainingProgramResource::class),
-                    MenuItem::make('Program Aliases', TrainingProgramAliasResource::class),
-                    MenuItem::make('Events', TrainingEventResource::class),
-                ]),
+                    MenuItem::make('Programs', TrainingProgramResource::class)->translatable('menu'),
+                    MenuItem::make('Program Aliases', TrainingProgramAliasResource::class)->translatable('menu'),
+                    MenuItem::make('Events', TrainingEventResource::class)->translatable('menu'),
+                ])->translatable('menu'),
                 MenuGroup::make('Staff', [
-                    MenuItem::make('Employees', EmployeeResource::class),
-                    MenuItem::make('Employee Categories', EmployeeCategoryResource::class),
-                ]),
-                MenuItem::make('Permits', PermitResource::class),
-            ]),
+                    MenuItem::make('Employees', EmployeeResource::class)->translatable('menu'),
+                    MenuItem::make('Employee Categories', EmployeeCategoryResource::class)->translatable('menu'),
+                ])->translatable('menu'),
+                MenuItem::make('Permits', PermitResource::class)->translatable('menu'),
+            ])->translatable('menu'),
         ];
     }
 

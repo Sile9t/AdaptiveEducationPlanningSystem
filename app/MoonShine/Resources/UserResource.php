@@ -48,24 +48,24 @@ class UserResource extends ModelResource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Personnel number'),
+            Text::make('Personnel number')->translatable('user'),
             BelongsTo::make(
                 'Role', 
                 'role', 
                 static fn(Role $model) => $model->name,
                 resource: RoleResource::class
-            )->sortable()->badge(Color::BLUE),
+            )->sortable()->badge(Color::BLUE)->translatable('user'),
             BelongsTo::make(
                 'Branch', 
                 'branch', 
                 static fn(Branch $model) => $model->name, 
                 resource: BranchResource::class
-            )->sortable(),
-            Text::make('First name')->sortable(),
-            Text::make('Last name')->sortable(),
-            Text::make('Patronymic')->sortable(),
-            Email::make('Email')->sortable(),
-            Switcher::make('Must change password'),
+            )->sortable()->translatable('user'),
+            Text::make('First name')->sortable()->translatable('user'),
+            Text::make('Last name')->sortable()->translatable('user'),
+            Text::make('Patronymic')->sortable()->translatable('user'),
+            Email::make('Email')->sortable()->translatable('user'),
+            Switcher::make('Must change password')->translatable('user'),
         ];
     }
 

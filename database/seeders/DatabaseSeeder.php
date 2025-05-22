@@ -1,4 +1,4 @@
-<?php
+composer<?php
 
 namespace Database\Seeders;
 
@@ -12,7 +12,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-<<<<<<< HEAD
         $this->call([
             RoleSeeder::class,
             BranchSeeder::class,
@@ -21,8 +20,6 @@ class DatabaseSeeder extends Seeder
             PermitSeeder::class,
         ]);
 
-=======
->>>>>>> 15bfcefd7c654678f6c234e51a8eb84189995c34
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
