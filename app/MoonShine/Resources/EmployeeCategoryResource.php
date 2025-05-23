@@ -86,8 +86,8 @@ class EmployeeCategoryResource extends ModelResource implements HasImportExportC
     {
         return [
             ID::make(),
-            Text::make('Name'),
-            Text::make('Description'),
+            Text::make('Name')->translatable('resource'),
+            Text::make('Description')->translatable('resource'),
         ];
     }
 
@@ -95,8 +95,8 @@ class EmployeeCategoryResource extends ModelResource implements HasImportExportC
     {
         return [
             ID::make(),
-            Text::make('Name'),
-            Text::make('Description'),
+            Text::make('Name')->translatable('resource'),
+            Text::make('Description')->translatable('resource'),
         ];
     }
 }

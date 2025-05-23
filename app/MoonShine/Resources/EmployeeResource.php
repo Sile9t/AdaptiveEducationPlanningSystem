@@ -181,20 +181,20 @@ class EmployeeResource extends ModelResource implements HasImportExportContract
     {
         return [
             ID::make(),
-            Text::make('Personnel number'),
-            Text::make('Full name'),
-            Text::make('Position'),
+            Text::make('Personnel number')->translatable('resource.user'),
+            Text::make('Full name')->translatable('resource.employee'),
+            Text::make('Position')->translatable('resource.employee'),
             BelongsTo::make(
                 'Category',
                 'category',
                 resource: EmployeeCategoryResource::class
-            )->creatable()
+            )->creatable()->translatable('resource.employee_category')
             ->modifyRawValue(fn($value, $model) => $model->category->name),
             BelongsTo::make(
                 'Branch',
                 'branch',
                 resource: BranchResource::class
-            )->creatable()
+            )->creatable()->translatable('resource.branch')
             ->modifyRawValue(fn($value, $model) => $model->branch->name),
         ];
     }
