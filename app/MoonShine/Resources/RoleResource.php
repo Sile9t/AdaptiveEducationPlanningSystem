@@ -13,12 +13,14 @@ use MoonShine\UI\Fields\ID;
 use MoonShine\UI\Fields\Text;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\ImportExport\Contracts\HasImportExportContract;
+use MoonShine\ImportExport\Traits\ImportExportConcern;
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 
 /**
  * @extends ModelResource<Role>
  */
-class RoleResource extends ModelResource
+class RoleResource extends ModelResource implements HasImportExportContract
 {
     protected string $model = Role::class;
 
@@ -67,6 +69,26 @@ class RoleResource extends ModelResource
     {
         return [
             'name' => ['required', 'string', 'min:3'],
+        ];
+    }
+
+    use ImportExportConcern;
+
+    protected function importFields(): iterable
+    {
+        return [
+            ID::make(),
+            Text::make('Name')->translatable('resource'),
+            Text::make('Description')->translatable('resource'),
+        ];
+    }
+
+    protected function exportFields(): iterable
+    {
+        return [
+            ID::make(),
+            Text::make('Name')->translatable('resource'),
+            Text::make('Description')->translatable('resource'),
         ];
     }
 }
