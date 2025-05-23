@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Resources;
 
+use App\Models\EmployeeCategory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Permit;
-
+use App\Models\TrainingProgram;
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\ID;
@@ -126,13 +127,35 @@ class PermitResource extends ModelResource implements HasImportExportContract
                 'program',
                 formatted: 'title',
                 resource: TrainingProgramResource::class,
-            ),
+            )
+            ->fromRaw(function($raw, $ctx) {
+                $program = TrainingProgram::where('title', $raw)->first();
+                
+                if (!isset($program)) {
+                    $program = new TrainingProgram();
+                    $program->title = $raw;
+                    $program->save();
+                }
+                
+                return $program->id;
+            }),
             BelongsTo::make(
                 'Category',
                 'category',
                 formatted: 'name',
                 resource: EmployeeResource::class,
-            ),
+            )
+            ->fromRaw(function($raw, $ctx) {
+                $category = EmployeeCategory::where('name', $raw)->first();
+
+                if (!isset($category)) {
+                    $category = new EmployeeCategory();
+                    $category->name = $raw;
+                    $category->save();
+                }
+
+                return $category->id;
+            }),
             Number::make(
                 'Periodicity (years)',
                 'periodicity_years'
@@ -149,13 +172,15 @@ class PermitResource extends ModelResource implements HasImportExportContract
                 'program',
                 formatted: 'title',
                 resource: TrainingProgramResource::class,
-            )->creatable(),
+            )->creatable()
+            ->modifyRawValue(fn ($value, $model) => $model->program->title),
             BelongsTo::make(
                 'Category',
                 'category',
                 formatted: 'name',
                 resource: EmployeeResource::class,
-            )->creatable(),
+            )->creatable()
+            ->modifyRawValue(fn ($value, $model) => $model->category->name),
             Number::make(
                 'Periodicity (years)',
                 'periodicity_years'
