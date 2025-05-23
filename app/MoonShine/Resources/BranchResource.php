@@ -13,13 +13,15 @@ use MoonShine\UI\Fields\ID;
 use MoonShine\UI\Fields\Text;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\ImportExport\Contracts\HasImportExportContract;
+use MoonShine\ImportExport\Traits\ImportExportConcern;
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 use MoonShine\Support\Enums\SortDirection;
 
 /**
  * @extends ModelResource<Branch>
  */
-class BranchResource extends ModelResource
+class BranchResource extends ModelResource implements HasImportExportContract
 {
     protected string $model = Branch::class;
 
@@ -74,6 +76,26 @@ class BranchResource extends ModelResource
     {
         return [
             'name' => ['required', 'string', 'min:3'],
+        ];
+    }
+
+    use ImportExportConcern;
+
+    protected function importFields(): iterable
+    {
+        return [
+            ID::make()->sortable(),
+            Text::make('Name')->sortable()->translatable('resource'),
+            Text::make('Description')->translatable('resource'),
+        ];
+    }
+
+    protected function exportFields(): iterable
+    {
+        return [
+            ID::make()->sortable(),
+            Text::make('Name')->sortable()->translatable('resource'),
+            Text::make('Description')->translatable('resource'),
         ];
     }
 }
