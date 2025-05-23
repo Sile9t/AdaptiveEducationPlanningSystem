@@ -8,7 +8,7 @@ return [
     'Training' => 'Обучение',
     'Programs' => 'Программы',
     'Program Aliases' => 'Псевдонимы программ',
-    'Events' => 'События',
+    'Events' => 'Мероприятия',
     'Staff' => 'Персонал',
     'Employees' => 'Сотрудники',
     'Employee Categories' => 'Категории сотрудников',
