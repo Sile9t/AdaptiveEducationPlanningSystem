@@ -4,6 +4,8 @@ return [
     'Name' => 'Название',
     'Description' => 'Описание',
     'user' => [
+        'User' => 'Пользователь',
+        'Users' => 'Пользователи',
         'Personnel number' => 'Табельный номер',
         'First name' => 'Имя',
         'Last name' => 'Фамилия',
@@ -13,9 +15,11 @@ return [
     ],
     'role' => [
         'Role' => 'Роль',
+        'Roles' => 'Роли',
     ],
     'branch' => [
         'Branch' => 'Филиал',
+        'Branches' => 'Филиалы',
     ],
     'employee' => [
         'Employees' => 'Сотрудники',

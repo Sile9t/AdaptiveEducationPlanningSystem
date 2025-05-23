@@ -31,13 +31,13 @@ class RoleResource extends ModelResource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Name')->sortable(),
-            Text::make('Description')->sortable(),
+            Text::make('Name')->sortable()->translatable('resource'),
+            Text::make('Description')->sortable()->translatable('resource'),
             HasMany::make(
                 'Users',
                 'users',
                 resource: UserResource::class
-            )->relatedLink(),
+            )->relatedLink()->translatable('resource.user'),
         ];
     }
 
