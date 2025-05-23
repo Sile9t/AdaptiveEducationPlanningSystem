@@ -13,13 +13,15 @@ use MoonShine\UI\Fields\ID;
 use MoonShine\UI\Fields\Text;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\ImportExport\Contracts\HasImportExportContract;
+use MoonShine\ImportExport\Traits\ImportExportConcern;
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 use MoonShine\Support\Enums\SortDirection;
 
 /**
  * @extends ModelResource<TrainingProgram>
  */
-class TrainingProgramResource extends ModelResource
+class TrainingProgramResource extends ModelResource implements HasImportExportContract
 {
     protected string $model = TrainingProgram::class;
 
@@ -79,6 +81,24 @@ class TrainingProgramResource extends ModelResource
     {
         return [
             'title' => ['required', 'string', 'min:3']
+        ];
+    }
+    
+    use ImportExportConcern;
+
+    protected function importFields(): iterable
+    {
+        return [
+            ID::make(),
+            Text::make('Title')->translatable('resource.training_program'),
+        ];
+    }
+
+    protected function exportFields(): iterable
+    {
+        return [
+            ID::make(),
+            Text::make('Title')->translatable('resource.training_program'),
         ];
     }
 }
