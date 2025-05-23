@@ -78,32 +78,32 @@ class UserResource extends ModelResource
             Tabs::make([
                 Tab::make(__('moonshine::ui.resource.main_information'), [
                     ID::make(),
-                    Text::make('Personnel number'),
-                    Text::make('First name'),
-                    Text::make('Last name'),
-                    Text::make('Patronymic'),
-                    Email::make('Email'),
+                    Text::make('Personnel number')->translatable('resource.user'),
+                    Text::make('First name')->translatable('resource.user'),
+                    Text::make('Last name')->translatable('resource.user'),
+                    Text::make('Patronymic')->translatable('resource.user'),
+                    Email::make('Email')->translatable('resource.user'),
                     BelongsTo::make(
                         'Branch', 
                         'branch', 
                         static fn(Branch $model) => $model->name, 
                         resource: BranchResource::class
-                    ),
+                    )->translatable('resource.branch'),
                     BelongsTo::make(
                         'Role', 
                         'role', 
                         static fn(Role $model) => $model->name,
                         resource: RoleResource::class
-                    ),
-                    Switcher::make('Must change password'),
+                    )->translatable('resource.role'),
+                    Switcher::make('Must change password')->translatable('resource.user'),
                 ]),
     
                 Tab::make(__('moonshine::ui.resource.password'), [
                     Heading::make(__('moonshine::ui.resource.change_password')),
     
-                    Password::make('Password')
+                    Password::make('Password')->translatable('resource.user')
                         ->eye(),
-                    PasswordRepeat::make('Password repeat')
+                    PasswordRepeat::make('Password repeat')->translatable('resource.user')
                         ->eye(),
                 ]),
             ]),
@@ -135,24 +135,24 @@ class UserResource extends ModelResource
     protected function filters(): iterable
     {
         return [
-            Text::make('Personnel number'),
-            Text::make('First name'),
-            Text::make('Last name'),
-            Text::make('Patronymic'),
+            Text::make('Personnel number')->translatable('resource.user'),
+            Text::make('First name')->translatable('resource.user'),
+            Text::make('Last name')->translatable('resource.user'),
+            Text::make('Patronymic')->translatable('resource.user'),
             Email::make('Email'),
             BelongsTo::make(
                 'Branch', 
                 'branch', 
                 static fn(Branch $model) => $model->name, 
                 resource: BranchResource::class
-            )->nullable(),
+            )->nullable()->searchable()->translatable('resource.branch'),
             BelongsTo::make(
                 'Role', 
                 'role', 
                 static fn(Role $model) => $model->name,
                 resource: RoleResource::class
-            )->nullable(),
-            Switcher::make('Must change password'),
+            )->nullable()->searchable()->translatable('resource.role'),
+            Switcher::make('Must change password')->translatable('resource.user'),
         ];
     }
 

@@ -100,19 +100,19 @@ class EmployeeResource extends ModelResource
     protected function filters(): iterable
     {
         return [
-            Text::make('Personnel number'),
-            Text::make('Full name'),
-            Text::make('Position'),
+            Text::make('Personnel number')->translatable('resource.user'),
+            Text::make('Full name')->translatable('resource.employee'),
+            Text::make('Position')->translatable('resource.employee'),
             BelongsTo::make(
                 'Category',
                 'category',
                 resource: EmployeeCategoryResource::class
-            )->nullable(),
+            )->nullable()->searchable()->translatable('resource.employee_category'),
             BelongsTo::make(
                 'Branch',
                 'branch',
                 resource: BranchResource::class
-            )->nullable(),
+            )->nullable()->searchable()->translatable('resource.branch'),
         ];
     }
 

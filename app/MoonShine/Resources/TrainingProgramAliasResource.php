@@ -110,8 +110,8 @@ class TrainingProgramAliasResource extends ModelResource
                 'program',
                 formatted: 'title',
                 resource: TrainingProgramResource::class
-            ),
-            Text::make('Alias'),
+            )->searchable()->translatable('resource.training_program'),
+            Text::make('Alias')->translatable('resource.training_program.alias'),
         ];
     }
     

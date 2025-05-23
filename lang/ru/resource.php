@@ -12,6 +12,8 @@ return [
         'Patronymic' => 'Отчество',
         'Email' => 'Адрес электронной почты',
         'Must change password' => 'Необходима смена пароля',
+        'Password' => 'Пароль',
+        'Password repeat' => 'Повторите пароль',
     ],
     'role' => [
         'Role' => 'Роль',
