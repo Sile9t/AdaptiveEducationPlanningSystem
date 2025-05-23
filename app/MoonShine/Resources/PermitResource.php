@@ -43,16 +43,16 @@ class PermitResource extends ModelResource implements HasImportExportContract
                 'Program',
                 'program',
                 resource: TrainingProgramResource::class
-            )->sortable()->creatable(),
+            )->sortable()->creatable()->translatable('resource.training_program'),
             BelongsTo::make(
                 'Category',
                 'category',
                 resource: EmployeeCategoryResource::class
-            )->sortable()->creatable(),
+            )->sortable()->creatable()->translatable('resource.employee_category'),
             Number::make(
                 'Periodicity (years)',
                 'periodicity_years'
-            )->sortable(),
+            )->sortable()->translatable('resource.permit'),
         ];
     }
 

@@ -30,8 +30,13 @@ return [
         'Full name' => 'ФИО',
         'Position' => 'Должность',
     ],
+    'training_program' => [
+        'Program' => 'Программа обучения',
+        'Programs' => 'Программы обучения',
+    ],
     'permit' => [
         'Permit' => 'Доступ',
         'Permits' => 'Доступы',
+        'Periodicity (years)' => 'Периодичность (в годах)',
     ],
 ];
