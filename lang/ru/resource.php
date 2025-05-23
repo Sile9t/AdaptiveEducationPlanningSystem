@@ -21,7 +21,14 @@ return [
         'Branch' => 'Филиал',
         'Branches' => 'Филиалы',
     ],
+    'employee_category' => [
+
+    ],
     'employee' => [
         'Employees' => 'Сотрудники',
+    ],
+    'permit' => [
+        'Permit' => 'Доступ',
+        'Permits' => 'Доступы',
     ],
 ];

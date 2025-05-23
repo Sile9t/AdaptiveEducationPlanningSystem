@@ -33,18 +33,18 @@ class EmployeeCategoryResource extends ModelResource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Name')->sortable(),
-            Text::make('Description'),
+            Text::make('Name')->sortable()->translatable('resource'),
+            Text::make('Description')->translatable('resource'),
             HasMany::make(
                 'Employees',
                 'employees',
                 resource: EmployeeResource::class
-            )->relatedLink(),
+            )->relatedLink()->translatable('resource.employee'),
             HasMany::make(
                 'Permits',
                 'permits',
                 resource: PermitResource::class
-            )->relatedLink(),
+            )->relatedLink()->translatable('resource.permit'),
         ];
     }
 
