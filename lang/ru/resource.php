@@ -26,6 +26,7 @@ return [
         'Categories' => 'Категория сотрудников',
     ],
     'employee' => [
+        'Employee' => 'Сотрудник',
         'Employees' => 'Сотрудники',
         'Full name' => 'ФИО',
         'Position' => 'Должность',
@@ -34,12 +35,18 @@ return [
         'Program' => 'Программа обучения',
         'Programs' => 'Программы обучения',
         'Title' => 'Название',
-    ],
-    'training_program_alias' => [
-        'Alias' => 'Псевдоним',
-        'Aliases' => 'Псевдонимы',
-        'Comment' => 'Комментарий',
-        'Comments' => 'Комментарии',
+        'alias' => [
+            'Alias' => 'Псевдоним',
+            'Aliases' => 'Псевдонимы',
+            'Comment' => 'Комментарий',
+            'Comments' => 'Комментарии',
+        ],
+        'event' => [
+            'Event' => 'Мероприятие обучения',
+            'Events' => 'Мероприятия обучения',
+            'Passed at' => 'Дата получения',
+            'Expired at' => 'Дата окончания',
+        ],
     ],
     'permit' => [
         'Permit' => 'Доступ',

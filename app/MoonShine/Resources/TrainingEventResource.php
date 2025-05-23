@@ -41,20 +41,20 @@ class TrainingEventResource extends ModelResource
                 'Program',
                 'program',
                 resource: TrainingProgramResource::class
-            )->sortable(),
+            )->sortable()->translatable('resource.training_program'),
             BelongsTo::make(
                 'Employee',
                 'employee',
                 resource: EmployeeResource::class
-            )->sortable(),
+            )->sortable()->translatable('resource.employee'),
             Date::make(
                 'Passed at',
                 'passed_at'
-            )->sortable(),
+            )->sortable()->translatable('resource.training_program.event'),
             Date::make(
                 'Expired at',
                 'expired_at'
-            )->sortable(),
+            )->sortable()->translatable('resource.training_program.event'),
         ];
     }
 
@@ -91,20 +91,20 @@ class TrainingEventResource extends ModelResource
                 'Program',
                 'program',
                 resource: TrainingProgramResource::class
-            )->nullable(),
+            )->nullable()->searchable()->translatable('resource.training_program'),
             BelongsTo::make(
                 'Employee',
                 'employee',
                 resource: EmployeeResource::class
-            )->nullable(),
+            )->nullable()->searchable()->translatable('resource.employee'),
             DateRange::make(
                 'Passed at',
                 'passed_at'
-            ),
+            )->translatable('resource.training_program.event'),
             DateRange::make(
                 'Expired at',
                 'expired_at'
-            ),
+            )->translatable('resource.training_program.event'),
         ];
     }
 
