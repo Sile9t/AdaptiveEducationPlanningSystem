@@ -38,19 +38,19 @@ class EmployeeResource extends ModelResource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Personnel number'),
-            Text::make('Full name')->sortable(),
-            Text::make('Position')->sortable(),
+            Text::make('Personnel number')->translatable('resource.user'),
+            Text::make('Full name')->sortable()->translatable('resource.employee'),
+            Text::make('Position')->sortable()->translatable('resource.employee'),
             BelongsTo::make(
                 'Category',
                 'category',
                 resource: EmployeeCategoryResource::class
-            )->sortable(),
+            )->sortable()->translatable('resource.employee_category'),
             BelongsTo::make(
                 'Branch',
                 'branch',
                 resource: BranchResource::class
-            )->sortable(),
+            )->sortable()->translatable('resource.branch'),
         ];
     }
 

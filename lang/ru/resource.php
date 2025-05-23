@@ -22,10 +22,13 @@ return [
         'Branches' => 'Филиалы',
     ],
     'employee_category' => [
-
+        'Category' => 'Категория сотрудника',
+        'Categories' => 'Категория сотрудников',
     ],
     'employee' => [
         'Employees' => 'Сотрудники',
+        'Full name' => 'ФИО',
+        'Position' => 'Должность',
     ],
     'permit' => [
         'Permit' => 'Доступ',
