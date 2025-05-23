@@ -4,14 +4,17 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Resources;
 
+use App\Models\Branch;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Employee;
-
+use App\Models\EmployeeCategory;
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\ID;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\ImportExport\Contracts\HasImportExportContract;
+use MoonShine\ImportExport\Traits\ImportExportConcern;
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Support\Enums\SortDirection;
 use MoonShine\UI\Fields\Text;
@@ -19,7 +22,7 @@ use MoonShine\UI\Fields\Text;
 /**
  * @extends ModelResource<Employee>
  */
-class EmployeeResource extends ModelResource
+class EmployeeResource extends ModelResource implements HasImportExportContract
 {
     protected string $model = Employee::class;
 
@@ -45,12 +48,12 @@ class EmployeeResource extends ModelResource
                 'Category',
                 'category',
                 resource: EmployeeCategoryResource::class
-            )->sortable()->translatable('resource.employee_category'),
+            )->sortable()->creatable()->translatable('resource.employee_category'),
             BelongsTo::make(
                 'Branch',
                 'branch',
                 resource: BranchResource::class
-            )->sortable()->translatable('resource.branch'),
+            )->sortable()->creatable()->translatable('resource.branch'),
         ];
     }
 
@@ -127,6 +130,72 @@ class EmployeeResource extends ModelResource
         return [
             'full_name' => ['required', 'string', 'min:3'],
             'position' => ['required', 'string', 'min:5']
+        ];
+    }
+
+    use ImportExportConcern;
+
+    protected function importFields(): iterable
+    {
+        return [
+            ID::make(),
+            Text::make('Personnel number'),
+            Text::make('Full name'),
+            Text::make('Position'),
+            BelongsTo::make(
+                'Category',
+                'category',
+                resource: EmployeeCategoryResource::class
+            )->creatable()
+            ->fromRaw(function($raw, $ctx) {
+                $category = EmployeeCategory::where('name', $raw)->first();
+
+                if (!isset($category)) {
+                    $category = new EmployeeCategory();
+                    $category->name = $raw;
+                    $category->save();
+                }
+
+                return $category->id;
+            }),
+            BelongsTo::make(
+                'Branch',
+                'branch',
+                resource: BranchResource::class
+            )->creatable()
+            ->fromRaw(function($raw, $ctx) {
+                $branch = Branch::where('', $raw)->first();
+
+                if (!isset($branch)) {
+                    $branch = new Branch();
+                    $branch->name = $raw;
+                    $branch->save();
+                }
+
+                return $branch->id;
+            }),
+        ];
+    }
+
+    protected function exportFields(): iterable
+    {
+        return [
+            ID::make(),
+            Text::make('Personnel number'),
+            Text::make('Full name'),
+            Text::make('Position'),
+            BelongsTo::make(
+                'Category',
+                'category',
+                resource: EmployeeCategoryResource::class
+            )->creatable()
+            ->modifyRawValue(fn($value, $model) => $model->category->name),
+            BelongsTo::make(
+                'Branch',
+                'branch',
+                resource: BranchResource::class
+            )->creatable()
+            ->modifyRawValue(fn($value, $model) => $model->branch->name),
         ];
     }
 }
