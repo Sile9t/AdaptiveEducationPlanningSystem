@@ -43,9 +43,9 @@ class TrainingProgramAliasResource extends ModelResource
                 'program',
                 formatted: 'title',
                 resource: TrainingProgramResource::class
-            )->sortable(),
-            Text::make('Alias')->sortable(),
-            Text::make('Comment')->sortable(),
+            )->sortable()->translatable('resource.training_program'),
+            Text::make('Alias')->sortable()->translatable('resource.training_program_alias'),
+            Text::make('Comment')->sortable()->translatable('resource.training_program_alias'),
         ];
     }
 

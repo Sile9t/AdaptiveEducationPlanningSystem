@@ -38,6 +38,8 @@ return [
     'training_program_alias' => [
         'Alias' => 'Псевдоним',
         'Aliases' => 'Псевдонимы',
+        'Comment' => 'Комментарий',
+        'Comments' => 'Комментарии',
     ],
     'permit' => [
         'Permit' => 'Доступ',
