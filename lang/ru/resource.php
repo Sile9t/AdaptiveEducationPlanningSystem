@@ -33,6 +33,11 @@ return [
     'training_program' => [
         'Program' => 'Программа обучения',
         'Programs' => 'Программы обучения',
+        'Title' => 'Название',
+    ],
+    'training_program_alias' => [
+        'Alias' => 'Псевдоним',
+        'Aliases' => 'Псевдонимы',
     ],
     'permit' => [
         'Permit' => 'Доступ',

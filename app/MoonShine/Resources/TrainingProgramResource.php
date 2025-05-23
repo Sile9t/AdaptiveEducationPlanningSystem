@@ -38,18 +38,18 @@ class TrainingProgramResource extends ModelResource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Title')->sortable(),
+            Text::make('Title')->sortable()->translatable('resource.training_program'),
             HasMany::make(
                 'Aliases',
                 'aliases',
                 formatted: 'alias',
                 resource: TrainingProgramAliasResource::class
-            )->relatedLink(),
+            )->relatedLink()->translatable('resource.training_program_alias'),
             HasMany::make(
                 'Permits',
                 'permits',
                 resource: PermitResource::class
-            )->relatedLink(),
+            )->relatedLink()->translatable('resource.permit'),
         ];
     }
 
