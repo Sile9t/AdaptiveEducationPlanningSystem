@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Resources;
 
+use App\Models\TrainingProgram;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\TrainingProgramAlias;
 
@@ -13,13 +14,15 @@ use MoonShine\UI\Fields\ID;
 use MoonShine\UI\Fields\Text;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\ImportExport\Contracts\HasImportExportContract;
+use MoonShine\ImportExport\Traits\ImportExportConcern;
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Support\Enums\SortDirection;
 
 /**
  * @extends ModelResource<TrainingProgramAlias>
  */
-class TrainingProgramAliasResource extends ModelResource
+class TrainingProgramAliasResource extends ModelResource implements HasImportExportContract
 {
     protected string $model = TrainingProgramAlias::class;
 
@@ -125,6 +128,48 @@ class TrainingProgramAliasResource extends ModelResource
     {
         return [
             'alias' => ['required', 'string', 'min:2'],
+        ];
+    }
+
+    use ImportExportConcern;
+
+    protected function importFields(): iterable
+    {
+        return [
+            ID::make(),
+            BelongsTo::make(
+                'Program',
+                'program',
+                formatted: 'title',
+                resource: TrainingProgramResource::class
+            )->translatable('resource.training_program')
+            ->fromRaw(function($raw, $ctx) {
+                $program = TrainingProgram::where('title', $raw)->first();
+
+                if (!isset($program)) {
+                    $program = new TrainingProgram();
+                    $program->title = $raw;
+                    $program->save();
+                }
+
+                return $program->id;
+            }),
+            Text::make('Alias')->translatable('resource.training_program.alias'),
+        ];
+    }
+
+    protected function exportFields(): iterable
+    {
+        return [
+            ID::make(),
+            BelongsTo::make(
+                'Program',
+                'program',
+                formatted: 'title',
+                resource: TrainingProgramResource::class
+            )->translatable('resource.training_program')
+            ->modifyRawValue(fn($value, $model) => $model->program->title),
+            Text::make('Alias')->translatable('resource.training_program.alias'),
         ];
     }
 }
