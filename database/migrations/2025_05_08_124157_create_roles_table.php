@@ -19,19 +19,12 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::dropIfExists('users');
-
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('first_name');
+        Schema::table('users', function (Blueprint $table) {
+            $table->renameColumn('name', 'first_name');
             $table->string('last_name');
             $table->string('patronymic')->nullable();
-            $table->string('email', 190)->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
-            $table->foreignIdFor(Role   ::class, 'role_id');
+            $table->string('email', 190)->change();
+            $table->foreignIdFor(Role::class, 'role_id');
         });
     }
 
@@ -40,16 +33,13 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
-
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->renameColumn('first_name', 'name');
+            $table->dropColumn('last_name');
+            $table->dropColumn('patronymic');
+            $table->string('email')->change();
+            $table->dropConstrainedForeignIdFor(Role::class, 'role_id');
+            $table->dropForeignIdFor(Role::class, 'role_id');
         });
 
         Schema::dropIfExists('roles');

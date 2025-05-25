@@ -30,21 +30,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
-
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('first_name');
-            $table->string('second_name');
-            $table->string('patronymic')->nullable();
-            $table->string('email', 190)->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->foreignIdFor(Role::class, 'role_id');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropConstrainedForeignIdFor(Branch::class, 'branch_id');
+            $table->dropForeignIdFor(Branch::class, 'branch_id');
         });
-
+        
         Schema::dropIfExists('branches');
     }
 };
