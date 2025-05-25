@@ -15,6 +15,7 @@ use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\ImportExport\Contracts\HasImportExportContract;
 use MoonShine\ImportExport\Traits\ImportExportConcern;
 use MoonShine\Laravel\Fields\Relationships\HasMany;
+use MoonShine\Support\Enums\SortDirection;
 use MoonShine\UI\Fields\Text;
 
 /**
@@ -27,6 +28,10 @@ class EmployeeCategoryResource extends ModelResource implements HasImportExportC
     protected string $title = 'EmployeeCategories';
 
     protected string $column = 'name';
+
+    protected string $sortColumn = 'id';
+
+    protected SortDirection $sortDirection = SortDirection::ASC;
     
     /**
      * @return list<FieldContract>
