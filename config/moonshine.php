@@ -26,7 +26,7 @@ return [
 
 
     // Default flags
-    'use_migrations' => false,
+    'use_migrations' => true,
     'use_notifications' => false,
     'use_database_notifications' => false,
     'use_routes' => true,
