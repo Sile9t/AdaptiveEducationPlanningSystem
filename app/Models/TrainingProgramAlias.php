@@ -24,8 +24,8 @@ class TrainingProgramAlias extends Model
     /**
      * Get the user role.
     */
-    public function programs():BelongsTo
+    public function program():BelongsTo
     {
-        return $this->belongsTo(TrainingProgram::class);
+        return $this->belongsTo(TrainingProgram::class, 'program_id');
     }
 }

@@ -25,7 +25,8 @@ class User extends Authenticatable
         'email',
         'password',
         'role_id',
-        'branch_id'
+        'branch_id',
+        'personnel_number',
     ];
 
     /**
@@ -46,6 +47,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'must_change_password' => 'bool',
     ];
 
     /**
@@ -62,5 +64,15 @@ class User extends Authenticatable
     public function branch():BelongsTo
     {
         return $this->belongsTo(Branch::class);
+    }
+
+    public function full_name():string
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
+
+    public function full_name_with_patronymic():string
+    {
+        return $this->full_name() . ' ' . $this->patronymic;
     }
 }

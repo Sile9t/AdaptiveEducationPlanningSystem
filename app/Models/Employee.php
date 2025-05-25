@@ -20,7 +20,8 @@ class Employee extends Model
         'full_name',
         'position',
         'category_id',
-        'branch_id'
+        'branch_id',
+        'personnel_number'
     ];
 
     /**

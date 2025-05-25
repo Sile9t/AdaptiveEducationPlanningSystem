@@ -27,7 +27,7 @@ class EmployeeCategory extends Model
      */
     public function permits():HasMany
     {
-        return $this->hasMany(Permit::class);
+        return $this->hasMany(Permit::class, 'category_id');
     }
 
     /**
@@ -37,6 +37,6 @@ class EmployeeCategory extends Model
      */
     public function employees():HasMany
     {
-        return $this->hasMany(Employee::class);
+        return $this->hasMany(Employee::class, 'category_id');
     }
 }

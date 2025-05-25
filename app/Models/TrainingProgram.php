@@ -26,7 +26,7 @@ class TrainingProgram extends Model
      */
     public function aliases():HasMany
     {
-        return $this->hasMany(TrainingProgramAlias::class);
+        return $this->hasMany(TrainingProgramAlias::class, 'program_id');
     }
 
     /**
@@ -36,7 +36,7 @@ class TrainingProgram extends Model
      */
     public function permits():HasMany
     {
-        return $this->hasMany(Permit::class);
+        return $this->hasMany(Permit::class, 'program_id');
     }
 
     /**
@@ -46,6 +46,6 @@ class TrainingProgram extends Model
      */
     public function events():HasMany
     {
-        return $this->hasMany(TrainingEvent::class);
+        return $this->hasMany(TrainingEvent::class, 'program_id');
     }
 }
