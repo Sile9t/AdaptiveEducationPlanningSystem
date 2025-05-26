@@ -17,8 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('full_name');
             $table->string('position');
-            $table->foreignIdFor(EmployeeCategory::class, 'category_id');
-            $table->foreignIdFor(Branch::class, 'branch_id');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('employee_categories');
+            $table->unsignedBigInteger('branch_id');
+            $table->foreign('branch_id')->references('id')->on('branches');
             $table->timestamps();
         });
     }

@@ -30,31 +30,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('employees');
-
-        Schema::create('employees', function (Blueprint $table) {
-            $table->id();
-            $table->string('full_name');
-            $table->string('position');
-            $table->foreignIdFor(EmployeeCategory::class, 'category_id');
-            $table->foreignIdFor(Branch::class, 'branch_id');
-            $table->timestamps();
+        Schema::table('employees', function (Blueprint $table) {
+            $table->dropColumn('personnel_number');
         });
 
-        Schema::dropIfExists('users');
-        
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('first_name');
-            $table->string('second_name');
-            $table->string('patronymic')->nullable();
-            $table->string('email', 190)->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->foreignIdFor(Role::class, 'role_id');
-            $table->foreignIdFor(Branch::class, 'branch_id');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('personnel_number', 'must_change_password');
         });
     }
 };

@@ -16,7 +16,8 @@ return new class extends Migration
             $table->id();
             $table->string('alias');
             $table->string('comment')->nullable();
-            $table->foreignIdFor(TrainingProgram::class, 'program_id');
+            $table->unsignedBigInteger('program_id');
+            $table->foreign('program_id')->references('id')->on('training_programs');
             $table->timestamps();
         });
     }

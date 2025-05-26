@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('permits', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(TrainingProgram::class, 'program_id');
-            $table->foreignIdFor(EmployeeCategory::class, 'category_id');
+            $table->unsignedBigInteger('program_id');
+            $table->foreign('program_id')->references('id')->on('training_programs');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('employee_categories');
             $table->integer('periodicity_years');
             $table->timestamps();
         });

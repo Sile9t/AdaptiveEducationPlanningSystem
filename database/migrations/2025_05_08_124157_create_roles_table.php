@@ -21,11 +21,10 @@ return new class extends Migration
 
         Schema::table('users', function (Blueprint $table) {
             $table->renameColumn('name', 'first_name');
-            $table->string('last_name');
-            $table->string('patronymic')->nullable();
-            $table->string('email', 190)->change();
-            $table->foreignIdFor(Role::class, 'role_id');
+            $table->unsignedBigInteger('role_id');
+            $table->foreign('role_id')->references('id')->on('roles');
         });
+
     }
 
     /**
@@ -35,12 +34,10 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->renameColumn('first_name', 'name');
-            $table->dropColumn('last_name');
-            $table->dropColumn('patronymic');
-            $table->string('email')->change();
-            $table->dropConstrainedForeignIdFor(Role::class, 'role_id');
-            $table->dropForeignIdFor(Role::class, 'role_id');
+            $table->dropForeign('role_id');
+            $table->dropColumn('role_id');
         });
+
 
         Schema::dropIfExists('roles');
     }

@@ -13,7 +13,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('training_events', function (Blueprint $table) {
-            $table->foreignIdFor(Employee::class, 'employee_id');
+            $table->unsignedBigInteger('employee_id');
+            $table->foreign('employee_id')->references('id')->on('employees');
         });
     }
 
@@ -23,8 +24,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('training_events', function (Blueprint $table) {
-            $table->dropConstrainedForeignIdFor(Employee::class, 'employee_id');
-            $table->dropForeignIdFor(Employee::class, 'employee_id');
+            $table->dropForeign('employee_id');
+            $table->dropColumn('employee_id');
         });
     }
 };

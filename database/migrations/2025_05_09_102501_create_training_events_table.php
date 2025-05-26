@@ -14,7 +14,8 @@ return new class extends Migration
     {
         Schema::create('training_events', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(TrainingProgram::class, 'program_id');
+            $table->unsignedBigInteger('program_id');
+            $table->foreign('program_id')->references('id')->on('training_programs');
             $table->timestamp('passed_at')->nullable();
             $table->timestamp('expired_at')->nullable();
             $table->timestamps();
