@@ -15,7 +15,7 @@ return new class extends Migration
         
         Schema::table('users', function (Blueprint $table) {
             $table->addColumn('string','last_name');
-            $table->string('partonymic')->nullable();
+            $table->string('patronymic')->nullable();
             $table->string('email', 190)->change();
         });
     }

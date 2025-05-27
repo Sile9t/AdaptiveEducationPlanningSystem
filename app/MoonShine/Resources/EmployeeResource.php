@@ -67,17 +67,17 @@ class EmployeeResource extends ModelResource implements HasImportExportContract
                 ID::make(),
                 Text::make('Personnel number'),
                 Text::make('Full name'),
-                Text::make('Position')->sortable(),
+                Text::make('Position'),
                 BelongsTo::make(
                     'Category',
                     'category',
                     resource: EmployeeCategoryResource::class
-                )->sortable(),
+                ),
                 BelongsTo::make(
                     'Branch',
                     'branch',
                     resource: BranchResource::class
-                )->sortable(),
+                ),
             ])
         ];
     }
