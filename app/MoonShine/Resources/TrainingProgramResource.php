@@ -43,10 +43,10 @@ class TrainingProgramResource extends ModelResource implements HasImportExportCo
             Text::make('Title')->sortable()->translatable('resource.training_program'),
             HasMany::make(
                 'Aliases',
-                'aliases',
+                'trainingProgramAliases',
                 formatted: 'alias',
                 resource: TrainingProgramAliasResource::class
-            )->relatedLink()->translatable('resource.training_program.alias'),
+            )->translatable('resource.training_program.alias')->relatedLink(),
             HasMany::make(
                 'Permits',
                 'permits',

@@ -43,7 +43,7 @@ class TrainingProgramAliasResource extends ModelResource implements HasImportExp
             ID::make()->sortable(),
             BelongsTo::make(
                 'Program',
-                'program',
+                'trainingProgram',
                 formatted: 'title',
                 resource: TrainingProgramResource::class
             )->sortable()->translatable('resource.training_program'),
@@ -57,19 +57,7 @@ class TrainingProgramAliasResource extends ModelResource implements HasImportExp
      */
     protected function formFields(): iterable
     {
-        return [
-            Box::make([
-                ID::make(),
-                BelongsTo::make(
-                    'Program',
-                    'program',
-                    formatted: 'title',
-                    resource: TrainingProgramResource::class
-                ),
-                Text::make('Alias'),
-                Text::make('Comment'),
-            ])
-        ];
+        return $this->indexFields();
     }
 
     /**
@@ -77,17 +65,7 @@ class TrainingProgramAliasResource extends ModelResource implements HasImportExp
      */
     protected function detailFields(): iterable
     {
-        return [
-            ID::make(),
-            BelongsTo::make(
-                'Program',
-                'program',
-                formatted: 'title',
-                resource: TrainingProgramResource::class
-            ),
-            Text::make('Alias'),
-            Text::make('Comment'),
-        ];
+        return $this->indexFields();
     }
 
     /**
@@ -110,7 +88,7 @@ class TrainingProgramAliasResource extends ModelResource implements HasImportExp
         return [
             BelongsTo::make(
                 'Program',
-                'program',
+                'trainingProgram',
                 formatted: 'title',
                 resource: TrainingProgramResource::class
             )->searchable()->translatable('resource.training_program'),
@@ -139,7 +117,7 @@ class TrainingProgramAliasResource extends ModelResource implements HasImportExp
             ID::make(),
             BelongsTo::make(
                 'Program',
-                'program',
+                'trainingProgram',
                 formatted: 'title',
                 resource: TrainingProgramResource::class
             )->translatable('resource.training_program')
@@ -164,7 +142,7 @@ class TrainingProgramAliasResource extends ModelResource implements HasImportExp
             ID::make(),
             BelongsTo::make(
                 'Program',
-                'program',
+                'trainingProgram',
                 formatted: 'title',
                 resource: TrainingProgramResource::class
             )->translatable('resource.training_program')

@@ -169,8 +169,6 @@ class UserResource extends ModelResource
             'last_name' => ['required', 'string', 'min:3'],
             'patronymic' => ['string', 'nullable', 'min:3'],
             'email' => ['required', 'unique:users,email','email'],
-            'branch' => ['required'],
-            'role' => ['required'],
             'password' => ['required', 'min:8'],
             'password_repeat' => ['required', 'same:password','min:8'],
         ];

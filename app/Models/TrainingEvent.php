@@ -35,7 +35,7 @@ class TrainingEvent extends Model
      *
      * @var <TrainingProgram>
      */
-    public function program():BelongsTo
+    public function trainingProgram():BelongsTo
     {
         return $this->belongsTo(TrainingProgram::class);
     }    

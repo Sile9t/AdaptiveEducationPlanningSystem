@@ -24,7 +24,7 @@ class TrainingProgram extends Model
      *
      * @var array<int, TrainingProgramAlias>
      */
-    public function aliases():HasMany
+    public function trainingProgramAliases():HasMany
     {
         return $this->hasMany(TrainingProgramAlias::class, 'program_id');
     }
@@ -44,7 +44,7 @@ class TrainingProgram extends Model
      *
      * @var array<int, TrainingEvent>
      */
-    public function events():HasMany
+    public function trainingEvents():HasMany
     {
         return $this->hasMany(TrainingEvent::class, 'program_id');
     }

@@ -42,7 +42,7 @@ class TrainingEventResource extends ModelResource implements HasImportExportCont
             ID::make()->sortable(),
             BelongsTo::make(
                 'Program',
-                'program',
+                'trainingProgram',
                 resource: TrainingProgramResource::class
             )->sortable()->translatable('resource.training_program'),
             BelongsTo::make(
@@ -99,7 +99,7 @@ class TrainingEventResource extends ModelResource implements HasImportExportCont
         return [
             BelongsTo::make(
                 'Program',
-                'program',
+                'trainingProgram',
                 resource: TrainingProgramResource::class
             )->nullable()->searchable()->translatable('resource.training_program'),
             BelongsTo::make(
@@ -147,7 +147,7 @@ class TrainingEventResource extends ModelResource implements HasImportExportCont
             ID::make(),
             BelongsTo::make(
                 'Program',
-                'program',
+                'trainingProgram',
                 resource: TrainingProgramResource::class
             )->translatable('resource.training_program')
             ->fromRaw(function($raw, $ctx) {
@@ -183,7 +183,7 @@ class TrainingEventResource extends ModelResource implements HasImportExportCont
             ID::make(),
             BelongsTo::make(
                 'Program',
-                'program',
+                'trainingProgram',
                 resource: TrainingProgramResource::class
             )->translatable('resource.training_program')
             ->modifyRawValue(fn($value, $model) => $model->title),

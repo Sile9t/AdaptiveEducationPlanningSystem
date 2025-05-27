@@ -29,7 +29,7 @@ class Employee extends Model
      *
      * @var <EmployeeCategory>
      */
-    public function category():BelongsTo
+    public function employeeCategory():BelongsTo
     {
         return $this->belongsTo(EmployeeCategory::class);
     }
@@ -49,7 +49,7 @@ class Employee extends Model
      *
      * @var array<int, TrainingEvent>
      */
-    public function events():HasMany
+    public function trainingEvents():HasMany
     {
         return $this->hasMany(TrainingEvent::class);
     }

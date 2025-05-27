@@ -108,7 +108,7 @@ class EmployeeResource extends ModelResource implements HasImportExportContract
             Text::make('Position')->translatable('resource.employee'),
             BelongsTo::make(
                 'Category',
-                'category',
+                'employeeCategory',
                 resource: EmployeeCategoryResource::class
             )->nullable()->searchable()->translatable('resource.employee_category'),
             BelongsTo::make(
@@ -144,7 +144,7 @@ class EmployeeResource extends ModelResource implements HasImportExportContract
             Text::make('Position'),
             BelongsTo::make(
                 'Category',
-                'category',
+                'employeeCategory',
                 resource: EmployeeCategoryResource::class
             )->creatable()
             ->fromRaw(function($raw, $ctx) {
@@ -186,7 +186,7 @@ class EmployeeResource extends ModelResource implements HasImportExportContract
             Text::make('Position')->translatable('resource.employee'),
             BelongsTo::make(
                 'Category',
-                'category',
+                'employeeCategory',
                 resource: EmployeeCategoryResource::class
             )->creatable()->translatable('resource.employee_category')
             ->modifyRawValue(fn($value, $model) => $model->category->name),

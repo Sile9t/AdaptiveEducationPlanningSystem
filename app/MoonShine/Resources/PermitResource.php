@@ -42,12 +42,12 @@ class PermitResource extends ModelResource implements HasImportExportContract
             ID::make()->sortable(),
             BelongsTo::make(
                 'Program',
-                'program',
+                'trainingProgram',
                 resource: TrainingProgramResource::class
             )->sortable()->creatable()->translatable('resource.training_program'),
             BelongsTo::make(
                 'Category',
-                'category',
+                'employeeCategory',
                 resource: EmployeeCategoryResource::class
             )->sortable()->creatable()->translatable('resource.employee_category'),
             Number::make(
@@ -88,12 +88,12 @@ class PermitResource extends ModelResource implements HasImportExportContract
         return [
             BelongsTo::make(
                 'Program',
-                'program',
+                'trainingProgram',
                 resource: TrainingProgramResource::class
             )->nullable()->searchable()->translatable('resource.training_program'),
             BelongsTo::make(
                 'Category',
-                'category',
+                'employeeCategory',
                 resource: EmployeeCategoryResource::class
             )->nullable()->searchable()->translatable('resource.employee_category'),
             Range::make(
@@ -124,7 +124,7 @@ class PermitResource extends ModelResource implements HasImportExportContract
             ID::make(),
             BelongsTo::make(
                 'Program',
-                'program',
+                'trainingProgram',
                 formatted: 'title',
                 resource: TrainingProgramResource::class,
             )
@@ -141,7 +141,7 @@ class PermitResource extends ModelResource implements HasImportExportContract
             }),
             BelongsTo::make(
                 'Category',
-                'category',
+                'employeeCategory',
                 formatted: 'name',
                 resource: EmployeeResource::class,
             )
@@ -169,14 +169,14 @@ class PermitResource extends ModelResource implements HasImportExportContract
             ID::make(),
             BelongsTo::make(
                 'Program',
-                'program',
+                'trainingProgram',
                 formatted: 'title',
                 resource: TrainingProgramResource::class,
             )->creatable()->translatable('resource.training_program')
             ->modifyRawValue(fn ($value, $model) => $model->program->title),
             BelongsTo::make(
                 'Category',
-                'category',
+                'employeeCategory',
                 formatted: 'name',
                 resource: EmployeeResource::class,
             )->creatable()->translatable('resource.employee_category')

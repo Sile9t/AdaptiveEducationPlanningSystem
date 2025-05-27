@@ -23,6 +23,8 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->unsignedBigInteger('branch_id');
             $table->foreign('branch_id')->references('id')->on('branches');
+            // $table->unsignedBigInteger('role_id');
+            // $table->foreign('role_id')->references('id')->on('roles');
         });
     }
 
@@ -32,6 +34,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
+            // $table->dropForeign('role_id');
+            // $table->dropColumn('role_id');
             $table->dropForeign('branch_id');
             $table->dropColumn('branch_id');
         });
