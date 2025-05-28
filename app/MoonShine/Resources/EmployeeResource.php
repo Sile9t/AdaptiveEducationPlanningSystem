@@ -46,7 +46,7 @@ class EmployeeResource extends ModelResource implements HasImportExportContract
             Text::make('Position')->sortable()->translatable('resource.employee'),
             BelongsTo::make(
                 'Category',
-                'category',
+                'employeeCategory',
                 resource: EmployeeCategoryResource::class
             )->sortable()->creatable()->translatable('resource.employee_category'),
             BelongsTo::make(
@@ -62,24 +62,7 @@ class EmployeeResource extends ModelResource implements HasImportExportContract
      */
     protected function formFields(): iterable
     {
-        return [
-            Box::make([
-                ID::make(),
-                Text::make('Personnel number'),
-                Text::make('Full name'),
-                Text::make('Position'),
-                BelongsTo::make(
-                    'Category',
-                    'category',
-                    resource: EmployeeCategoryResource::class
-                ),
-                BelongsTo::make(
-                    'Branch',
-                    'branch',
-                    resource: BranchResource::class
-                ),
-            ])
-        ];
+        return $this->indexFields();
     }
 
     /**
