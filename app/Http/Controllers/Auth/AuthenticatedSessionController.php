@@ -30,7 +30,6 @@ class AuthenticatedSessionController extends Controller
         $admin = MoonshineUser::where('email', $request['email'])->first();
         
         if ($admin) {
-            dd($admin);
             $loginReguest = new LoginFormRequest();
             $loginReguest->username = $request['email'];
             $loginReguest->password = $request['password'];
@@ -39,6 +38,9 @@ class AuthenticatedSessionController extends Controller
         }
 
         $request->authenticate();
+
+        if (Auth::user()->must_change_password)
+            return redirect()->route('change-password', ['email' => Auth::user()->email]);
 
         $request->session()->regenerate();
 
