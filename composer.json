@@ -11,9 +11,11 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
+        "maatwebsite/excel": "^1.1",
         "moonshine/import-export": "*",
         "moonshine/moonshine": "^3.12",
-        "moonshine/ru": "^1.0"
+        "moonshine/ru": "^1.0",
+        "phpoffice/phpspreadsheet": "^4.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
