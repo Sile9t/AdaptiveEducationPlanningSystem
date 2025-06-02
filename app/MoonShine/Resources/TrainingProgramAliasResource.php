@@ -26,14 +26,17 @@ class TrainingProgramAliasResource extends ModelResource implements HasImportExp
 {
     protected string $model = TrainingProgramAlias::class;
 
-    protected string $title = 'TrainingProgramAlias';
-
     protected string $column = 'alias'; 
 
     protected string $sortColumn = 'id';
 
     protected SortDirection $sortDirection = SortDirection::ASC;
     
+    public function getTitle(): string
+    {
+        return __('resource.training_program.alias.Training Program Aliases');
+    }
+
     /**
      * @return list<FieldContract>
      */

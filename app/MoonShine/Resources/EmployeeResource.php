@@ -26,13 +26,16 @@ class EmployeeResource extends ModelResource implements HasImportExportContract
 {
     protected string $model = Employee::class;
 
-    protected string $title = 'Employees';
-    
     protected string $column = 'full_name';
 
     protected string $sortColumn = 'id';
 
     protected SortDirection $sortDirection = SortDirection::ASC;
+
+    public function getTitle(): string
+    {
+        return __('resource.employee.Employees');
+    }
 
     /**
      * @return list<FieldContract>

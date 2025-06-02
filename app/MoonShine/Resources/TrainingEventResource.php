@@ -27,12 +27,15 @@ class TrainingEventResource extends ModelResource implements HasImportExportCont
 {
     protected string $model = TrainingEvent::class;
 
-    protected string $title = 'TrainingEvents';
-
     protected string $sortColumn = 'id';
 
     protected SortDirection $sortDirection = SortDirection::ASC;
     
+    public function getTitle(): string
+    {
+        return __('resource.training_program.event.Events');
+    }
+
     /**
      * @return list<FieldContract>
      */

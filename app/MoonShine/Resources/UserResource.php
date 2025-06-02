@@ -33,13 +33,16 @@ class UserResource extends ModelResource
 {
     protected string $model = User::class;
 
-    protected string $title = 'User';
-
     protected string $sortColumn = 'id';
 
     protected SortDirection $sortDirection = SortDirection::ASC;
     
     protected bool $columnSelection = true;
+
+    public function getTitle(): string
+    {
+        return __('resource.user.Users');
+    }
 
     /**
      * @return list<FieldContract>

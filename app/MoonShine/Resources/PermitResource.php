@@ -27,11 +27,14 @@ class PermitResource extends ModelResource implements HasImportExportContract
 {
     protected string $model = Permit::class;
 
-    protected string $title = 'Permits';
-    
     protected string $sortColumn = 'id';
 
     protected SortDirection $sortDirection = SortDirection::ASC;
+
+    public function getTitle(): string
+    {
+        return __('resource.permit.Permits');
+    }
 
     /**
      * @return list<FieldContract>

@@ -25,7 +25,7 @@ return [
     ],
     'employee_category' => [
         'Category' => 'Категория сотрудника',
-        'Categories' => 'Категория сотрудников',
+        'Categories' => 'Категории сотрудников',
     ],
     'employee' => [
         'Employee' => 'Сотрудник',
@@ -38,6 +38,7 @@ return [
         'Programs' => 'Программы обучения',
         'Title' => 'Название',
         'alias' => [
+            'Training Program Aliases' => 'Псевдонимы программ обучения',
             'Alias' => 'Псевдоним',
             'Aliases' => 'Псевдонимы',
             'Comment' => 'Комментарий',
