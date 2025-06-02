@@ -173,14 +173,14 @@ class PermitResource extends ModelResource implements HasImportExportContract
                 formatted: 'title',
                 resource: TrainingProgramResource::class,
             )->creatable()->translatable('resource.training_program')
-            ->modifyRawValue(fn ($value, $model) => $model->program->title),
+            ->modifyRawValue(fn ($value, $model) => $model->trainingProgram->title),
             BelongsTo::make(
                 'Category',
                 'employeeCategory',
                 formatted: 'name',
                 resource: EmployeeResource::class,
             )->creatable()->translatable('resource.employee_category')
-            ->modifyRawValue(fn ($value, $model) => $model->category->name),
+            ->modifyRawValue(fn ($value, $model) => $model->employeeCategory->name),
             Number::make(
                 'Periodicity (years)',
                 'periodicity_years'

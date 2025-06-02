@@ -172,7 +172,7 @@ class EmployeeResource extends ModelResource implements HasImportExportContract
                 'employeeCategory',
                 resource: EmployeeCategoryResource::class
             )->creatable()->translatable('resource.employee_category')
-            ->modifyRawValue(fn($value, $model) => $model->category->name),
+            ->modifyRawValue(fn($value, $model) => $model->employeeCategory->name),
             BelongsTo::make(
                 'Branch',
                 'branch',

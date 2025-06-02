@@ -146,7 +146,7 @@ class TrainingProgramAliasResource extends ModelResource implements HasImportExp
                 formatted: 'title',
                 resource: TrainingProgramResource::class
             )->translatable('resource.training_program')
-            ->modifyRawValue(fn($value, $model) => $model->program->title),
+            ->modifyRawValue(fn($value, $model) => $model->trainingProgram->title),
             Text::make('Alias')->translatable('resource.training_program.alias'),
         ];
     }
