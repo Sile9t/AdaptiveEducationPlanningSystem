@@ -25,14 +25,17 @@ class BranchResource extends ModelResource implements HasImportExportContract
 {
     protected string $model = Branch::class;
 
-    protected string $title = 'Branch';
-
     protected string $column = 'name';
 
     protected string $sortColumn = 'id';
 
     protected SortDirection $sortDirection = SortDirection::ASC;
     
+    public function getTitle(): string
+    {
+        return __('resource.branch.Branches');
+    }
+
     /**
      * @return list<FieldContract>
      */

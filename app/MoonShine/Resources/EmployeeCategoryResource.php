@@ -25,14 +25,17 @@ class EmployeeCategoryResource extends ModelResource implements HasImportExportC
 {
     protected string $model = EmployeeCategory::class;
 
-    protected string $title = 'EmployeeCategories';
-
     protected string $column = 'name';
 
     protected string $sortColumn = 'id';
 
     protected SortDirection $sortDirection = SortDirection::ASC;
-    
+
+    public function getTitle(): string
+    {
+        return __('resource.employee_category.Categories');
+    }
+
     /**
      * @return list<FieldContract>
      */

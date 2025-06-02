@@ -31,7 +31,7 @@ class Employee extends Model
      */
     public function employeeCategory():BelongsTo
     {
-        return $this->belongsTo(EmployeeCategory::class);
+        return $this->belongsTo(EmployeeCategory::class, 'category_id');
     }
 
     /**

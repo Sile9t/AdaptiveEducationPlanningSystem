@@ -25,14 +25,17 @@ class TrainingProgramResource extends ModelResource implements HasImportExportCo
 {
     protected string $model = TrainingProgram::class;
 
-    protected string $title = 'TrainingProgram';
-
     protected string $column = 'title';
 
     protected string $sortColumn = 'id';
 
     protected SortDirection $sortDirection = SortDirection::ASC;
     
+    public function getTitle(): string
+    {
+        return __('resource.training_program.Programs');
+    }
+
     /**
      * @return list<FieldContract>
      */

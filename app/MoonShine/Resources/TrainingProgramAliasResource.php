@@ -26,14 +26,17 @@ class TrainingProgramAliasResource extends ModelResource implements HasImportExp
 {
     protected string $model = TrainingProgramAlias::class;
 
-    protected string $title = 'TrainingProgramAlias';
-
     protected string $column = 'alias'; 
 
     protected string $sortColumn = 'id';
 
     protected SortDirection $sortDirection = SortDirection::ASC;
     
+    public function getTitle(): string
+    {
+        return __('resource.training_program.alias.Training Program Aliases');
+    }
+
     /**
      * @return list<FieldContract>
      */
@@ -48,7 +51,7 @@ class TrainingProgramAliasResource extends ModelResource implements HasImportExp
                 resource: TrainingProgramResource::class
             )->sortable()->translatable('resource.training_program'),
             Text::make('Alias')->sortable()->translatable('resource.training_program.alias'),
-            Text::make('Comment')->sortable()->translatable('resource.training_program_alias'),
+            Text::make('Comment')->sortable()->translatable('resource.training_program.alias'),
         ];
     }
 
@@ -146,7 +149,7 @@ class TrainingProgramAliasResource extends ModelResource implements HasImportExp
                 formatted: 'title',
                 resource: TrainingProgramResource::class
             )->translatable('resource.training_program')
-            ->modifyRawValue(fn($value, $model) => $model->program->title),
+            ->modifyRawValue(fn($value, $model) => $model->trainingProgram->title),
             Text::make('Alias')->translatable('resource.training_program.alias'),
         ];
     }

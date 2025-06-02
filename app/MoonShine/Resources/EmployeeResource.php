@@ -26,13 +26,16 @@ class EmployeeResource extends ModelResource implements HasImportExportContract
 {
     protected string $model = Employee::class;
 
-    protected string $title = 'Employees';
-    
     protected string $column = 'full_name';
 
     protected string $sortColumn = 'id';
 
     protected SortDirection $sortDirection = SortDirection::ASC;
+
+    public function getTitle(): string
+    {
+        return __('resource.employee.Employees');
+    }
 
     /**
      * @return list<FieldContract>
@@ -46,7 +49,7 @@ class EmployeeResource extends ModelResource implements HasImportExportContract
             Text::make('Position')->sortable()->translatable('resource.employee'),
             BelongsTo::make(
                 'Category',
-                'category',
+                'employeeCategory',
                 resource: EmployeeCategoryResource::class
             )->sortable()->creatable()->translatable('resource.employee_category'),
             BelongsTo::make(
@@ -62,24 +65,7 @@ class EmployeeResource extends ModelResource implements HasImportExportContract
      */
     protected function formFields(): iterable
     {
-        return [
-            Box::make([
-                ID::make(),
-                Text::make('Personnel number'),
-                Text::make('Full name'),
-                Text::make('Position'),
-                BelongsTo::make(
-                    'Category',
-                    'category',
-                    resource: EmployeeCategoryResource::class
-                ),
-                BelongsTo::make(
-                    'Branch',
-                    'branch',
-                    resource: BranchResource::class
-                ),
-            ])
-        ];
+        return $this->indexFields();
     }
 
     /**
@@ -189,7 +175,7 @@ class EmployeeResource extends ModelResource implements HasImportExportContract
                 'employeeCategory',
                 resource: EmployeeCategoryResource::class
             )->creatable()->translatable('resource.employee_category')
-            ->modifyRawValue(fn($value, $model) => $model->category->name),
+            ->modifyRawValue(fn($value, $model) => $model->employeeCategory->name),
             BelongsTo::make(
                 'Branch',
                 'branch',

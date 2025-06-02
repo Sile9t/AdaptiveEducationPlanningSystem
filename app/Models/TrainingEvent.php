@@ -37,7 +37,7 @@ class TrainingEvent extends Model
      */
     public function trainingProgram():BelongsTo
     {
-        return $this->belongsTo(TrainingProgram::class);
+        return $this->belongsTo(TrainingProgram::class, 'program_id');
     }    
     
     /**
@@ -47,6 +47,6 @@ class TrainingEvent extends Model
      */
     public function employee():BelongsTo
     {
-        return $this->belongsTo(Employee::class);
+        return $this->belongsTo(Employee::class, 'employee_id');
     }
 }
