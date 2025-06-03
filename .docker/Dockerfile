@@ -1,5 +1,6 @@
 FROM 999669/asap-nv-backend:01e9ac91
 
+RUN docker-php-ext-install bcmath
 RUN rm -rf /var/www/database
 COPY ./ /var/www
 # Set working directory
