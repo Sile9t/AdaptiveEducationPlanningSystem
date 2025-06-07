@@ -11,8 +11,12 @@ use Illuminate\View\View;
 
 class PriorityController extends Controller
 {
+    const uploadFolderName = 'uploads';
+
     public function index(): View
     {
+        Auth::user()->id;
+
         return view('priority.index');
     }
 
@@ -30,7 +34,8 @@ class PriorityController extends Controller
 
         $userIdHash = hash('sha256', Auth::user()->id);
         $fileName = $userIdHash . '_' . now()->format('Y-m-d') . '_' . '5366' . '.' . $file->getClientOriginalExtension();
-        $filePath = $file->storeAs("uploads/$userIdHash", $fileName);
+        $folderPath = self::uploadFolderName . '/'. $userIdHash;
+        $filePath = $file->storeAs($folderPath, $fileName);
 
         return redirect()->back()->with('message', 'File uploaded successfully.');
     }
