@@ -3,19 +3,36 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PriorityUploadRequest;
+use App\Models\Branch;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Reader\IReader;
 
 class PriorityController extends Controller
 {
     const uploadFolderName = 'uploads';
+    const inputFileType = "Xlsx";
 
     public function index(): View
     {
-        Auth::user()->id;
+        $userIdHash = hash('sha256', Auth::user()->id);
+        $fileName = $userIdHash . '_' . '5366.xlsx';
+
+        $folderPath = self::uploadFolderName . '/'. $userIdHash;
+        $filePath = $folderPath . '/' . $fileName;
+        
+        $file = Storage::path($filePath);
+        
+        if (! $file) {
+            return view('priority.empty');
+        }
+        
+        self::processFile($file);
 
         return view('priority.index');
     }
@@ -33,10 +50,57 @@ class PriorityController extends Controller
         }
 
         $userIdHash = hash('sha256', Auth::user()->id);
-        $fileName = $userIdHash . '_' . now()->format('Y-m-d') . '_' . '5366' . '.' . $file->getClientOriginalExtension();
+        $fileName = $userIdHash . '_' . '5366.xlsx';
         $folderPath = self::uploadFolderName . '/'. $userIdHash;
-        $filePath = $file->storeAs($folderPath, $fileName);
+        $file->storeAs($folderPath, $fileName);
 
-        return redirect()->back()->with('message', 'File uploaded successfully.');
+        return redirect()->route('priority.index')->with('message', 'File uploaded successfully.');
+    }
+
+    function processFile(string $filename)
+    {
+        // Needed columns: B, D, E, T, U, V, X, Y
+        $requiredColumns = [ 'B', 'D', 'E', 'T', 'U', 'V', 'X', 'Y' ];
+        
+        $reader = IOFactory::createReader(self::inputFileType);
+        $reader->getReadDataOnly(true);
+        $spreadsheet = $reader->load($filename);
+        $sheets = $spreadsheet->getSheetCount();
+        
+        $worksheet = $spreadsheet->getSheet(1);
+        $rowIterator = $worksheet->getRowIterator(4);
+        
+        $branches = Branch::all('name');
+        dump($branches);
+        
+        foreach ($rowIterator as $row) {
+            $columnIterator = $row->getCellIterator($requiredColumns[0]);
+            
+            dump($row);
+            if ($row->getRowIndex() > 19) break;
+            foreach ($columnIterator as $cell) {
+                $currentColumn = $cell->getColumn();
+                
+                if (in_array($currentColumn, $requiredColumns)) {
+                    $cellValue = $cell->getValue();
+                    dump("$currentColumn : $cell");
+                    switch ($currentColumn) {
+                        case $requiredColumns[0]:
+                            if (in_array($cell, ))
+                            break;
+                        case $requiredColumns[1]:
+                            break;
+                        case $requiredColumns[2]:
+                        case $requiredColumns[3]:
+                        case $requiredColumns[4]:
+                            break;
+                        case $requiredColumns[5]:
+                            break;
+                        case $requiredColumns[0]:
+                            break;
+                    }
+                }
+            }
+        }
     }
 }

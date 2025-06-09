@@ -20,15 +20,17 @@ use App\MoonShine\Resources\EmployeeCategoryResource;
 use App\MoonShine\Resources\EmployeeResource;
 use App\MoonShine\Resources\PermitResource;
 use App\MoonShine\Resources\TrainingEventResource;
+use MoonShine\Contracts\AssetManager\AssetManagerContract;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
     /**
      * @param  MoonShine  $core
      * @param  MoonShineConfigurator  $config
+     * @param  AssetManagerContract  $assets
      *
      */
-    public function boot(CoreContract $core, ConfiguratorContract $config): void
+    public function boot(CoreContract $core, ConfiguratorContract $config, AssetManagerContract $assets): void
     {
         // $config->authEnable();
         $config->title('AEPS');
