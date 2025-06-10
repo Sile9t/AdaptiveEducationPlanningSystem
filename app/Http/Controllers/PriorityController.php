@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PriorityUploadRequest;
 use App\Models\Branch;
+use App\Models\TrainingProgram;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -68,39 +69,68 @@ class PriorityController extends Controller
         $sheets = $spreadsheet->getSheetCount();
         
         $worksheet = $spreadsheet->getSheet(1);
+        $rowCount = $worksheet->getHighestRow();
+
         $rowIterator = $worksheet->getRowIterator(4);
         
-        $branches = Branch::all('name');
+        $branches = Branch::all('name')->toArray();
         dump($branches);
         
-        foreach ($rowIterator as $row) {
-            $columnIterator = $row->getCellIterator($requiredColumns[0]);
+        $programs = TrainingProgram::all('title')->toArray();
+
+        for ($rowIndex=4; $rowIndex < 100; $rowIndex++) { 
+            $program1 = $worksheet->getCell($requiredColumns[3] . $rowIndex)->getValue();
+            $program2 = $worksheet->getCell($requiredColumns[4] . $rowIndex)->getValue();
+            $program3 = $worksheet->getCell($requiredColumns[5] . $rowIndex)->getValue();
+            // dump($program1 . ' | ' . $program2 . ' | ' . $program3);
             
-            dump($row);
-            if ($row->getRowIndex() > 19) break;
-            foreach ($columnIterator as $cell) {
-                $currentColumn = $cell->getColumn();
-                
-                if (in_array($currentColumn, $requiredColumns)) {
-                    $cellValue = $cell->getValue();
-                    dump("$currentColumn : $cell");
-                    switch ($currentColumn) {
-                        case $requiredColumns[0]:
-                            if (in_array($cell, ))
-                            break;
-                        case $requiredColumns[1]:
-                            break;
-                        case $requiredColumns[2]:
-                        case $requiredColumns[3]:
-                        case $requiredColumns[4]:
-                            break;
-                        case $requiredColumns[5]:
-                            break;
-                        case $requiredColumns[0]:
-                            break;
-                    }
+            foreach ($programs as $program) {
+                if (
+                    stristr($program1, $program['title'])
+                    || stristr($program2, $program['title'])
+                    || stristr($program3, $program['title'])
+                ) {
+                    dump("Founded program: " . $program['title']);
+                    break;
                 }
             }
         }
+
+        // foreach ($rowIterator as $row) {
+        //     $columnIterator = $row->getCellIterator($requiredColumns[0]);
+            
+        //     dump($row);
+        //     if ($row->getRowIndex() > 19) break;
+        //     foreach ($columnIterator as $cell) {
+        //         $currentColumn = $cell->getColumn();
+                
+        //         if (in_array($currentColumn, $requiredColumns)) {
+        //             $cellValue = $cell->getValue();
+        //             dump("$currentColumn : $cell");
+                    
+        //             switch ($currentColumn) {
+        //                 case $requiredColumns[0]:
+        //                     if (! empty(Branch::where('name', '==', $cell)->get()))
+        //                         $columnIterator->rewind();
+        //                     if (in_array($cell->getValue(), $branches))
+        //                         $row->next();
+        //                     break;
+
+        //                 case $requiredColumns[1]:
+        //                     break;
+                            
+        //                 case $requiredColumns[2]:
+        //                 case $requiredColumns[3]:
+        //                 case $requiredColumns[4]:
+        //                     break;
+
+        //                 case $requiredColumns[5]:
+        //                     break;
+        //                 case $requiredColumns[0]:
+        //                     break;
+        //             }
+        //         }
+        //     }
+        // }
     }
 }
