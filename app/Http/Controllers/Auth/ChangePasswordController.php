@@ -18,17 +18,6 @@ use Inertia\Response;
 
 class ChangePasswordController extends Controller
 {
-    public function create(Request $request): Response
-    {
-        $email = Auth::user()->email;
-        
-        // return view('auth.change-password', ['email' => $email, 'request' => $request]);
-        
-        return Inertia::render('Auth/ChangePassword', [
-            'status' => session('status')
-        ]);
-    }
-
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
