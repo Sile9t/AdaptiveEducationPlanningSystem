@@ -4,7 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PriorityUploadRequest;
 use App\Models\Branch;
+use App\Models\EmployeeCategory;
+use App\Models\Permit;
+use App\Models\Priority;
+use App\Models\PriorityStatus;
 use App\Models\TrainingProgram;
+use Carbon\Carbon;
+use DateTime;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +25,7 @@ class PriorityController extends Controller
     const uploadFolderName = 'uploads';
     const inputFileType = "Xlsx";
 
-    public function index(): View
+    public function index(): 
     {
         $userIdHash = hash('sha256', Auth::user()->id);
         $fileName = $userIdHash . '_' . '5366.xlsx';
@@ -30,12 +36,12 @@ class PriorityController extends Controller
         $file = Storage::path($filePath);
         
         if (! $file) {
-            return view('priority.empty');
+            return 'No available data';
         }
         
         self::processFile($file);
 
-        return view('priority.index');
+        return Priority::all();
     }
 
     public function upload(Request $request): RedirectResponse
@@ -58,6 +64,18 @@ class PriorityController extends Controller
         return redirect()->route('priority.index')->with('message', 'File uploaded successfully.');
     }
 
+    function getFittingPriorityStatus(DateTime $expired_date)
+    {
+        $diff = $expired_date - now();
+        $diffYears = floor($diff / (365*60*60*24));
+
+        if ($diffYears >= 2) return PriorityStatus::Active;
+        if (1 <= $diffYears && $diffYears < 2) return PriorityStatus::Control;
+        if (0 < $diffYears && $diffYears < 1) return PriorityStatus::Expiring;
+            
+        return PriorityStatus::Passed;                
+    }
+
     function processFile(string $filename)
     {
         // Needed columns: B, D, E, T, U, V, X, Y
@@ -66,71 +84,98 @@ class PriorityController extends Controller
         $reader = IOFactory::createReader(self::inputFileType);
         $reader->getReadDataOnly(true);
         $spreadsheet = $reader->load($filename);
-        $sheets = $spreadsheet->getSheetCount();
-        
-        $worksheet = $spreadsheet->getSheet(1);
-        $rowCount = $worksheet->getHighestRow();
 
-        $rowIterator = $worksheet->getRowIterator(4);
+        $sheets = $spreadsheet->getAllSheets();
+        $sheetNames = $spreadsheet->getSheetNames();
         
-        $branches = Branch::all('name')->toArray();
-        dump($branches);
+        $worksheet = $sheets[1];
+        $sheetNameAsCategory = $sheetNames[1];
+
+        $rowCount = $worksheet->getHighestRow();
         
-        $programs = TrainingProgram::all('title')->toArray();
+        $categories = EmployeeCategory::all('id', 'name');
+        $branches = Branch::all('id', 'name')->toArray();
+        $permits = Permit::all();
+        $programs = TrainingProgram::all('id', 'title');
+
+        $currentCategory = $categories->first(fn ($category, $key) => strcasecmp($category['name'], $sheetNameAsCategory) == 0);
 
         for ($rowIndex=4; $rowIndex < 100; $rowIndex++) { 
-            $program1 = $worksheet->getCell($requiredColumns[3] . $rowIndex)->getValue();
-            $program2 = $worksheet->getCell($requiredColumns[4] . $rowIndex)->getValue();
-            $program3 = $worksheet->getCell($requiredColumns[5] . $rowIndex)->getValue();
-            // dump($program1 . ' | ' . $program2 . ' | ' . $program3);
-            
-            foreach ($programs as $program) {
-                if (
-                    stristr($program1, $program['title'])
-                    || stristr($program2, $program['title'])
-                    || stristr($program3, $program['title'])
-                ) {
-                    dump("Founded program: " . $program['title']);
-                    break;
+            $finalProgram = $worksheet->getCell($requiredColumns[4] . $rowIndex)->getValue();
+
+            if (! isset($finalProgram) || $finalProgram === '') {
+                $finalProgram = $worksheet->getCell($requiredColumns[5] . $rowIndex)->getValue();
+
+                if (! isset($finalProgram) || $finalProgram === '') {
+                   $finalProgram = $worksheet->getCell($requiredColumns[3] . $rowIndex)->getValue();
                 }
             }
+
+            // Skip if all training program was empty 
+            if (! isset($finalProgram) || $finalProgram === '') continue;
+
+            $program = $programs->first(fn ($p, $k) => stristr($finalProgram, $p));
+            if (! isset($program)) continue;
+            $branch = $worksheet->getCell($requiredColumns[0] . $rowIndex);
+            $position = $worksheet->getCell($requiredColumns[2] . $rowIndex);
+            $passed_at = now()->addDays(array_rand(range(-50, 50)))->addYears(range(-2, 1))->toDateTime();
+            $periodicity = $permits
+                ->first(
+                    fn ($permit) => 
+                        $permit['program_id'] == $program['id'] 
+                        && $permit['category_id'] == $currentCategory['id'],
+                )['periodicity_years'];
+            $expired_at = Carbon::parse($passed_at)->addYears($periodicity);
+            $status = self::getFittingPriorityStatus($expired_at);
+
+            $priority = Priority::factory()->create([
+                'category' => $currentCategory,
+                'position' => $position,
+                'branch' => $branch,
+                'permit' => $finalProgram,
+                'passed_at' => $passed_at,
+                'expired_at' => $expired_at,
+                'status' => $status,
+            ]);
+
+            // $programCells = [];
+            // $programCells[] = $worksheet->getCell($requiredColumns[3] . $rowIndex)->getValue();
+            // $programCells[] = $worksheet->getCell($requiredColumns[4] . $rowIndex)->getValue();
+            // $programCells[] = $worksheet->getCell($requiredColumns[5] . $rowIndex)->getValue();
+            
+            // foreach ($programs as $program) {
+            //     if (
+            //         stristr($programCells[0], $program['title'])
+            //         || stristr($programCells[1], $program['title'])
+            //         || stristr($programCells[2], $program['title'])
+            //     ) {
+            //         dump("Founded program: " . $program['title']);
+            //         break;
+
+            //         $branch = $worksheet->getCell($requiredColumns[0] . $rowIndex);
+            //         $position = $worksheet->getCell($requiredColumns[2] . $rowIndex);
+            //         $passed_at = now()->addDays(Arr::random(range(-50, 50)))->addYears(range(-2, 1))->toDateTime();
+            //         $periodicity = $permits
+            //             ->first(
+            //                 fn ($permit) => 
+            //                     $permit['program_id'] == $program['id'] 
+            //                     && $permit['category_id'] == $currentCategory['id'],
+            //             )['periodicity_years'];
+            //         $expired_at = $passed_at->addYears($periodicity);
+            //         $status = getFittingPriorityStatus($expired_at);
+
+            //         Priority::factory()->create([
+            //             'category' => $category,
+            //             'position' => $position,
+            //             'branch' => $branch,
+            //             'permit' => $program['title'],
+            //             'passed_at' => $passed_at,
+            //             'expired_at' => $expired_at,
+            //             'status' => $status,
+            //         ]);
+            //     }
+            // }
         }
 
-        // foreach ($rowIterator as $row) {
-        //     $columnIterator = $row->getCellIterator($requiredColumns[0]);
-            
-        //     dump($row);
-        //     if ($row->getRowIndex() > 19) break;
-        //     foreach ($columnIterator as $cell) {
-        //         $currentColumn = $cell->getColumn();
-                
-        //         if (in_array($currentColumn, $requiredColumns)) {
-        //             $cellValue = $cell->getValue();
-        //             dump("$currentColumn : $cell");
-                    
-        //             switch ($currentColumn) {
-        //                 case $requiredColumns[0]:
-        //                     if (! empty(Branch::where('name', '==', $cell)->get()))
-        //                         $columnIterator->rewind();
-        //                     if (in_array($cell->getValue(), $branches))
-        //                         $row->next();
-        //                     break;
-
-        //                 case $requiredColumns[1]:
-        //                     break;
-                            
-        //                 case $requiredColumns[2]:
-        //                 case $requiredColumns[3]:
-        //                 case $requiredColumns[4]:
-        //                     break;
-
-        //                 case $requiredColumns[5]:
-        //                     break;
-        //                 case $requiredColumns[0]:
-        //                     break;
-        //             }
-        //         }
-        //     }
-        // }
     }
 }
