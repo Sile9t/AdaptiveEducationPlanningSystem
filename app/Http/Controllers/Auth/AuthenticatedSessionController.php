@@ -5,26 +5,54 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Support\Facades\Pipeline;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\View\View;
-use MoonShine\Laravel\Http\Requests\LoginFormRequest;
 use MoonShine\Laravel\Models\MoonshineUser;
 use MoonShine\Laravel\MoonShineAuth;
+use OpenApi\Annotations as OA;
 
+/**
+ *  @OA\Info(
+ *      version="1.0.0",
+ *      title="Authentication controller"
+ *  )
+ */
 class AuthenticatedSessionController extends Controller
 {
     /**
-     * Display the login view.
-     */
-    public function create(): View
-    {
-        return view('auth.login');
-    }
-
-    /**
+     * @OA\Post(
+     *      path="/login",
+     *      summary="Login a user",
+     *      @OA\RequestBody(
+     *          @OA\MediaType(
+     *              mediaType="application/json",
+     *              @OA\Schema(
+     *                  @OA\Property(
+     *                      property="email",
+     *                      type="string"             
+     *                  ),
+     *                  @OA\Property(
+     *                      property="password",
+     *                      type="string"
+     *                  ),
+     *                  @OA\Property(
+     *                      property="remember",
+     *                      type="boolean"
+     *                  )
+     *              )
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=302,
+     *          description="Redirect"
+     *      ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad request"
+     *      )
+     * )
+     * 
      * Handle an incoming authentication request.
      */
     public function store(LoginRequest $request): RedirectResponse
@@ -32,13 +60,33 @@ class AuthenticatedSessionController extends Controller
         $admin = MoonshineUser::where('email', $request['email'])->first();
         
         if ($admin) {
-            if (MoonShineAuth::getGuard()->attempt(
+            // $moonshineRequest = new LoginFormRequest();
+            // $moonshineRequest['username'] = $request['email']; 
+            // $moonshineRequest['password'] = $request['password'];
+
+            // if (filled(moonshineConfig()->getAuthPipelines())) {
+            //     $moonshineRequest = Pipeline::send($moonshineRequest)->through(
+            //         moonshineConfig()->getAuthPipelines()
+            //     )->thenReturn();
+            // }
+
+            // // dd("Moonshine request: " . $moonshineRequest);
+            // $moonshineRequest->authenticate();
+            // return redirect()->intended(
+            //     moonshineRouter()->getEndpoints()->home()
+            // );
+
+            $authenticated = MoonShineAuth::getGuard()->attempt(
                 [
                     moonshineConfig()->getUserField('username', 'email') => $request['email'],
                     moonshineConfig()->getUserField('password') => $request['password'],
                 ],
                 $request->boolean('remember')
-            )){
+            );
+
+            $request->session()->regenerate();
+
+            if ($authenticated) {
                 return redirect()->intended(
                     moonshineRouter()->getEndpoints()->home()
                 );
@@ -46,16 +94,25 @@ class AuthenticatedSessionController extends Controller
         }
 
         $request->authenticate();
-
-        if (Auth::user()->must_change_password)
-            return redirect()->route('change-password', ['email' => Auth::user()->email]);
-
         $request->session()->regenerate();
+        if (Auth::user()->must_change_password == true) {
+            return redirect()->intended('change-password');
+        }
 
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**
+     *  @OA\Post(
+     *      path="/logout",
+     *      summary="Logout a user",
+     *      @OA\RequestBody(),
+     *      @OA\Response(
+     *          response=302,
+     *          description="Redirect"
+     *      )
+     *  )
+     * 
      * Destroy an authenticated session.
      */
     public function destroy(Request $request): RedirectResponse
