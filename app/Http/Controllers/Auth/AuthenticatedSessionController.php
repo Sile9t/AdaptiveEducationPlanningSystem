@@ -8,17 +8,51 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Pipeline;
-use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
-use Inertia\Response;
-use MoonShine\Laravel\Http\Requests\LoginFormRequest;
 use MoonShine\Laravel\Models\MoonshineUser;
 use MoonShine\Laravel\MoonShineAuth;
+use OpenApi\Annotations as OA;
 
+/**
+ *  @OA\Info(
+ *      version="1.0.0",
+ *      title="Authentication controller"
+ *  )
+ */
 class AuthenticatedSessionController extends Controller
 {
     /**
+     * @OA\Post(
+     *      path="/login",
+     *      summary="Login a user",
+     *      @OA\RequestBody(
+     *          @OA\MediaType(
+     *              mediaType="application/json",
+     *              @OA\Schema(
+     *                  @OA\Property(
+     *                      property="email",
+     *                      type="string"             
+     *                  ),
+     *                  @OA\Property(
+     *                      property="password",
+     *                      type="string"
+     *                  ),
+     *                  @OA\Property(
+     *                      property="remember",
+     *                      type="boolean"
+     *                  )
+     *              )
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=302,
+     *          description="Redirect"
+     *      ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad request"
+     *      )
+     * )
+     * 
      * Handle an incoming authentication request.
      */
     public function store(LoginRequest $request): RedirectResponse
@@ -69,6 +103,16 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
+     *  @OA\Post(
+     *      path="/logout",
+     *      summary="Logout a user",
+     *      @OA\RequestBody(),
+     *      @OA\Response(
+     *          response=302,
+     *          description="Redirect"
+     *      )
+     *  )
+     * 
      * Destroy an authenticated session.
      */
     public function destroy(Request $request): RedirectResponse
