@@ -41,7 +41,7 @@ class PriorityController extends Controller
         
         self::processFile($file);
 
-        return Priority::all();
+        return Priority::all()->toResourceCollection();
     }
 
     public function upload(Request $request): RedirectResponse
