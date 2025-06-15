@@ -25,7 +25,7 @@ class PriorityController extends Controller
     const uploadFolderName = 'uploads';
     const inputFileType = "Xlsx";
 
-    public function index(): 
+    public function index()
     {
         $userIdHash = hash('sha256', Auth::user()->id);
         $fileName = $userIdHash . '_' . '5366.xlsx';
