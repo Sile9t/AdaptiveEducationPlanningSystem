@@ -36,18 +36,22 @@ class AuthenticateController extends Controller
      *                  ),
      *                  @OA\Property(
      *                      property="remember",
-     *                      type="boolean"
+     *                      type="boolean",
      *                  )
      *              )
      *          )
      *      ),
      *      @OA\Response(
-     *          response=302,
-     *          description="Redirect"
+     *          response=200,
+     *          description="OK"
      *      ),
      *      @OA\Response(
-     *          response=400,
-     *          description="Bad request"
+     *          response=302,
+     *          description="Redirect to MoonShine Home page"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthorized"
      *      )
      * )
      * 
@@ -95,7 +99,6 @@ class AuthenticateController extends Controller
      *  @OA\Post(
      *      path="/api/logout",
      *      summary="Logout a user",
-     *      @OA\RequestBody(),
      *      @OA\Response(
      *          response=302,
      *          description="Redirect"
