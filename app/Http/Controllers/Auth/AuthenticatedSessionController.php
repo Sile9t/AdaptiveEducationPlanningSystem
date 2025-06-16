@@ -20,6 +20,11 @@ use OpenApi\Annotations as OA;
  */
 class AuthenticatedSessionController extends Controller
 {
+    public function create()
+    {
+        return view('auth.login');
+    }
+
     /**
      * @OA\Post(
      *      path="/login",
