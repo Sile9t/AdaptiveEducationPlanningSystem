@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\AuthenticateController;
+use App\Http\Controllers\Auth\ChangePasswordController;
+use App\Http\Controllers\PriorityController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +21,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-require __DIR__.'/auth.php';
+Route::post('login', [AuthenticateController::class, 'store']);
+
+Route::post('logout', [AuthenticateController::class, 'destroy']);
+Route::post('change-password', [ChangePasswordController::class, 'store']);
+
+Route::controller(PriorityController::class)->prefix('priority')->name('priority.')->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::post('/upload', 'upload')->name('upload');
+});
