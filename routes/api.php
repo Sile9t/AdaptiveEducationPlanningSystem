@@ -21,12 +21,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('login', function () {
+    return "Send your credentials";
+})->name('login');
 Route::post('login', [AuthenticateController::class, 'store']);
 
-Route::post('logout', [AuthenticateController::class, 'destroy']);
-Route::post('change-password', [ChangePasswordController::class, 'store']);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('logout', [AuthenticateController::class, 'destroy']);
+    Route::post('change-password', [ChangePasswordController::class, 'store']);
+});
 
-Route::controller(PriorityController::class)->prefix('priority')->name('priority.')->group(function () {
+Route::middleware('auth:sanctum')->controller(PriorityController::class)->prefix('priority')->name('priority.')->group(function () {
     Route::get('/', 'index')->name('index');
     Route::post('/upload', 'upload')->name('upload');
 });

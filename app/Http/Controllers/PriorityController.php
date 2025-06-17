@@ -15,8 +15,6 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Validation\ValidationException;
-use Illuminate\View\View;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Reader\IReader;
 
@@ -36,12 +34,16 @@ class PriorityController extends Controller
         $file = Storage::path($filePath);
         
         if (! $file) {
-            return 'No available data';
+            return  response()->json([
+                'message' => 'No available data',
+            ]);
         }
         
         self::processFile($file);
 
-        return Priority::all()->toResourceCollection();
+        $query = Priority::orderBy('id', 'asc');
+        $query = $query->groupBy('status');
+        return $query->paginate()->toResourceCollection();
     }
 
     public function upload(Request $request): RedirectResponse
@@ -66,7 +68,7 @@ class PriorityController extends Controller
 
     function getFittingPriorityStatus(DateTime $expired_date)
     {
-        $diff = $expired_date - now();
+        $diff = now()->date_diff($expired_date);
         $diffYears = floor($diff / (365*60*60*24));
 
         if ($diffYears >= 2) return PriorityStatus::Active;
@@ -88,93 +90,59 @@ class PriorityController extends Controller
         $sheets = $spreadsheet->getAllSheets();
         $sheetNames = $spreadsheet->getSheetNames();
         
-        $worksheet = $sheets[1];
-        $sheetNameAsCategory = $sheetNames[1];
+        for ($sheetIndex=0; $sheetIndex < count($sheets); $sheetIndex++) { 
+            $worksheet = $sheets[$sheetIndex];
+            $sheetNameAsCategory = $sheetNames[$sheetIndex];
+    
+            $categories = EmployeeCategory::all('id', 'name');
+            $currentCategory = $categories->first(fn ($category, $key) => strcasecmp($category['name'], $sheetNameAsCategory) == 0);
+            if (! isset($currentCategory) || $currentCategory == '') continue;
 
-        $rowCount = $worksheet->getHighestRow();
-        
-        $categories = EmployeeCategory::all('id', 'name');
-        $branches = Branch::all('id', 'name')->toArray();
-        $permits = Permit::all();
-        $programs = TrainingProgram::all('id', 'title');
-
-        $currentCategory = $categories->first(fn ($category, $key) => strcasecmp($category['name'], $sheetNameAsCategory) == 0);
-
-        for ($rowIndex=4; $rowIndex < 100; $rowIndex++) { 
-            $finalProgram = $worksheet->getCell($requiredColumns[4] . $rowIndex)->getValue();
-
-            if (! isset($finalProgram) || $finalProgram === '') {
-                $finalProgram = $worksheet->getCell($requiredColumns[5] . $rowIndex)->getValue();
-
-                if (! isset($finalProgram) || $finalProgram === '') {
-                   $finalProgram = $worksheet->getCell($requiredColumns[3] . $rowIndex)->getValue();
-                }
-            }
-
-            // Skip if all training program was empty 
-            if (! isset($finalProgram) || $finalProgram === '') continue;
-
-            $program = $programs->first(fn ($p, $k) => stristr($finalProgram, $p));
-            if (! isset($program)) continue;
-            $branch = $worksheet->getCell($requiredColumns[0] . $rowIndex);
-            $position = $worksheet->getCell($requiredColumns[2] . $rowIndex);
-            $passed_at = now()->addDays(array_rand(range(-50, 50)))->addYears(range(-2, 1))->toDateTime();
-            $periodicity = $permits
-                ->first(
-                    fn ($permit) => 
-                        $permit['program_id'] == $program['id'] 
-                        && $permit['category_id'] == $currentCategory['id'],
-                )['periodicity_years'];
-            $expired_at = Carbon::parse($passed_at)->addYears($periodicity);
-            $status = self::getFittingPriorityStatus($expired_at);
-
-            $priority = Priority::factory()->create([
-                'category' => $currentCategory,
-                'position' => $position,
-                'branch' => $branch,
-                'permit' => $finalProgram,
-                'passed_at' => $passed_at,
-                'expired_at' => $expired_at,
-                'status' => $status,
-            ]);
-
-            // $programCells = [];
-            // $programCells[] = $worksheet->getCell($requiredColumns[3] . $rowIndex)->getValue();
-            // $programCells[] = $worksheet->getCell($requiredColumns[4] . $rowIndex)->getValue();
-            // $programCells[] = $worksheet->getCell($requiredColumns[5] . $rowIndex)->getValue();
+            $rowCount = $worksheet->getHighestRow();
             
-            // foreach ($programs as $program) {
-            //     if (
-            //         stristr($programCells[0], $program['title'])
-            //         || stristr($programCells[1], $program['title'])
-            //         || stristr($programCells[2], $program['title'])
-            //     ) {
-            //         dump("Founded program: " . $program['title']);
-            //         break;
-
-            //         $branch = $worksheet->getCell($requiredColumns[0] . $rowIndex);
-            //         $position = $worksheet->getCell($requiredColumns[2] . $rowIndex);
-            //         $passed_at = now()->addDays(Arr::random(range(-50, 50)))->addYears(range(-2, 1))->toDateTime();
-            //         $periodicity = $permits
-            //             ->first(
-            //                 fn ($permit) => 
-            //                     $permit['program_id'] == $program['id'] 
-            //                     && $permit['category_id'] == $currentCategory['id'],
-            //             )['periodicity_years'];
-            //         $expired_at = $passed_at->addYears($periodicity);
-            //         $status = getFittingPriorityStatus($expired_at);
-
-            //         Priority::factory()->create([
-            //             'category' => $category,
-            //             'position' => $position,
-            //             'branch' => $branch,
-            //             'permit' => $program['title'],
-            //             'passed_at' => $passed_at,
-            //             'expired_at' => $expired_at,
-            //             'status' => $status,
-            //         ]);
-            //     }
-            // }
+            $branches = Branch::all('id', 'name')->toArray();
+            $permits = Permit::all();
+            $programs = TrainingProgram::all('id', 'title');
+    
+    
+            for ($rowIndex=4; $rowIndex < $rowCount; $rowIndex++) { 
+                $finalProgram = $worksheet->getCell($requiredColumns[4] . $rowIndex)->getValue();
+    
+                if (! isset($finalProgram) || $finalProgram === '') {
+                    $finalProgram = $worksheet->getCell($requiredColumns[5] . $rowIndex)->getValue();
+    
+                    if (! isset($finalProgram) || $finalProgram === '') {
+                       $finalProgram = $worksheet->getCell($requiredColumns[3] . $rowIndex)->getValue();
+                    }
+                }
+    
+                if (! isset($finalProgram) || $finalProgram === '') continue;
+    
+                $program = $programs->first(fn ($p, $k) => stristr($finalProgram, $p));
+                if (! isset($program) || $program == '') continue;
+                
+                $branch = $worksheet->getCell($requiredColumns[0] . $rowIndex);
+                $position = $worksheet->getCell($requiredColumns[2] . $rowIndex);
+                $passed_at = now()->addDays(array_rand(range(-50, 50)))->addYears(range(-2, 1))->toDateTime();
+                $periodicity = $permits
+                    ->first(
+                        fn ($permit) => 
+                            $permit['program_id'] == $program['id'] 
+                            && $permit['category_id'] == $currentCategory['id'],
+                    )['periodicity_years'];
+                $expired_at = Carbon::parse($passed_at)->addYears($periodicity);
+                $status = self::getFittingPriorityStatus($expired_at);
+    
+                $priority = Priority::factory()->create([
+                    'category' => $currentCategory,
+                    'position' => $position,
+                    'branch' => $branch,
+                    'permit' => $finalProgram,
+                    'passed_at' => $passed_at,
+                    'expired_at' => $expired_at,
+                    'status' => $status,
+                ]);
+            }
         }
 
     }
