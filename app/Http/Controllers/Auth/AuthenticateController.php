@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use MoonShine\Laravel\Models\MoonshineUser;
+use App\Models\MoonshineUser;
+use Laravel\Sanctum\Contracts\HasApiTokens;
 use MoonShine\Laravel\MoonShineAuth;
 use OpenApi\Annotations as OA;
 
@@ -64,18 +65,22 @@ class AuthenticateController extends Controller
             'password' => ['required', 'string'],
         ]);
         
-        if (MoonshineUser::where('email', $request->email)->first()) {
+        $user = MoonshineUser::where('email', $request->email)->first();
+        if ($user) {
             $authenticated = MoonShineAuth::getGuard()->attempt(
                 [
-                    moonshineConfig()->getUserField('username', 'email') => $request->email,
+                    moonshineConfig()->getUserField('username', 'email') =>  $request->email,
                     moonshineConfig()->getUserField('password') => $request->password,
                 ],
                 $request->boolean('remember')
             );
 
-            if ($authenticated) return redirect()->intended(
-                moonshineRouter()->getEndpoints()->home()
-            );
+            if ($authenticated) {
+                self::createTokenForUser($user);
+                return redirect()->intended(
+                    moonshineRouter()->getEndpoints()->home()
+                );
+            }
         }
         
         if (! Auth::attempt($credentials)) {
@@ -85,17 +90,23 @@ class AuthenticateController extends Controller
         }
 
         $user = User::where('email', $request->email)->first();
-        Auth::user()->tokens->each(function ($token, $key) {
-            $token->delete();
-        });
-        
-        $token = $user->createToken('auth_token', ['*'], now()->addMinutes(30))->plainTextToken;
+        $token = self::createTokenForUser($user);
 
         return response()->json([
             'access_token' => $token,
             'token_type' => 'Bearer',
             'expires_at' => 30 * 60
         ]);
+    }
+    
+    function createTokenForUser($user)
+    {
+        if (isset(Auth::user()->tokens))
+            Auth::user()->tokens->each(function ($token, $key) {
+                $token->delete();
+            });
+        
+        return $user->createToken('auth_token', ['*'], now()->addMinutes(30))->plainTextToken;
     }
 
     /**
