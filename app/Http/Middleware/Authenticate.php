@@ -16,9 +16,9 @@ class Authenticate extends Middleware
             if ($request->user()->tokenCan('[*]')) 
                 return redirect()->next();
 
-            return route('login');
+            return 'You are not logged or token is expired';
         }
 
-        return $request->expectsJson() ? null : null;
+        return $request->expectsJson() ? 'You are not logged or token is expired' : null;
     }
 }

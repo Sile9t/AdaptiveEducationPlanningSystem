@@ -85,7 +85,10 @@ class AuthenticateController extends Controller
         }
 
         $user = User::where('email', $request->email)->first();
-
+        Auth::user()->tokens->each(function ($token, $key) {
+            $token->delete();
+        });
+        
         $token = $user->createToken('auth_token', ['*'], now()->addMinutes(30))->plainTextToken;
 
         return response()->json([
@@ -105,12 +108,16 @@ class AuthenticateController extends Controller
      *      )
      *  )
      * 
-     * Destroy an authenticated session.
+     * Destroy an authenticated token.
      */
     public function destroy(Request $request)
     {
-        Auth::logout();
+        $request->user()->tokens->each(function ($token, $key) {
+            $token->delete();
+        });
 
-        return redirect('/');
+        return response()->json([
+            'message' => 'You are logged out'
+        ]);
     }
 }

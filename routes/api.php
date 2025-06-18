@@ -20,9 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('login', function () {
-    return "Send your credentials";
-})->name('login');
 Route::post('login', [AuthenticateController::class, 'store']);
 
 Route::middleware('auth:sanctum')->group(function () {
