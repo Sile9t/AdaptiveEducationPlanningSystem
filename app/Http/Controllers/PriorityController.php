@@ -7,6 +7,7 @@ use App\Models\Branch;
 use App\Models\EmployeeCategory;
 use App\Models\Permit;
 use App\Models\Priority;
+use App\Models\PriorityDTO;
 use App\Models\PriorityStatus;
 use App\Models\TrainingProgram;
 use Carbon\Carbon;
@@ -14,6 +15,7 @@ use DateTime;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Storage;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Reader\IReader;
@@ -25,7 +27,8 @@ class PriorityController extends Controller
 
     public function index()
     {
-        $userIdHash = hash('sha256', Auth::user()->id);
+        $userId = Auth::user()->id;
+        $userIdHash = hash('sha256', $userId);
         $fileName = $userIdHash . '_' . '5366.xlsx';
 
         $folderPath = self::uploadFolderName . '/'. $userIdHash;
@@ -38,12 +41,19 @@ class PriorityController extends Controller
                 'message' => 'No available data',
             ]);
         }
-        
-        self::processFile($file);
 
-        $query = Priority::orderBy('id', 'asc');
-        $query = $query->groupBy('status');
-        return $query->paginate()->toResourceCollection();
+        $redisKey = hash('sha256', "priority$userId");
+        
+        self::processFile($file, $userId);
+
+        $data = Redis::get($redisKey);
+        return response()->json(
+            // json_encode($data)
+            $data
+        );
+        // $query = Priority::orderBy('id', 'asc');
+        // $query = $query->groupBy('status');
+        // return $query->paginate()->toResourceCollection();
     }
 
     public function upload(Request $request): RedirectResponse
@@ -78,11 +88,13 @@ class PriorityController extends Controller
         return PriorityStatus::Passed;                
     }
 
-    function processFile(string $filename)
+    function processFile(string $filename, int $userId)
     {
         // Needed columns: B, D, E, T, U, V, X, Y
         $requiredColumns = [ 'B', 'D', 'E', 'T', 'U', 'V', 'X', 'Y' ];
         
+        $redisKey = hash('sha256', "priority$userId");
+
         $reader = IOFactory::createReader(self::inputFileType);
         $reader->getReadDataOnly(true);
         $spreadsheet = $reader->load($filename);
@@ -90,6 +102,8 @@ class PriorityController extends Controller
         $sheets = $spreadsheet->getAllSheets();
         $sheetNames = $spreadsheet->getSheetNames();
         
+        $priorities = collect();
+
         for ($sheetIndex=0; $sheetIndex < count($sheets); $sheetIndex++) { 
             $worksheet = $sheets[$sheetIndex];
             $sheetNameAsCategory = $sheetNames[$sheetIndex];
@@ -103,8 +117,7 @@ class PriorityController extends Controller
             $branches = Branch::all('id', 'name')->toArray();
             $permits = Permit::all();
             $programs = TrainingProgram::all('id', 'title');
-    
-    
+        
             for ($rowIndex=4; $rowIndex < $rowCount; $rowIndex++) { 
                 $finalProgram = $worksheet->getCell($requiredColumns[4] . $rowIndex)->getValue();
     
@@ -133,17 +146,26 @@ class PriorityController extends Controller
                 $expired_at = Carbon::parse($passed_at)->addYears($periodicity);
                 $status = self::getFittingPriorityStatus($expired_at);
     
-                $priority = Priority::factory()->create([
-                    'category' => $currentCategory,
-                    'position' => $position,
-                    'branch' => $branch,
-                    'permit' => $finalProgram,
-                    'passed_at' => $passed_at,
-                    'expired_at' => $expired_at,
-                    'status' => $status,
-                ]);
+                $id = PriorityDTO::count();
+                $full_name = "employee$id";
+                $priority = PriorityDTO::create(
+                    $full_name,
+                    $currentCategory,
+                    $position,
+                    $branch,
+                    $finalProgram,
+                    $passed_at,
+                    $expired_at,
+                    $status
+                );
+
+                $priorities->push($priority);
             }
         }
-
+        
+        Redis::set(
+            $redisKey,
+            $priorities->toJson()
+        );
     }
 }
