@@ -47,10 +47,6 @@ class AuthenticateController extends Controller
      *          description="OK"
      *      ),
      *      @OA\Response(
-     *          response=302,
-     *          description="Redirect to MoonShine Home page"
-     *      ),
-     *      @OA\Response(
      *          response=401,
      *          description="Unauthorized"
      *      )
