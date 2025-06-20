@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use MoonShine\Laravel\Models\MoonshineUser;
+use App\Models\MoonshineUser;
+use Laravel\Sanctum\Contracts\HasApiTokens;
 use MoonShine\Laravel\MoonShineAuth;
 use OpenApi\Annotations as OA;
 
@@ -46,10 +47,6 @@ class AuthenticateController extends Controller
      *          description="OK"
      *      ),
      *      @OA\Response(
-     *          response=302,
-     *          description="Redirect to MoonShine Home page"
-     *      ),
-     *      @OA\Response(
      *          response=401,
      *          description="Unauthorized"
      *      )
@@ -64,20 +61,6 @@ class AuthenticateController extends Controller
             'password' => ['required', 'string'],
         ]);
         
-        if (MoonshineUser::where('email', $request->email)->first()) {
-            $authenticated = MoonShineAuth::getGuard()->attempt(
-                [
-                    moonshineConfig()->getUserField('username', 'email') => $request->email,
-                    moonshineConfig()->getUserField('password') => $request->password,
-                ],
-                $request->boolean('remember')
-            );
-
-            if ($authenticated) return redirect()->intended(
-                moonshineRouter()->getEndpoints()->home()
-            );
-        }
-        
         if (! Auth::attempt($credentials)) {
             return response()->json([
                 'message' => 'Invalid credentials'
@@ -85,14 +68,23 @@ class AuthenticateController extends Controller
         }
 
         $user = User::where('email', $request->email)->first();
-
-        $token = $user->createToken('auth_token', ['*'], now()->addMinutes(30))->plainTextToken;
+        $token = self::createTokenForUser($user);
 
         return response()->json([
             'access_token' => $token,
             'token_type' => 'Bearer',
             'expires_at' => 30 * 60
         ]);
+    }
+    
+    function createTokenForUser($user)
+    {
+        if (isset(Auth::user()->tokens))
+            Auth::user()->tokens->each(function ($token, $key) {
+                $token->delete();
+            });
+        
+        return $user->createToken('auth_token', ['*'], now()->addMinutes(30))->plainTextToken;
     }
 
     /**
@@ -105,12 +97,16 @@ class AuthenticateController extends Controller
      *      )
      *  )
      * 
-     * Destroy an authenticated session.
+     * Destroy an authenticated token.
      */
     public function destroy(Request $request)
     {
-        Auth::logout();
+        $request->user()->tokens->each(function ($token, $key) {
+            $token->delete();
+        });
 
-        return redirect('/');
+        return response()->json([
+            'message' => 'You are logged out'
+        ]);
     }
 }
