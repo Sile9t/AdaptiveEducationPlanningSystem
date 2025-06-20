@@ -159,7 +159,7 @@ class PriorityController extends Controller
                     $status
                 );
 
-                $priorities->push($priority);
+                $priorities->push($priority->toJson());
             }
         }
         
