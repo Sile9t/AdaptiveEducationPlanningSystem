@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticateController;
+use App\Http\Controllers\Auth\ChangePasswordController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +18,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::post('login', [AuthenticateController::class, 'store']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('logout', [AuthenticateController::class, 'destroy']);
+    Route::post('change-password', [ChangePasswordController::class, 'store']);
 });

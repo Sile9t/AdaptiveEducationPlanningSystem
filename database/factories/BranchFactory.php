@@ -18,7 +18,6 @@ class BranchFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'description' => fake()->paragraph(),
         ];
     }
 }

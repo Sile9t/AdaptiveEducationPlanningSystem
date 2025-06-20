@@ -13,7 +13,7 @@ use MoonShine\Laravel\Forms\LoginForm;
 use MoonShine\Laravel\Http\Middleware\Authenticate;
 use MoonShine\Laravel\Http\Middleware\ChangeLocale;
 use MoonShine\Laravel\Layouts\AppLayout;
-use MoonShine\Laravel\Models\MoonshineUser;
+use App\Models\MoonshineUser;
 use MoonShine\Laravel\Pages\Dashboard;
 use MoonShine\Laravel\Pages\ErrorPage;
 use MoonShine\Laravel\Pages\LoginPage;
@@ -74,6 +74,8 @@ return [
         'password' => 'password',
         'name' => 'name',
         'avatar' => 'avatar',
+        'accessToken' => 'accessToken',
+        'tokens' => 'tokens',
     ],
 
     // Layout, pages, forms
