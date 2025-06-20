@@ -130,7 +130,23 @@ class PriorityDTO
     }
 
     public static function count(): int {
-        return $this->count;
+        return self::$count;
+    }
+
+    public function toArray(): Array {
+        return ([
+            'priority' => [
+                'id' => $this->id,
+                'full_name' => $this->full_name(),
+                'category' => $this->category,
+                'position' => $this->position,
+                'branch' => $this->branch,
+                'permit' => $this->permit,
+                'passed_at' => $this->passed_at,
+                'expired_at' => $this->expired_at,
+                'status' => $this->status
+            ]
+        ]);
     }
 
     public function toJson(): string {

@@ -102,12 +102,12 @@ class PriorityController extends Controller
         $sheets = $spreadsheet->getAllSheets();
         $sheetNames = $spreadsheet->getSheetNames();
         
-        $priorities = collect();
+        $priorities = array();
 
         for ($sheetIndex=0; $sheetIndex < count($sheets); $sheetIndex++) { 
             $worksheet = $sheets[$sheetIndex];
             $sheetNameAsCategory = $sheetNames[$sheetIndex];
-    
+            
             $categories = EmployeeCategory::all('id', 'name');
             $currentCategory = $categories->first(fn ($category, $key) => strcasecmp($category['name'], $sheetNameAsCategory) == 0);
             if (! isset($currentCategory) || $currentCategory == '') continue;
@@ -117,20 +117,20 @@ class PriorityController extends Controller
             $branches = Branch::all('id', 'name')->toArray();
             $permits = Permit::all();
             $programs = TrainingProgram::all('id', 'title');
-        
+            
             for ($rowIndex=4; $rowIndex < $rowCount; $rowIndex++) { 
                 $finalProgram = $worksheet->getCell($requiredColumns[4] . $rowIndex)->getValue();
-    
+                
                 if (! isset($finalProgram) || $finalProgram === '') {
                     $finalProgram = $worksheet->getCell($requiredColumns[5] . $rowIndex)->getValue();
-    
+                    
                     if (! isset($finalProgram) || $finalProgram === '') {
                        $finalProgram = $worksheet->getCell($requiredColumns[3] . $rowIndex)->getValue();
                     }
                 }
-    
+                
                 if (! isset($finalProgram) || $finalProgram === '') continue;
-    
+                
                 $program = $programs->first(fn ($p, $k) => stristr($finalProgram, $p));
                 if (! isset($program) || $program == '') continue;
                 
@@ -145,7 +145,7 @@ class PriorityController extends Controller
                     )['periodicity_years'];
                 $expired_at = Carbon::parse($passed_at)->addYears($periodicity);
                 $status = self::getFittingPriorityStatus($expired_at);
-    
+                
                 $id = PriorityDTO::count();
                 $full_name = "employee$id";
                 $priority = PriorityDTO::create(
@@ -158,14 +158,19 @@ class PriorityController extends Controller
                     $expired_at,
                     $status
                 );
-
-                $priorities->push($priority->toJson());
+                
+                $priorityState = $priority->toArray();
+                Redis::set(
+                    $redisKey,
+                    $priority->toJson()
+                );
+                array_push($priorities, $priorityState);
             }
         }
         
         Redis::set(
             $redisKey,
-            $priorities->toJson()
+            json_encode($priorities)
         );
     }
 }
