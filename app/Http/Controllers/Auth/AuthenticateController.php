@@ -65,24 +65,6 @@ class AuthenticateController extends Controller
             'password' => ['required', 'string'],
         ]);
         
-        $user = MoonshineUser::where('email', $request->email)->first();
-        if ($user) {
-            $authenticated = MoonShineAuth::getGuard()->attempt(
-                [
-                    moonshineConfig()->getUserField('username', 'email') =>  $request->email,
-                    moonshineConfig()->getUserField('password') => $request->password,
-                ],
-                $request->boolean('remember')
-            );
-
-            if ($authenticated) {
-                self::createTokenForUser($user);
-                return redirect()->intended(
-                    moonshineRouter()->getEndpoints()->home()
-                );
-            }
-        }
-        
         if (! Auth::attempt($credentials)) {
             return response()->json([
                 'message' => 'Invalid credentials'
