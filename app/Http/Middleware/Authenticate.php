@@ -13,8 +13,7 @@ class Authenticate extends Middleware
     protected function redirectTo(Request $request): ?string
     {
         if ($request->expectsJson()) {
-            if ($request->user()->tokenCan('[*]')) 
-                return redirect()->next();
+            if (! is_null($request->user()) && $request->user()->tokenCan('[*]')) return redirect()->next();
 
             return 'You are not logged or token is expired';
         }
