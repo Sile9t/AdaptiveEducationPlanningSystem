@@ -71,6 +71,7 @@ class AuthenticateController extends Controller
         $token = self::createTokenForUser($user);
 
         return response()->json([
+            'must_change_password' => $user->must_change_password,
             'access_token' => $token,
             'token_type' => 'Bearer',
             'expires_at' => 30 * 60
