@@ -109,7 +109,7 @@ final class MoonShineLayout extends AppLayout
 
         $colorManager->primary('#138CFE');
         $colorManager->secondary('#138CFE');
-        $colorManager->background('#E2E3E7');
+        // $colorManager->background('#E2E3E7');
         // $colorManager->tableRow('#0D80EC');
         // $colorManager->borders('#006CD8');
         // $colorManager->dropdowns('#006CD8');
