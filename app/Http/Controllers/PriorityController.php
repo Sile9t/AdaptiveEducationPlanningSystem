@@ -142,7 +142,7 @@ class PriorityController extends Controller
                 
                 if (! isset($finalProgram) || $finalProgram === '') continue;
                 
-                $program = $programs->first(fn ($p, $k) => stristr($finalProgram, $p) !== false);
+                $program = $programs->first(fn ($p, $k) => mb_stristr($finalProgram, $p->title) !== false);
                 if (! isset($program) || $program == '') continue;
                 
                 $branch = $worksheet->getCell($requiredColumns[0] . $rowIndex);

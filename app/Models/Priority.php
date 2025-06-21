@@ -134,8 +134,7 @@ class PriorityDTO
     }
 
     public function toArray(): Array {
-        return ([
-            'priority' => [
+        return [
                 'id' => $this->id,
                 'full_name' => $this->full_name(),
                 'category' => $this->category,
@@ -145,8 +144,7 @@ class PriorityDTO
                 'passed_at' => $this->passed_at,
                 'expired_at' => $this->expired_at,
                 'status' => $this->status
-            ]
-        ]);
+            ];
     }
 
     public function toJson(): string {
