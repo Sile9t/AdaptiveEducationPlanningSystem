@@ -36,4 +36,4 @@
         - nginx.conf
 
     - name: Start docker compose
-      shell: docker compose -f /opt/dev-sapg/docker-compose-dev.yaml up -d --build && docker compose -f /opt/dev-sapg/docker-compose-dev.yaml exec backend bash -c "php artisan optimize:clear && php artisan optimize && php artisan migrate --force"
+      shell: docker compose -f /opt/dev-sapg/docker-compose-dev.yaml up -d --build && docker compose -f /opt/dev-sapg/docker-compose-dev.yaml exec backend bash -c "php artisan optimize:clear && php artisan optimize && php artisan migrate --force && php artisan l5-swagger:generate"
