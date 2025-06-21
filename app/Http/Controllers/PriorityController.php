@@ -12,11 +12,13 @@ use App\Models\PriorityStatus;
 use App\Models\TrainingProgram;
 use Carbon\Carbon;
 use DateTime;
+use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Storage;
+use morphos\Russian\NounDeclension;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Reader\IReader;
 
@@ -88,6 +90,15 @@ class PriorityController extends Controller
         return PriorityStatus::Passed;                
     }
 
+    function getNormalizedName(string $name) {
+        try {
+            $normalizedName = NounDeclension::singularize($name);
+            return $normalizedName;
+        } catch (Exception $e) {
+            return $name;
+        }
+    }
+    
     function processFile(string $filename, int $userId)
     {
         // Needed columns: B, D, E, T, U, V, X, Y
