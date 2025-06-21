@@ -120,7 +120,7 @@ class PriorityController extends Controller
             $sheetNameAsCategory = $sheetNames[$sheetIndex];
             
             $categories = EmployeeCategory::all('id', 'name');
-            $currentCategory = $categories->first(fn ($category, $key) => strcasecmp($category['name'], $sheetNameAsCategory) == 0);
+            $currentCategory = $categories->first(fn ($category, $key) => strcasecmp($category['name'], $sheetNameAsCategory) || strcasecmp($category['name'], self::getNormalizedName($sheetNameAsCategory)) == 0);
             if (! isset($currentCategory) || $currentCategory == '') continue;
 
             $rowCount = $worksheet->getHighestRow();
@@ -142,7 +142,7 @@ class PriorityController extends Controller
                 
                 if (! isset($finalProgram) || $finalProgram === '') continue;
                 
-                $program = $programs->first(fn ($p, $k) => stristr($finalProgram, $p));
+                $program = $programs->first(fn ($p, $k) => stristr($finalProgram, $p) !== false);
                 if (! isset($program) || $program == '') continue;
                 
                 $branch = $worksheet->getCell($requiredColumns[0] . $rowIndex);
