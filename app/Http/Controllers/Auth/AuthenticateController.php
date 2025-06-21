@@ -61,16 +61,24 @@ class AuthenticateController extends Controller
             'password' => ['required', 'string'],
         ]);
         
+        $user = User::where('email', $request->email)->first();
+        
+        if (is_null($user)) {
+            return response()->json([
+                'email' => 'Email doesn\'t match any entry'
+            ], 401);
+        }
+
         if (! Auth::attempt($credentials)) {
             return response()->json([
                 'message' => 'Invalid credentials'
             ], 401);
         }
 
-        $user = User::where('email', $request->email)->first();
         $token = self::createTokenForUser($user);
 
         return response()->json([
+            'must_change_password' => $user->must_change_password,
             'access_token' => $token,
             'token_type' => 'Bearer',
             'expires_at' => 30 * 60
