@@ -11,19 +11,16 @@ use Laravel\Sanctum\Contracts\HasApiTokens;
 use MoonShine\Laravel\MoonShineAuth;
 use OpenApi\Annotations as OA;
 
-/**
- *  @OA\Info(
- *      version="1.0.0",
- *      title="Authentication controller"
- *  )
- */
 class AuthenticateController extends Controller
 {
     /**
      * @OA\Post(
+     *      tags={"api"},
      *      path="/api/login",
-     *      summary="Login a user",
+     *      operationId="login",
      *      @OA\RequestBody(
+     *          description="User credentials",
+     *          required=true,
      *          @OA\MediaType(
      *              mediaType="application/json",
      *              @OA\Schema(
@@ -44,15 +41,13 @@ class AuthenticateController extends Controller
      *      ),
      *      @OA\Response(
      *          response=200,
-     *          description="OK"
+     *          description="Successful operation"
      *      ),
      *      @OA\Response(
      *          response=401,
-     *          description="Unauthorized"
+     *          description="Some credentials are wrong or user doesn't exists"
      *      )
      * )
-     * 
-     * Handle an incoming authentication request.
      */
     public function store(Request $request)
     {
@@ -109,15 +104,14 @@ class AuthenticateController extends Controller
 
     /**
      *  @OA\Post(
+     *      tags={"api"},
      *      path="/api/logout",
-     *      summary="Logout a user",
+     *      operationId="logout",
      *      @OA\Response(
-     *          response=302,
-     *          description="Redirect"
+     *          response=200,
+     *          description="Successful operation"
      *      )
      *  )
-     * 
-     * Destroy an authenticated token.
      */
     public function destroy(Request $request)
     {

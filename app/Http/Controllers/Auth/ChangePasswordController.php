@@ -9,13 +9,44 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use OpenApi\Annotations as OA;
 
 class ChangePasswordController extends Controller
 {
+    /**
+     * @OA\Post(
+     *      tags={"api"},
+     *      path="/api/change-password",
+     *      operationId="changePassword",
+     *      @OA\RequestBody(
+     *          description="New password",
+     *          required=true,
+     *          @OA\MediaType(
+     *              mediaType="application/json",
+     *              @OA\Schema(
+     *                  @OA\Property(
+     *                      property="password",
+     *                      type="string",
+     *                  ),
+     *                  @OA\Property(
+     *                      property="password_confirmation",
+     *                      type="string",
+     *                  )
+     *              )
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation"
+     *      )
+     * )
+     * 
+     * Handle an incoming change password request
+     */
     public function store(Request $request): JsonResponse
     {
         $request->validate([
-            'password' => ['required', 'confirmed', Rules\Password::defaults()]
+            'password' => ['required', 'confirmed', Rules\Password::defaults()->mixedCase()]
         ]);
 
         $user = Auth::user();
