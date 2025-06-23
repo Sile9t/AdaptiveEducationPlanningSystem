@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PriorityUploadRequest;
 use App\Models\Branch;
 use App\Models\EmployeeCategory;
 use App\Models\Permit;
-use App\Models\Priority;
 use App\Models\PriorityDTO;
 use App\Models\PriorityStatus;
 use App\Models\TrainingProgram;
@@ -18,7 +16,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Storage;
 use PhpOffice\PhpSpreadsheet\IOFactory;
-use PhpOffice\PhpSpreadsheet\Reader\IReader;
 
 class PriorityController extends Controller
 {
@@ -144,6 +141,7 @@ class PriorityController extends Controller
                             && $permit['category_id'] == $currentCategory['id'],
                     )['periodicity_years'];
                 $expired_at = Carbon::parse($passed_at)->addYears($periodicity);
+                //TODO: add periodicity dependency
                 $status = self::getFittingPriorityStatus($expired_at);
                 
                 $id = PriorityDTO::count();
