@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Storage;
 use morphos\Russian\NounDeclension;
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Shared\Date;
 
 class PriorityController extends Controller
 {
@@ -45,14 +46,15 @@ class PriorityController extends Controller
         
         self::processFile($file, $userId);
 
-        $data = Redis::get($redisKey);
-        return response()->json(
-            // json_encode($data)
-            $data
-        );
-        // $query = Priority::orderBy('id', 'asc');
-        // $query = $query->groupBy('status');
-        // return $query->paginate()->toResourceCollection();
+        $collection = collect(json_decode(Redis::get($redisKey)));
+
+        $sortedCollection = $collection->sortBy('full_name');
+        
+        $groupedColection = $sortedCollection->groupBy('status')->flatten(1);
+        
+        $data = $groupedColection;
+
+        return response()->json($data);
     }
 
     public function upload(Request $request): RedirectResponse
@@ -75,16 +77,16 @@ class PriorityController extends Controller
         return redirect()->route('priority.index')->with('message', 'File uploaded successfully.');
     }
 
-    function getFittingPriorityStatus(DateTime $expired_date)
+    function getFittingPriorityStatus(DateTime $expired_date): PriorityStatus
     {
-        $diff = now()->date_diff($expired_date);
-        $diffYears = floor($diff / (365*60*60*24));
+        $diff = date_diff($expired_date, now())->days;
+        $diffYears = $diff / (365);
 
-        if ($diffYears >= 2) return PriorityStatus::Active;
-        if (1 <= $diffYears && $diffYears < 2) return PriorityStatus::Control;
-        if (0 < $diffYears && $diffYears < 1) return PriorityStatus::Expiring;
-            
-        return PriorityStatus::Passed;                
+        if ($diffYears >= 2) $status = PriorityStatus::Active;
+        if (1 <= $diffYears && $diffYears < 2) $status = PriorityStatus::Control;
+        if (0 < $diffYears && $diffYears < 1) $status = PriorityStatus::Expiring;
+
+        return PriorityStatus::Passed;
     }
 
     function getNormalizedName(string $name) {
@@ -96,10 +98,14 @@ class PriorityController extends Controller
         }
     }
     
+    function getDate($dateFromExcel) {
+        return Date::excelToDateTimeObject($dateFromExcel);
+    }
+    
     function processFile(string $filename, int $userId)
     {
-        // Needed columns: B, D, E, T, U, V, X, Y
-        $requiredColumns = [ 'B', 'D', 'E', 'T', 'U', 'V', 'X', 'Y' ];
+        // Needed columns: B, D, E, L, T, U, V, X
+        $requiredColumns = [ 'B', 'D', 'E', 'L', 'T', 'U', 'V', 'X'];
         
         $redisKey = hash('sha256', "priority$userId");
 
@@ -127,13 +133,13 @@ class PriorityController extends Controller
             $programs = TrainingProgram::all('id', 'title');
             
             for ($rowIndex=4; $rowIndex < $rowCount; $rowIndex++) { 
-                $finalProgram = $worksheet->getCell($requiredColumns[4] . $rowIndex)->getValue();
+                $finalProgram = $worksheet->getCell($requiredColumns[5] . $rowIndex)->getValue();
                 
                 if (! isset($finalProgram) || $finalProgram === '') {
-                    $finalProgram = $worksheet->getCell($requiredColumns[5] . $rowIndex)->getValue();
+                    $finalProgram = $worksheet->getCell($requiredColumns[6] . $rowIndex)->getValue();
                     
                     if (! isset($finalProgram) || $finalProgram === '') {
-                       $finalProgram = $worksheet->getCell($requiredColumns[3] . $rowIndex)->getValue();
+                       $finalProgram = $worksheet->getCell($requiredColumns[4] . $rowIndex)->getValue();
                     }
                 }
                 
@@ -142,37 +148,35 @@ class PriorityController extends Controller
                 $program = $programs->first(fn ($p, $k) => mb_stristr($finalProgram, $p->title) !== false);
                 if (! isset($program) || $program == '') continue;
                 
-                $branch = $worksheet->getCell($requiredColumns[0] . $rowIndex);
-                $position = $worksheet->getCell($requiredColumns[2] . $rowIndex);
-                $passed_at = now()->addDays(array_rand(range(-50, 50)))->addYears(range(-2, 1))->toDateTime();
+                $branch = $worksheet->getCell($requiredColumns[0] . $rowIndex)->getValue();
+                $position = $worksheet->getCell($requiredColumns[2] . $rowIndex)->getValue();
+
+                $passed_at = Carbon::createFromDate(self::getDate($worksheet->getCell($requiredColumns[3] . $rowIndex)->getValue()));
+                // $passed_at = now()->addDays(array_rand(range(-50, 50)))->addYears(range(-2, 1));
                 $periodicity = $permits
                     ->first(
                         fn ($permit) => 
-                            $permit['program_id'] == $program['id'] 
-                            && $permit['category_id'] == $currentCategory['id'],
+                            $permit['program_id'] == $program->id 
+                            && $permit['category_id'] == $currentCategory->id,
                     )['periodicity_years'];
-                $expired_at = Carbon::parse($passed_at)->addYears($periodicity);
-                //TODO: add periodicity dependency
+                $expired_at = $passed_at->addYears($periodicity);
+                
                 $status = self::getFittingPriorityStatus($expired_at);
                 
                 $id = PriorityDTO::count();
                 $full_name = "employee$id";
                 $priority = PriorityDTO::create(
                     $full_name,
-                    $currentCategory,
+                    $currentCategory->name,
                     $position,
                     $branch,
                     $finalProgram,
-                    $passed_at,
-                    $expired_at,
+                    $passed_at->toDate(),
+                    $expired_at->toDate(),
                     $status
                 );
                 
                 $priorityState = $priority->toArray();
-                Redis::set(
-                    $redisKey,
-                    $priority->toJson()
-                );
                 array_push($priorities, $priorityState);
             }
         }
