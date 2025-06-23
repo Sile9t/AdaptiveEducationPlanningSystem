@@ -81,7 +81,7 @@ class AuthenticateController extends Controller
         }
 
         $token = self::createTokenForUser($user);
-        $must_change_password = $user->must_change_password ?? false;
+        $must_change_password = is_null($user->must_change_password) ? false : $user->must_change_password;
         
         return response()->json([
             'user_role' => $role,
