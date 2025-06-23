@@ -61,7 +61,10 @@ class AuthenticateController extends Controller
             'password' => ['required', 'string'],
         ]);
         
-        $user = User::where('email', $request->email)->first();
+        $user = MoonshineUser::with('moonshineUserRole')->where('email',$request->email)->first();
+        $role = is_null($user) ? null : $user->moonshineUserRole->name;
+        $user = $user ?? User::with("role")->where('email', $request->email)->first();
+        $role = $role ?? (is_null($user) ? null : ($user->role->name));
         
         if (is_null($user)) {
             return response()->json([
@@ -69,16 +72,25 @@ class AuthenticateController extends Controller
             ], 401);
         }
 
-        if (! Auth::attempt($credentials)) {
+        if (is_a($user, 'App\Models\MoonshineUser')) {
+            $authenticated = MoonShineAuth::getGuard()->attempt($credentials);
+        }
+        else {
+            $authenticated = Auth::attempt($credentials);
+        }
+
+        if (! $authenticated) {
             return response()->json([
                 'message' => 'Invalid credentials'
             ], 401);
         }
 
         $token = self::createTokenForUser($user);
-
+        $must_change_password = $user->must_change_password ?? false;
+        
         return response()->json([
-            'must_change_password' => $user->must_change_password,
+            'user_role' => $role,
+            'must_change_password' => $must_change_password,
             'access_token' => $token,
             'token_type' => 'Bearer',
             'expires_at' => 30 * 60
