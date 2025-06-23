@@ -20,9 +20,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('login', [AuthenticateController::class, 'store']);
+Route::post('login', [AuthenticateController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::post('logout', [AuthenticateController::class, 'destroy']);
+    Route::post('logout', [AuthenticateController::class, 'logout']);
     Route::post('change-password', [ChangePasswordController::class, 'store']);
 });

@@ -11,19 +11,16 @@ use Laravel\Sanctum\Contracts\HasApiTokens;
 use MoonShine\Laravel\MoonShineAuth;
 use OpenApi\Annotations as OA;
 
-/**
- *  @OA\Info(
- *      version="1.0.0",
- *      title="Authentication controller"
- *  )
- */
 class AuthenticateController extends Controller
 {
     /**
      * @OA\Post(
+     *      tags={"api"},
      *      path="/api/login",
-     *      summary="Login a user",
+     *      operationId="login",
      *      @OA\RequestBody(
+     *          description="User credentials",
+     *          required=true,
      *          @OA\MediaType(
      *              mediaType="application/json",
      *              @OA\Schema(
@@ -44,24 +41,25 @@ class AuthenticateController extends Controller
      *      ),
      *      @OA\Response(
      *          response=200,
-     *          description="OK"
+     *          description="Successful operation"
      *      ),
      *      @OA\Response(
      *          response=401,
-     *          description="Unauthorized"
+     *          description="Some credentials are wrong or user doesn't exists"
      *      )
      * )
-     * 
-     * Handle an incoming authentication request.
      */
-    public function store(Request $request)
+    public function login(Request $request)
     {
         $credentials = $request->validate([
             'email' => ['required', 'string', 'email'],
             'password' => ['required', 'string'],
         ]);
         
-        $user = User::where('email', $request->email)->first();
+        $user = MoonshineUser::with('moonshineUserRole')->where('email',$request->email)->first();
+        $role = is_null($user) ? null : $user->moonshineUserRole->name;
+        $user = $user ?? User::with("role")->where('email', $request->email)->first();
+        $role = $role ?? (is_null($user) ? null : ($user->role->name));
         
         if (is_null($user)) {
             return response()->json([
@@ -69,16 +67,25 @@ class AuthenticateController extends Controller
             ], 401);
         }
 
-        if (! Auth::attempt($credentials)) {
+        if (is_a($user, 'App\Models\MoonshineUser')) {
+            $authenticated = MoonShineAuth::getGuard()->attempt($credentials);
+        }
+        else {
+            $authenticated = Auth::attempt($credentials);
+        }
+
+        if (! $authenticated) {
             return response()->json([
                 'message' => 'Invalid credentials'
             ], 401);
         }
 
         $token = self::createTokenForUser($user);
-
+        $must_change_password = $user->must_change_password ?? false;
+        
         return response()->json([
-            'must_change_password' => $user->must_change_password,
+            'user_role' => $role,
+            'must_change_password' => $must_change_password,
             'access_token' => $token,
             'token_type' => 'Bearer',
             'expires_at' => 30 * 60
@@ -97,17 +104,16 @@ class AuthenticateController extends Controller
 
     /**
      *  @OA\Post(
+     *      tags={"api"},
      *      path="/api/logout",
-     *      summary="Logout a user",
+     *      operationId="logout",
      *      @OA\Response(
-     *          response=302,
-     *          description="Redirect"
+     *          response=200,
+     *          description="Successful operation"
      *      )
      *  )
-     * 
-     * Destroy an authenticated token.
      */
-    public function destroy(Request $request)
+    public function logout(Request $request)
     {
         $request->user()->tokens->each(function ($token, $key) {
             $token->delete();
