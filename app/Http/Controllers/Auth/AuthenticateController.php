@@ -49,7 +49,7 @@ class AuthenticateController extends Controller
      *      )
      * )
      */
-    public function store(Request $request)
+    public function login(Request $request)
     {
         $credentials = $request->validate([
             'email' => ['required', 'string', 'email'],
@@ -113,7 +113,7 @@ class AuthenticateController extends Controller
      *      )
      *  )
      */
-    public function destroy(Request $request)
+    public function logout(Request $request)
     {
         $request->user()->tokens->each(function ($token, $key) {
             $token->delete();
