@@ -10,11 +10,13 @@ use App\Models\PriorityStatus;
 use App\Models\TrainingProgram;
 use Carbon\Carbon;
 use DateTime;
+use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Storage;
+use morphos\Russian\NounDeclension;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class PriorityController extends Controller
@@ -85,6 +87,15 @@ class PriorityController extends Controller
         return PriorityStatus::Passed;                
     }
 
+    function getNormalizedName(string $name) {
+        try {
+            $normalizedName = NounDeclension::singularize($name);
+            return $normalizedName;
+        } catch (Exception $e) {
+            return $name;
+        }
+    }
+    
     function processFile(string $filename, int $userId)
     {
         // Needed columns: B, D, E, T, U, V, X, Y
@@ -106,7 +117,7 @@ class PriorityController extends Controller
             $sheetNameAsCategory = $sheetNames[$sheetIndex];
             
             $categories = EmployeeCategory::all('id', 'name');
-            $currentCategory = $categories->first(fn ($category, $key) => strcasecmp($category['name'], $sheetNameAsCategory) == 0);
+            $currentCategory = $categories->first(fn ($category, $key) => strcasecmp($category['name'], $sheetNameAsCategory) || strcasecmp($category['name'], self::getNormalizedName($sheetNameAsCategory)) == 0);
             if (! isset($currentCategory) || $currentCategory == '') continue;
 
             $rowCount = $worksheet->getHighestRow();
@@ -128,7 +139,7 @@ class PriorityController extends Controller
                 
                 if (! isset($finalProgram) || $finalProgram === '') continue;
                 
-                $program = $programs->first(fn ($p, $k) => stristr($finalProgram, $p));
+                $program = $programs->first(fn ($p, $k) => mb_stristr($finalProgram, $p->title) !== false);
                 if (! isset($program) || $program == '') continue;
                 
                 $branch = $worksheet->getCell($requiredColumns[0] . $rowIndex);
