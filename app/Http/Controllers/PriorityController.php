@@ -102,6 +102,21 @@ class PriorityController extends Controller
         return Date::excelToDateTimeObject($dateFromExcel);
     }
     
+    function getInflectedFraze(string $fraze): array|string {
+        try {
+            $words = explode(' ', $fraze);
+            $inflectedWords = [];
+            foreach ($words as $word) {
+                $inflectedWordsArray = NounDeclension::getCases($word);
+                array_push($inflectedWords, $inflectedWordsArray);
+            }
+            
+            return $inflectedWords;
+        } catch (Exception $e) {
+            return $fraze;
+        }
+    }
+    
     function processFile(string $filename, int $userId)
     {
         // Needed columns: B, D, E, L, T, U, V, X
