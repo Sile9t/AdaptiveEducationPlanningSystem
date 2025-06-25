@@ -16,6 +16,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Storage;
+use Meilisearch\Client;
+use Meilisearch\Endpoints\Indexes;
 use morphos\Russian\NounDeclension;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Shared\Date;
@@ -34,8 +36,12 @@ class PriorityController extends Controller
         $folderPath = self::uploadFolderName . '/'. $userIdHash;
         $filePath = $folderPath . '/' . $fileName;
         
+        $meiliSearchClient = new Client(env('MEILISEARCH_HOST'), env('MEILISEARCH_KEY'));
+        $index = $meiliSearchClient->index('training_programs');
+        $programs = TrainingProgram::all()->toArray();
+        $index->addDocuments($programs);
+
         $file = Storage::path($filePath);
-        
         if (! $file) {
             return  response()->json([
                 'message' => 'No available data',
@@ -44,14 +50,11 @@ class PriorityController extends Controller
 
         $redisKey = hash('sha256', "priority$userId");
         
-        self::processFile($file, $userId);
+        self::processFile($file, $userId, $index);
 
         $collection = collect(json_decode(Redis::get($redisKey)));
-
         $sortedCollection = $collection->sortBy('full_name');
-        
         $groupedColection = $sortedCollection->groupBy('status')->flatten(1);
-        
         $data = $groupedColection;
 
         return response()->json($data);
@@ -88,40 +91,21 @@ class PriorityController extends Controller
 
         return PriorityStatus::Passed;
     }
-
-    function getNormalizedName(string $name) {
-        try {
-            $normalizedName = NounDeclension::singularize($name);
-            return $normalizedName;
-        } catch (Exception $e) {
-            return $name;
-        }
-    }
     
     function getDate($dateFromExcel) {
         return Date::excelToDateTimeObject($dateFromExcel);
     }
     
-    function getInflectedFraze(string $fraze): array|string {
-        try {
-            $words = explode(' ', $fraze);
-            $inflectedWords = [];
-            foreach ($words as $word) {
-                $inflectedWordsArray = NounDeclension::getCases($word);
-                array_push($inflectedWords, $inflectedWordsArray);
-            }
-            
-            return $inflectedWords;
-        } catch (Exception $e) {
-            return $fraze;
-        }
-    }
-    
-    function processFile(string $filename, int $userId)
+    function processFile(string $filename, int $userId, Indexes $meiliSearchIndex)
     {
         // Needed columns: B, D, E, L, T, U, V, X
         $requiredColumns = [ 'B', 'D', 'E', 'L', 'T', 'U', 'V', 'X'];
-        
+        $mapCategory = [
+            'Руководители' => 'Руководитель',
+            'Рабочие' => 'Рабочий',
+            'Специалисты' => 'Специалист'
+        ];
+
         $redisKey = hash('sha256', "priority$userId");
 
         $reader = IOFactory::createReader(self::inputFileType);
@@ -136,9 +120,10 @@ class PriorityController extends Controller
         for ($sheetIndex=0; $sheetIndex < count($sheets); $sheetIndex++) { 
             $worksheet = $sheets[$sheetIndex];
             $sheetNameAsCategory = $sheetNames[$sheetIndex];
+            $sheetNameAsCategory = $mapCategory[$sheetNameAsCategory] ?? $sheetNameAsCategory;
             
             $categories = EmployeeCategory::all('id', 'name');
-            $currentCategory = $categories->first(fn ($category, $key) => strcasecmp($category['name'], $sheetNameAsCategory) || strcasecmp($category['name'], self::getNormalizedName($sheetNameAsCategory)) == 0);
+            $currentCategory = $categories->first(fn ($category, $key) => strcasecmp($category['name'], $sheetNameAsCategory) == 0);
             if (! isset($currentCategory) || $currentCategory == '') continue;
 
             $rowCount = $worksheet->getHighestRow();
@@ -160,13 +145,20 @@ class PriorityController extends Controller
                 
                 if (! isset($finalProgram) || $finalProgram === '') continue;
                 
-                $program = $programs->first(fn ($p, $k) => mb_stristr($finalProgram, $p->title) !== false);
-                if (! isset($program) || $program == '') continue;
+                $hits = $meiliSearchIndex->search( '\''. $finalProgram . '\'', [
+                    'distinct' => 'title',
+                    'matchingStrategy' => 'frequency',
+                    'showRankingScore' => true,
+                ])->getHits();
+
+                if (count($hits) == 0) continue;
+
+                $program = $programs->where('id', '==', $hits[0]['id'])->first();
                 
                 $branch = $worksheet->getCell($requiredColumns[0] . $rowIndex)->getValue();
                 $position = $worksheet->getCell($requiredColumns[2] . $rowIndex)->getValue();
 
-                $passed_at = Carbon::createFromDate(self::getDate($worksheet->getCell($requiredColumns[3] . $rowIndex)->getValue()));
+                $passed_at = Carbon::createFromDate(self::getDate($worksheet->getCell($requiredColumns[3] . $rowIndex)->getValue()))->addYears(array_rand(range(0, 10)));
                 // $passed_at = now()->addDays(array_rand(range(-50, 50)))->addYears(range(-2, 1));
                 $periodicity = $permits
                     ->first(
