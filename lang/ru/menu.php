@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'Directories' => 'Справочники',
     'Main' => 'Главное',
     'Users' => 'Пользователи',
     'Roles' => 'Роли',
