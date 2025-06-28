@@ -10,7 +10,6 @@ use App\Models\PriorityStatus;
 use App\Models\TrainingProgram;
 use Carbon\Carbon;
 use DateTime;
-use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +17,6 @@ use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Storage;
 use Meilisearch\Client;
 use Meilisearch\Endpoints\Indexes;
-use morphos\Russian\NounDeclension;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Shared\Date;
 
@@ -26,7 +24,38 @@ class PriorityController extends Controller
 {
     const uploadFolderName = 'uploads';
     const inputFileType = "Xlsx";
-
+    
+    /**
+     *  @OA\Get(
+     *      tags={"api", "priority"},
+     *      path="/api/priority",
+     *      operationId="priority",
+     *      @OA\Parameter(
+     *          name="sort",
+     *          in="query",
+     *      ),
+     *      @OA\RequestBody(
+     *          description="All variables to get priorities",
+     *          required=false,
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(
+     *              type="object",
+     *              required={"data"},
+     *              @OA\Property(
+     *                  property="data",
+     *                  type="array",
+     *                  @OA\Items(ref="#/components/schemas/Priority")
+     *              )
+     *          )
+     *      ),
+     *      security={{"bearerAuth":{}}}
+     *  )
+     * 
+     * Handle an incoming priority request.
+     */
     public function index()
     {
         $userId = Auth::user()->id;
@@ -60,16 +89,51 @@ class PriorityController extends Controller
         return response()->json($data);
     }
 
-    public function upload(Request $request): RedirectResponse
+    /**
+     * @OA\Post(
+     *      tags={"api", "priority"},
+     *      path="/api/priority/upload",
+     *      operationId="priorityUpload",
+     *      @OA\RequestBody(
+     *          description="Handle priority excel upload",
+     *          required=true,
+     *          @OA\MediaType(
+     *              mediaType="application/octet-stream",
+     *              @OA\Schema(
+     *                  type="object",
+     *                  @OA\Property(
+     *                      property="file",
+     *                      type="string",
+     *                      format="binary"
+     *                  ),
+     *              )
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="File uploaded successfully"
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Validation or processing error"
+     *      ),
+     *      security={{"bearerAuth":{}}}
+     * )
+     * 
+     * Handle an incoming priority upload request
+     */
+    public function upload(Request $request)
     {
         $request->validate([
-            'file5366' => 'required|mimes:xlsx|max:50000'
+            'file' => 'required|mimes:xlsx|max:50000'
         ]);
 
-        $file = $request->file('file5366');
+        $file = $request->file('file');
 
         if (! str_contains($file->getClientOriginalName(), '5366')) {
-            return redirect()->back()->with('message', "File need to contain '5366' in the name");
+            return response(status: 403)->json([
+                'message' => "File need to contain '5366' in the name"
+            ]);
         }
 
         $userIdHash = hash('sha256', Auth::user()->id);
@@ -77,7 +141,9 @@ class PriorityController extends Controller
         $folderPath = self::uploadFolderName . '/'. $userIdHash;
         $file->storeAs($folderPath, $fileName);
 
-        return redirect()->route('priority.index')->with('message', 'File uploaded successfully.');
+        return response()->json([
+            'message' => 'File uploaded successfully.'
+        ]);
     }
 
     function getFittingPriorityStatus(DateTime $expired_date): PriorityStatus

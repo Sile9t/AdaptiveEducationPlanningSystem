@@ -20,9 +20,23 @@ use OpenApi\Annotations as OA;
  *     url="https://gzprm.asapeducation.online/api",
  *     description="API server"
  * )
- * @OA\Tag(
+  * @OA\SecurityScheme(
+ *     securityScheme="bearerAuth",
+ *     type="http",
+ *     scheme="bearer",
+ *     description="Basic Auth"
+ * )
+* @OA\Tag(
  *      name="api",
  *      description="All API endpoints"
+ * )
+ * @OA\Tag(
+ *      name="auth",
+ *      description="All Auth endpoints"
+ * )
+ * @OA\Tag(
+ *      name="prioriy",
+ *      description="All Priority endpoints"
  * )
  * 
  * The Controller.
