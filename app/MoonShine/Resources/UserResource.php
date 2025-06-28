@@ -73,7 +73,7 @@ class UserResource extends ModelResource
             Text::make('Last name')->sortable()->translatable('resource.user'),
             Text::make('Patronymic')->sortable()->translatable('resource.user'),
             Email::make('Email')->sortable()->translatable('resource.user'),
-            Switcher::make('Must change password')->translatable('resource.user'),
+            Switcher::make('Must change password')->updateOnPreview()->translatable('resource.user'),
         ];
     }
 
