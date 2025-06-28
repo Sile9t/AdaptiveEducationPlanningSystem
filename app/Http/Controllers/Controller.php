@@ -35,8 +35,8 @@ use OpenApi\Annotations as OA;
  *      description="All Auth endpoints"
  * )
  * @OA\Tag(
- *      name="prioriy",
- *      description="All Priority endpoints"
+ *      name="priorities",
+ *      description="All Priorities endpoints"
  * )
  * 
  * The Controller.

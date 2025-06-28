@@ -28,36 +28,19 @@ class PriorityController extends Controller
     
     /**
      *  @OA\Get(
-     *      tags={"api", "priority"},
-     *      path="/api/priority",
-     *      operationId="priority",
-     *      @OA\Parameter(
-     *          name="sort",
-     *          in="query",
-     *      ),
-     *      @OA\RequestBody(
-     *          description="All variables to get priorities",
-     *          required=false,
-     *      ),
+     *      tags={"api", "priorities"},
+     *      path="/api/priorities/check",
+     *      operationId="checkData",
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
-     *          @OA\JsonContent(
-     *              type="object",
-     *              required={"data"},
-     *              @OA\Property(
-     *                  property="data",
-     *                  type="array",
-     *                  @OA\Items(ref="#/components/schemas/Priority")
-     *              )
-     *          )
      *      ),
      *      security={{"bearerAuth":{}}}
      *  )
      * 
      * Handle an incoming priority request.
      */
-    public function index()
+    public function checkData()
     {
         $userId = Auth::user()->id;
         $userIdHash = hash('sha256', $userId);
@@ -66,8 +49,8 @@ class PriorityController extends Controller
         $folderPath = self::uploadFolderName . '/'. $userIdHash;
         $filePath = $folderPath . '/' . $fileName;
         
-        $meiliSearchClient = new Client(env('MEILISEARCH_HOST'), env('MEILISEARCH_KEY'));
-        $index = $meiliSearchClient->index('training_programs');
+        // $meiliSearchClient = new Client(env('MEILISEARCH_HOST'), env('MEILISEARCH_KEY'));
+        // $index = $meiliSearchClient->index('training_programs');
         // $programs = TrainingProgram::all()->toArray();
         // $index->addDocuments($programs);
 
@@ -77,43 +60,47 @@ class PriorityController extends Controller
                 'message' => 'No available data',
             ]);
         }
+        
+        return response()->json([
+            'message' => 'Data is available',
+        ]);
 
-        $redisKey = hash('sha256', "priority$userId");
+        // $redisKey = hash('sha256', "priority$userId");
         
-        $redis = Redis::client();
-        $redis->del($redisKey);
+        // $redis = Redis::client();
+        // $redis->del($redisKey);
         
-        self::processFile($file, $userId, $index);
+        // self::processFile($file, $userId, $index);
         
-        $collection = collect(json_decode(Redis::get($redisKey)));
+        // $collection = collect(json_decode(Redis::get($redisKey)));
         
-        $sortedCollection = $collection->sortBy(request()->get('sort', 'full_name'));
+        // $sortedCollection = $collection->sortBy(request()->get('sort', 'full_name'));
         
-        $groupedColection = $sortedCollection->groupBy('status');
-        $flattenAfterGrouping = $groupedColection->flatten(1);
-        $data = $flattenAfterGrouping;
+        // $groupedColection = $sortedCollection->groupBy('status');
+        // $flattenAfterGrouping = $groupedColection->flatten(1);
+        // $data = $flattenAfterGrouping;
 
-        $perPage = request()->get('take', 25);
-        $currentPage = request()->get('page', 1);
-        $paginator = new LengthAwarePaginator(
-            $data->forPage($currentPage, $perPage),
-            $data->count(),
-            $perPage,
-            $currentPage,
-            [
-                'path' => request()->url(),
-                'query' => request()->query()
-            ]
-        );
+        // $perPage = request()->get('take', 25);
+        // $currentPage = request()->get('page', 1);
+        // $paginator = new LengthAwarePaginator(
+        //     $data->forPage($currentPage, $perPage),
+        //     $data->count(),
+        //     $perPage,
+        //     $currentPage,
+        //     [
+        //         'path' => request()->url(),
+        //         'query' => request()->query()
+        //     ]
+        // );
 
-        return response()->json($paginator);
+        // return response()->json($paginator);
     }
 
     /**
      * @OA\Post(
-     *      tags={"api", "priority"},
-     *      path="/api/priority/upload",
-     *      operationId="priorityUpload",
+     *      tags={"api", "priorities"},
+     *      path="/api/priorities/upload",
+     *      operationId="prioritiesUpload",
      *      @OA\RequestBody(
      *          description="Handle priority excel upload",
      *          required=true,
@@ -166,6 +153,167 @@ class PriorityController extends Controller
         ]);
     }
 
+    /**
+     *  @OA\Get(
+     *      tags={"api", "priorities"},
+     *      path="/api/priorities/all",
+     *      operationId="getPriorities",
+     *      @OA\Parameter(
+     *          name="page",
+     *          description="Current page number",
+     *          in="query",
+     *          @OA\Schema(
+     *              type="integer"
+     *          ),
+     *      ),
+     *      @OA\Parameter(
+     *          name="take",
+     *          description="How many items to get",
+     *          in="query",
+     *          @OA\Schema(
+     *              type="integer"
+     *          ),
+     *      ),
+     *      @OA\Parameter(
+     *          name="sort",
+     *          description="Sort information",
+     *          in="query",
+     *          @OA\Schema(
+     *              type="array",
+     *              @OA\Items(
+     *                  @OA\Property(
+     *                      property="column",
+     *                      type="string",
+     *                  ),
+     *                  @OA\Property(
+     *                      property="direction",
+     *                      type="string",
+     *                  )
+     *              ),
+     *          ),
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(
+     *              type="object",
+     *              required={"data"},
+     *              @OA\Property(
+     *                  property="current_page",
+     *                  type="integer",
+     *              ),
+     *              @OA\Property(
+     *                  property="data",
+     *                  type="array",
+     *                  @OA\Items(ref="#/components/schemas/Priority")
+     *              ),
+     *              @OA\Property(
+     *                  property="first_page_url",
+     *                  type="string"
+     *              ),
+     *              @OA\Property(
+     *                  property="from",
+     *                  type="integer",
+     *                  description="First item index",
+     *              ),
+     *              @OA\Property(
+     *                  property="last_page",
+     *                  type="integer",
+     *                  description="Last page index",
+     *              ),
+     *              @OA\Property(
+     *                  property="last_page_url",
+     *                  type="string",
+     *              ),
+     *              @OA\Property(
+     *                  property="links",
+     *                  type="array",
+     *                  @OA\Items(
+     *                      @OA\Property(
+     *                          property="url",
+     *                          type="string",
+     *                      ),
+     *                      @OA\Property(
+     *                          property="label",
+     *                          type="string",
+     *                      ),
+     *                      @OA\Property(
+     *                          property="active",
+     *                          type="bool",
+     *                      )
+     *                  )
+     *              ),
+     *              @OA\Property(
+     *                  property="next_page_url",
+     *                  type="string",
+     *              ),
+     *              @OA\Property(
+     *                  property="path",
+     *                  type="string",
+     *              ),
+     *              @OA\Property(
+     *                  property="per_page",
+     *                  type="string",
+     *              ),
+     *              @OA\Property(
+     *                  property="prev_page_url",
+     *                  type="string",
+     *              ),
+     *              @OA\Property(
+     *                  property="to",
+     *                  type="integer",
+     *                  description="Last item index"
+     *              ),
+     *              @OA\Property(
+     *                  property="total",
+     *                  type="integer",
+     *              ),
+     *          ),
+     *      ),
+     *      security={{"bearerAuth":{}}}
+     *  )
+     * 
+     * Handle an incoming priority request.
+     */
+    public function getPriorities(Request $request)
+    {
+        $userId = Auth::user()->id;
+        $userIdHash = hash('sha256', $userId);
+        $redisKey = hash('sha256', "priority$userId");
+        
+        $redis = Redis::client();
+        $meiliSearchClient = new Client(env('MEILISEARCH_HOST'), env('MEILISEARCH_KEY'));
+        $index = $meiliSearchClient->index('training_programs');
+
+        
+        if (! $redis->exists($redisKey)) {
+            self::processFile($file, $userId, $index);
+        }
+
+        $collection = collect(json_decode(Redis::get($redisKey)));
+        
+        $sortedCollection = $collection->sortBy($request->get('sort', 'full_name'));
+        
+        $groupedColection = $sortedCollection->groupBy('status');
+        $flattenAfterGrouping = $groupedColection->flatten(1);
+        $data = $flattenAfterGrouping;
+
+        $perPage = $request->get('take', 25);
+        $currentPage = $request->get('page', 1);
+        $paginator = new LengthAwarePaginator(
+            $data->forPage($currentPage, $perPage),
+            $data->count(),
+            $perPage,
+            $currentPage,
+            [
+                'path' => $request->url(),
+                'query' => $request->query()
+            ]
+        );
+
+        return response()->json($paginator);
+    }
+
     function getFittingPriorityStatus(DateTime $expired_date): PriorityStatus
     {
         $diff = date_diff($expired_date, now())->days;
@@ -182,7 +330,7 @@ class PriorityController extends Controller
         return Date::excelToDateTimeObject($dateFromExcel);
     }
     
-    function processFile(string $filename, int $userId, Indexes $meiliSearchIndex)
+    function processFile(string $filename, int $userId)
     {
         // Needed columns: B, D, E, L, T, U, V, X
         $requiredColumns = [ 'B', 'D', 'E', 'L', 'T', 'U', 'V', 'X'];
@@ -192,6 +340,9 @@ class PriorityController extends Controller
             'Специалисты' => 'Специалист'
         ];
 
+        $meiliSearchClient = new Client(env('MEILISEARCH_HOST'), env('MEILISEARCH_KEY'));
+        $index = $meiliSearchClient->index('training_programs');
+        
         $redisKey = hash('sha256', "priority$userId");
 
         $reader = IOFactory::createReader(self::inputFileType);
@@ -231,7 +382,7 @@ class PriorityController extends Controller
                 
                 if (! isset($finalProgram) || $finalProgram === '') continue;
                 
-                $hits = $meiliSearchIndex->search( '\''. $finalProgram . '\'', [
+                $hits = $index->search( '\''. $finalProgram . '\'', [
                     'distinct' => 'title',
                     'matchingStrategy' => 'frequency',
                     'showRankingScore' => true,

@@ -28,7 +28,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('change-password', [ChangePasswordController::class, 'store']);
 });
 
-Route::middleware('auth:sanctum')->controller(PriorityController::class)->prefix('priority')->name('priority.')->group(function () {
-    Route::get('/', 'index')->name('index');
+Route::middleware('auth:sanctum')->controller(PriorityController::class)->prefix('priorities')->name('priorities.')->group(function () {
+    Route::get('/check', 'checkData')->name('checkData');
     Route::post('/upload', 'upload')->name('upload');
+    Route::get('/all', 'getPriorities')->name('all');
 });
