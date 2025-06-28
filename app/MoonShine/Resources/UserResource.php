@@ -87,31 +87,31 @@ class UserResource extends ModelResource
                 Tab::make(__('moonshine::ui.resource.main_information'), [
                     ID::make(),
                     Text::make('Personnel number')->translatable('resource.user'),
-                    Text::make('First name')->translatable('resource.user'),
-                    Text::make('Last name')->translatable('resource.user'),
+                    Text::make('First name')->required()->translatable('resource.user'),
+                    Text::make('Last name')->required()->translatable('resource.user'),
                     Text::make('Patronymic')->translatable('resource.user'),
-                    Email::make('Email')->translatable('resource.user'),
+                    Email::make('Email')->required()->translatable('resource.user'),
                     BelongsTo::make(
                         'Branch', 
                         'branch', 
                         static fn(Branch $model) => $model->name, 
                         resource: BranchResource::class
-                    )->translatable('resource.branch')->nullable(),
+                    )->required()->translatable('resource.branch')->nullable(),
                     BelongsTo::make(
                         'Role', 
                         'role', 
                         static fn(Role $model) => $model->name,
                         resource: RoleResource::class
-                    )->translatable('resource.role')->nullable(),
-                    Switcher::make('Must change password')->translatable('resource.user'),
+                    )->required()->translatable('resource.role')->nullable(),
+                    Switcher::make('Must change password')->default(true)->translatable('resource.user'),
                 ]),
     
                 Tab::make(__('moonshine::ui.resource.password'), [
                     Heading::make(__('moonshine::ui.resource.change_password')),
     
-                    Password::make('Password')->translatable('resource.user')
+                    Password::make('Password')->required()->translatable('resource.user')
                         ->eye(),
-                    PasswordRepeat::make('Password repeat')->translatable('resource.user')
+                    PasswordRepeat::make('Password repeat')->required()->translatable('resource.user')
                         ->eye(),
                 ]),
             ]),
@@ -177,6 +177,7 @@ class UserResource extends ModelResource
             'last_name' => ['required', 'string', 'min:3'],
             'patronymic' => ['string', 'nullable', 'min:3'],
             'role_id' => ['required'],
+            'branch_id' => ['required'],
             'email' => ['required', 'email', Rule::unique('users')->ignoreModel($item)],
             'password' => $item->exists
                 ? 'sometimes|nullable|min:6|required_with:password_repeat|same:password_repeat'
