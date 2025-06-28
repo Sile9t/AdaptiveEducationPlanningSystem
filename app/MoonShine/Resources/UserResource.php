@@ -38,6 +38,11 @@ class UserResource extends ModelResource
     protected SortDirection $sortDirection = SortDirection::ASC;
     
     protected bool $columnSelection = true;
+    
+    public function getRedirectAfterSave(): ?string
+    {
+        return $this->getIndexPageUrl();
+    }
 
     public function getTitle(): string
     {
