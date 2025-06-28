@@ -91,13 +91,13 @@ class UserResource extends ModelResource
                         'branch', 
                         static fn(Branch $model) => $model->name, 
                         resource: BranchResource::class
-                    )->translatable('resource.branch'),
+                    )->translatable('resource.branch')->nullable(),
                     BelongsTo::make(
                         'Role', 
                         'role', 
                         static fn(Role $model) => $model->name,
                         resource: RoleResource::class
-                    )->translatable('resource.role'),
+                    )->translatable('resource.role')->nullable(),
                     Switcher::make('Must change password')->translatable('resource.user'),
                 ]),
     
