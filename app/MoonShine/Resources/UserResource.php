@@ -8,7 +8,7 @@ use App\Models\Branch;
 use App\Models\Role;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
-
+use Illuminate\Validation\Rule;
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Components\Heading;
@@ -171,9 +171,11 @@ class UserResource extends ModelResource
             'first_name' => ['required', 'string', 'min:3'],
             'last_name' => ['required', 'string', 'min:3'],
             'patronymic' => ['string', 'nullable', 'min:3'],
-            'email' => ['required', 'unique:users,email','email'],
-            'password' => ['required', 'min:8'],
-            'password_repeat' => ['required', 'same:password','min:8'],
+            'role_id' => ['required'],
+            'email' => ['required', 'email', Rule::unique('users')->ignoreModel($item)],
+            'password' => $item->exists
+                ? 'sometimes|nullable|min:6|required_with:password_repeat|same:password_repeat'
+                : 'required|min:6|required_with:password_repeat|same:password_repeat',
         ];
     }
 }
