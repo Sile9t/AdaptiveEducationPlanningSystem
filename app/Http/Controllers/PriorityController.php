@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use DateTime;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Storage;
@@ -67,8 +68,8 @@ class PriorityController extends Controller
         
         $meiliSearchClient = new Client(env('MEILISEARCH_HOST'), env('MEILISEARCH_KEY'));
         $index = $meiliSearchClient->index('training_programs');
-        $programs = TrainingProgram::all()->toArray();
-        $index->addDocuments($programs);
+        // $programs = TrainingProgram::all()->toArray();
+        // $index->addDocuments($programs);
 
         $file = Storage::path($filePath);
         if (! $file) {
@@ -79,14 +80,33 @@ class PriorityController extends Controller
 
         $redisKey = hash('sha256', "priority$userId");
         
+        $redis = Redis::client();
+        $redis->del($redisKey);
+        
         self::processFile($file, $userId, $index);
-
+        
         $collection = collect(json_decode(Redis::get($redisKey)));
-        $sortedCollection = $collection->sortBy('full_name');
-        $groupedColection = $sortedCollection->groupBy('status')->flatten(1);
-        $data = $groupedColection;
+        
+        $sortedCollection = $collection->sortBy(request()->get('sort', 'full_name'));
+        
+        $groupedColection = $sortedCollection->groupBy('status');
+        $flattenAfterGrouping = $groupedColection->flatten(1);
+        $data = $flattenAfterGrouping;
 
-        return response()->json($data);
+        $perPage = request()->get('take', 25);
+        $currentPage = request()->get('page', 1);
+        $paginator = new LengthAwarePaginator(
+            $data->forPage($currentPage, $perPage),
+            $data->count(),
+            $perPage,
+            $currentPage,
+            [
+                'path' => request()->url(),
+                'query' => request()->query()
+            ]
+        );
+
+        return response()->json($paginator);
     }
 
     /**
@@ -151,9 +171,9 @@ class PriorityController extends Controller
         $diff = date_diff($expired_date, now())->days;
         $diffYears = $diff / (365);
 
-        if ($diffYears >= 2) $status = PriorityStatus::Active;
-        if (1 <= $diffYears && $diffYears < 2) $status = PriorityStatus::Control;
-        if (0 < $diffYears && $diffYears < 1) $status = PriorityStatus::Expiring;
+        if ($diffYears >= 2) PriorityStatus::Active;
+        if (1 <= $diffYears && $diffYears < 2) PriorityStatus::Control;
+        if (0 < $diffYears && $diffYears < 1) PriorityStatus::Expiring;
 
         return PriorityStatus::Passed;
     }
@@ -258,5 +278,6 @@ class PriorityController extends Controller
             $redisKey,
             json_encode($priorities)
         );
+        Redis::expire($redisKey, 24*60*60);
     }
 }
