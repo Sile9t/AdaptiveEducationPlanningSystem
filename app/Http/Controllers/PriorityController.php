@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Storage;
 
 class PriorityController extends Controller
 {
@@ -250,7 +251,7 @@ class PriorityController extends Controller
             $dataFromRedis = Redis::get($redisKey);
             $collection = collect(json_decode($dataFromRedis));
         } catch (Exception $e) {
-            
+            $collection = collect(Storage::json('priorities.json'));            
         }
         
         $sortedCollection = $collection->sortBy($request->get('sort', 'full_name'));

@@ -1,0 +1,5132 @@
+[
+    {
+        "id": 0,
+        "full_name": "employee0",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение и проверка знаний по охране труда",
+        "passed_at": {
+            "date": "2012-10-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2012-10-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 1,
+        "full_name": "employee1",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Развитие новаторской деятельности и правовая охрана объектов интеллектуальной собственности в системе ООО \"Газпром трансгаз Томск",
+        "passed_at": {
+            "date": "2015-10-29 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2015-10-29 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 2,
+        "full_name": "employee2",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Предаттестационная подготовка по промышленной безопасности",
+        "passed_at": {
+            "date": "2015-12-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2015-12-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 3,
+        "full_name": "employee3",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обращение лиц с опасными отходами",
+        "passed_at": {
+            "date": "2022-10-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2022-10-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 4,
+        "full_name": "employee4",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обеспечение экологической безопасности руководителями и специалистами экологических служб и систем экологического контроля",
+        "passed_at": {
+            "date": "2018-04-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2018-04-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 5,
+        "full_name": "employee5",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Предаттестационная подготовка по промышленной безопасности",
+        "passed_at": {
+            "date": "2020-09-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2020-09-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 6,
+        "full_name": "employee6",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение по охране труда и проверке знаний требований охраны труда работников организации",
+        "passed_at": {
+            "date": "2028-11-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2028-11-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 7,
+        "full_name": "employee7",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение по охране труда и проверке знаний требований охраны труда работников организации",
+        "passed_at": {
+            "date": "2029-11-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2029-11-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 8,
+        "full_name": "employee8",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Ориентация на результат",
+        "passed_at": {
+            "date": "2022-09-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2022-09-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 9,
+        "full_name": "employee9",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ДО_обязательное, Курс «Пожарно-технический минимум для руководителей и специалистов организаций ответственных за обеспечение пожарной безопасности» (дистанционное)_x000D_\n",
+        "passed_at": {
+            "date": "2030-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2030-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 10,
+        "full_name": "employee10",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "интенсив на платформе «Quiz Lab», Организация и проведение закупок",
+        "passed_at": {
+            "date": "2032-08-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2032-08-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 11,
+        "full_name": "employee11",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение и проверка знаний по охране труда",
+        "passed_at": {
+            "date": "2031-09-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2031-09-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 12,
+        "full_name": "employee12",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение в г. Ставрополь, Формуляр целевых проверок на ГРС (ООО «Газпром трансгаз Ставрополь»)",
+        "passed_at": {
+            "date": "2024-10-01 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2024-10-01 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 13,
+        "full_name": "employee13",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Предаттестационная подготовка по промышленной безопасности",
+        "passed_at": {
+            "date": "2026-10-29 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2026-10-29 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 14,
+        "full_name": "employee14",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Порядок взаимодействия участников строительства и строительного контроля Заказчика на объектах магистральных газопроводов",
+        "passed_at": {
+            "date": "2032-11-02 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2032-11-02 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 15,
+        "full_name": "employee15",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Культура и приверженность производственной безопасности",
+        "passed_at": {
+            "date": "2030-11-18 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2030-11-18 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 16,
+        "full_name": "employee16",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Поведенческий аудит безопасности",
+        "passed_at": {
+            "date": "2027-12-12 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2027-12-12 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 17,
+        "full_name": "employee17",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "дистанционно, Газоопасные работы",
+        "passed_at": {
+            "date": "2034-02-17 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2034-02-17 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 18,
+        "full_name": "employee18",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Оказание первой помощи пострадавшим на_x000D_\n производстве",
+        "passed_at": {
+            "date": "2029-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2029-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 19,
+        "full_name": "employee19",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "вне графика, Подготовка преподавателей, обучающих приемам оказания первой помощи",
+        "passed_at": {
+            "date": "2031-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2031-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 20,
+        "full_name": "employee20",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "дистант, Обучение по общим вопросам охраны труда и функционирования системы управления охраной труда (пп. А п. 46 ПП РФ № 2464)",
+        "passed_at": {
+            "date": "2029-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2029-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 21,
+        "full_name": "employee21",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "дистант, Обучение безопасным методам и приемам выполнения работ при воздействии вредных и опасных производственных факторов, источников опасности, идентифицированных в рамках СОУТ и оценки профессиональных рисков (Безопасные методы и приемы выполнени",
+        "passed_at": {
+            "date": "2025-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2025-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 22,
+        "full_name": "employee22",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение безопасным методам и приемам выполнения работ повышенной опасности, к которым предъявляются дополнительные требования в соответствии с нормативно правовыми актами, содержащими государственные нормативные требования охраны труда(пп. В  п. 46",
+        "passed_at": {
+            "date": "2032-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2032-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 23,
+        "full_name": "employee23",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение и проверка знаний по охране труда",
+        "passed_at": {
+            "date": "2022-09-16 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2022-09-16 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 24,
+        "full_name": "employee24",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обращение лиц с опасными отходами",
+        "passed_at": {
+            "date": "2018-10-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2018-10-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 25,
+        "full_name": "employee25",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обеспечение экологической безопасности руководителями и специалистами экологических служб и систем экологического контроля",
+        "passed_at": {
+            "date": "2025-04-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2025-04-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 26,
+        "full_name": "employee26",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Безопасность строительства и качество устройства электрических сетей и линий связи БС-06 (дистанционное обучение)",
+        "passed_at": {
+            "date": "2016-07-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2016-07-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 27,
+        "full_name": "employee27",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "член  АК, Предаттестационная подготовка и аттестация по промышленной безопасности",
+        "passed_at": {
+            "date": "2024-09-26 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2024-09-26 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 28,
+        "full_name": "employee28",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение по охране труда и проверке знаний требований охраны труда работников организации",
+        "passed_at": {
+            "date": "2026-11-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2026-11-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 29,
+        "full_name": "employee29",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Предаттестационная подготовка и аттестация по промышленной безопасности",
+        "passed_at": {
+            "date": "2025-09-22 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2025-09-22 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 30,
+        "full_name": "employee30",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение по охране труда и проверке знаний требований охраны труда работников организации",
+        "passed_at": {
+            "date": "2025-11-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2025-11-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 31,
+        "full_name": "employee31",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Работы на высоте",
+        "passed_at": {
+            "date": "2023-05-26 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2023-05-26 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 32,
+        "full_name": "employee32",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ДО_обязательное, Курс «Пожарно-технический минимум для руководителей и специалистов организаций ответственных за обеспечение пожарной безопасности» (дистанционное)_x000D_\n",
+        "passed_at": {
+            "date": "2028-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2028-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 33,
+        "full_name": "employee33",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "перенос с октября, Подготовка лиц ответственных за исправное состояние и безопасную эксплуатацию тепловых энергоустановок",
+        "passed_at": {
+            "date": "2026-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2026-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 34,
+        "full_name": "employee34",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "перенос с октября, Эксплуатации электроустановок",
+        "passed_at": {
+            "date": "2031-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2031-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 35,
+        "full_name": "employee35",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "интенсив на платформе «Quiz Lab», Организация и проведение закупок",
+        "passed_at": {
+            "date": "2030-08-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2030-08-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 36,
+        "full_name": "employee36",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение и проверка знаний по охране труда",
+        "passed_at": {
+            "date": "2024-09-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2024-09-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 37,
+        "full_name": "employee37",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Порядок взаимодействия участников строительства и строительного контроля Заказчика на объектах магистральных газопроводов",
+        "passed_at": {
+            "date": "2026-11-02 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2026-11-02 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 38,
+        "full_name": "employee38",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Дистанционная предаттестационная подготовка по промышленной безопасности",
+        "passed_at": {
+            "date": "2035-02-18 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2035-02-18 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 39,
+        "full_name": "employee39",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Качество и безопасность проведения испытаний и измерений в электроустановках",
+        "passed_at": {
+            "date": "2028-11-03 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2028-11-03 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 40,
+        "full_name": "employee40",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Культура и приверженность производственной безопасности",
+        "passed_at": {
+            "date": "2032-11-18 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2032-11-18 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 41,
+        "full_name": "employee41",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Поведенческий аудит безопасности",
+        "passed_at": {
+            "date": "2032-12-12 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2032-12-12 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 42,
+        "full_name": "employee42",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "дистанционно, Газоопасные работы",
+        "passed_at": {
+            "date": "2030-02-17 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2030-02-17 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 43,
+        "full_name": "employee43",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Оказание первой помощи пострадавшим на_x000D_\n производстве",
+        "passed_at": {
+            "date": "2025-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2025-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 44,
+        "full_name": "employee44",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "вне графика, Подготовка преподавателей, обучающих приемам оказания первой помощи",
+        "passed_at": {
+            "date": "2028-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2028-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 45,
+        "full_name": "employee45",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "дистант, Обучение по общим вопросам охраны труда и функционирования системы управления охраной труда (пп. А п. 46 ПП РФ № 2464)",
+        "passed_at": {
+            "date": "2034-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2034-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 46,
+        "full_name": "employee46",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "дистант, Обучение безопасным методам и приемам выполнения работ при воздействии вредных и опасных производственных факторов, источников опасности, идентифицированных в рамках СОУТ и оценки профессиональных рисков (Безопасные методы и приемы выполнени",
+        "passed_at": {
+            "date": "2029-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2029-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 47,
+        "full_name": "employee47",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение безопасным методам и приемам выполнения работ повышенной опасности, к которым предъявляются дополнительные требования в соответствии с нормативно правовыми актами, содержащими государственные нормативные требования охраны труда(пп. В  п. 46",
+        "passed_at": {
+            "date": "2032-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2032-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 48,
+        "full_name": "employee48",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обращение с отходами I–IV класса опасности (ИТР)",
+        "passed_at": {
+            "date": "2029-09-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2029-09-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 49,
+        "full_name": "employee49",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Курс «Р7-Офис. Как начать работу» (дистанционное)",
+        "passed_at": {
+            "date": "2031-12-10 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2031-12-10 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 50,
+        "full_name": "employee50",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Курс «Р7-Офис: Редактор таблиц с нуля до профессионала» (дистанционное)",
+        "passed_at": {
+            "date": "2030-12-10 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2030-12-10 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 51,
+        "full_name": "employee51",
+        "category": "Руководитель",
+        "position": "мастер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Курс «Основы охраны труда и промышленной безопасности» (дистанционное)",
+        "passed_at": {
+            "date": "2023-12-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2023-12-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 52,
+        "full_name": "employee52",
+        "category": "Руководитель",
+        "position": "мастер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Работа с опасными отходами (дистанционное обучение)",
+        "passed_at": {
+            "date": "2023-10-29 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2023-10-29 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 53,
+        "full_name": "employee53",
+        "category": "Руководитель",
+        "position": "мастер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение по охране труда и проверке знаний требований охраны труда работников организации",
+        "passed_at": {
+            "date": "2030-02-16 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2030-02-16 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 54,
+        "full_name": "employee54",
+        "category": "Руководитель",
+        "position": "мастер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ДО_обязательное, Курс «Основы промышленной безопасности»_x000D_\n (дистанционное)",
+        "passed_at": {
+            "date": "2023-03-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2023-03-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 55,
+        "full_name": "employee55",
+        "category": "Руководитель",
+        "position": "мастер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ДО_обязательное, Курс «Работа в команде»_x000D_\n (дистанционное)",
+        "passed_at": {
+            "date": "2021-07-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2021-07-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 56,
+        "full_name": "employee56",
+        "category": "Руководитель",
+        "position": "мастер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ДО_обязательное, Курс «Пожарно-технический минимум для руководителей и ответственных за пожарную безопасность в учреждениях (офисах)» (дистанционное)_x000D_\n",
+        "passed_at": {
+            "date": "2024-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2024-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 57,
+        "full_name": "employee57",
+        "category": "Руководитель",
+        "position": "мастер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ДО_обязательное, Курс «Пожарно-технический минимум для руководителей и специалистов организаций ответственных за обеспечение пожарной безопасности» (дистанционное)_x000D_\n",
+        "passed_at": {
+            "date": "2023-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2023-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 58,
+        "full_name": "employee58",
+        "category": "Руководитель",
+        "position": "мастер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "интенсив на платформе «Quiz Lab», Организация и проведение закупок",
+        "passed_at": {
+            "date": "2025-08-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2025-08-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 59,
+        "full_name": "employee59",
+        "category": "Руководитель",
+        "position": "мастер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение в г. Ставрополь, Формуляр целевых проверок на ГРС (ООО «Газпром трансгаз Ставрополь»)",
+        "passed_at": {
+            "date": "2025-09-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2025-09-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 60,
+        "full_name": "employee60",
+        "category": "Руководитель",
+        "position": "мастер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение и проверка знаний по охране труда",
+        "passed_at": {
+            "date": "2029-09-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2029-09-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 61,
+        "full_name": "employee61",
+        "category": "Руководитель",
+        "position": "мастер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "еренос с сентября в связи с наложением командировок, Инженерно-геологические изыскания",
+        "passed_at": {
+            "date": "2026-10-28 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2026-10-28 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 62,
+        "full_name": "employee62",
+        "category": "Руководитель",
+        "position": "мастер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Предаттестационная подготовка по промышленной безопасности",
+        "passed_at": {
+            "date": "2034-10-29 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2034-10-29 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 63,
+        "full_name": "employee63",
+        "category": "Руководитель",
+        "position": "мастер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Порядок взаимодействия участников строительства и строительного контроля Заказчика на объектах магистральных газопроводов",
+        "passed_at": {
+            "date": "2026-11-02 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2026-11-02 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 64,
+        "full_name": "employee64",
+        "category": "Руководитель",
+        "position": "мастер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Культура и приверженность производственной безопасности",
+        "passed_at": {
+            "date": "2031-11-18 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2031-11-18 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 65,
+        "full_name": "employee65",
+        "category": "Руководитель",
+        "position": "мастер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Поведенческий аудит безопасности",
+        "passed_at": {
+            "date": "2035-12-12 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2035-12-12 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 66,
+        "full_name": "employee66",
+        "category": "Руководитель",
+        "position": "мастер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "дистант, Обучение по общим вопросам охраны труда и функционирования системы управления охраной труда (пп. А п. 46 ПП РФ № 2464)",
+        "passed_at": {
+            "date": "2031-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2031-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 67,
+        "full_name": "employee67",
+        "category": "Руководитель",
+        "position": "мастер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "дистант, Обучение безопасным методам и приемам выполнения работ при воздействии вредных и опасных производственных факторов, источников опасности, идентифицированных в рамках СОУТ и оценки профессиональных рисков (Безопасные методы и приемы выполнени",
+        "passed_at": {
+            "date": "2027-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2027-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 68,
+        "full_name": "employee68",
+        "category": "Руководитель",
+        "position": "мастер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение безопасным методам и приемам выполнения работ повышенной опасности, к которым предъявляются дополнительные требования в соответствии с нормативно правовыми актами, содержащими государственные нормативные требования охраны труда(пп. В  п. 46",
+        "passed_at": {
+            "date": "2034-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2034-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 69,
+        "full_name": "employee69",
+        "category": "Руководитель",
+        "position": "мастер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обращение с отходами I–IV класса опасности (ИТР)",
+        "passed_at": {
+            "date": "2030-09-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2030-09-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 70,
+        "full_name": "employee70",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Руководитель службы охраны труда",
+        "passed_at": {
+            "date": "2031-03-06 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2031-03-06 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 71,
+        "full_name": "employee71",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Курс «Баланс работы и личной жизни» (дистанционное)",
+        "passed_at": {
+            "date": "2031-12-10 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2031-12-10 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 72,
+        "full_name": "employee72",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "только ИТР, Требования промышленной безопасности",
+        "passed_at": {
+            "date": "2038-02-14 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2038-02-14 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 73,
+        "full_name": "employee73",
+        "category": "Руководитель",
+        "position": "начальник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "дистанционное обучение, Правила работы в электроустановках",
+        "passed_at": {
+            "date": "2033-02-28 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2033-02-28 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 74,
+        "full_name": "employee74",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Предаттестационная подготовка и аттестация по промышленной безопасности",
+        "passed_at": {
+            "date": "2022-09-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2022-09-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 75,
+        "full_name": "employee75",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Защита объектов комплексами инженерно-технических средств охраны",
+        "passed_at": {
+            "date": "2019-04-15 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2019-04-15 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 76,
+        "full_name": "employee76",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Предаттестационная подготовка по промышленной безопасности",
+        "passed_at": {
+            "date": "2020-09-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2020-09-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 77,
+        "full_name": "employee77",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Работа с опасными отходами (дистанционное обучение)",
+        "passed_at": {
+            "date": "2027-10-29 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2027-10-29 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 78,
+        "full_name": "employee78",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ДО_обязательное, Курс «Основы промышленной безопасности»_x000D_\n (дистанционное)",
+        "passed_at": {
+            "date": "2027-03-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2027-03-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 79,
+        "full_name": "employee79",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ДО_обязательное, Курс «Охрана труда для руководителей и специалистов организаций» (дистанционное)",
+        "passed_at": {
+            "date": "2024-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2024-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 80,
+        "full_name": "employee80",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ДО_обязательное, Курс «Работа в команде»_x000D_\n (дистанционное)",
+        "passed_at": {
+            "date": "2021-11-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2021-11-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 81,
+        "full_name": "employee81",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ДО_обязательное, Курс «Пожарно-технический минимум для руководителей и специалистов организаций ответственных за обеспечение пожарной безопасности» (дистанционное)_x000D_\n",
+        "passed_at": {
+            "date": "2025-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2025-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 82,
+        "full_name": "employee82",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Времено отменено для актуализации графика обучения на 2021 год, Работы на высоте (верхолазные работы)",
+        "passed_at": {
+            "date": "2032-07-02 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2032-07-02 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 83,
+        "full_name": "employee83",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Порядок взаимодействия участников строительства и строительного контроля Заказчика на объектах магистральных газопроводов",
+        "passed_at": {
+            "date": "2023-10-19 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2023-10-19 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 84,
+        "full_name": "employee84",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Предаттестационная подготовка по промышленной безопасности",
+        "passed_at": {
+            "date": "2031-10-29 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2031-10-29 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 85,
+        "full_name": "employee85",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "вне графика, в ПХД не считать!, Измерение геодезических параметров антенно-мачтовых сооружений",
+        "passed_at": {
+            "date": "2028-11-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2028-11-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 86,
+        "full_name": "employee86",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Организация работы руководителя формирования (НАСФ, НФГО) и спасательной службы в дочернем обществе и организации ПАО \"Газпром\"",
+        "passed_at": {
+            "date": "2028-10-19 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2028-10-19 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 87,
+        "full_name": "employee87",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Дистанционное обучение, Информационная безопасность автоматизированных систем управления технологическими процессами (дистанционное обучение)",
+        "passed_at": {
+            "date": "2029-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2029-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 88,
+        "full_name": "employee88",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "дистант, Обучение по общим вопросам охраны труда и функционирования системы управления охраной труда (пп. А п. 46 ПП РФ № 2464)",
+        "passed_at": {
+            "date": "2028-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2028-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 89,
+        "full_name": "employee89",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "дистант, Обучение безопасным методам и приемам выполнения работ при воздействии вредных и опасных производственных факторов, источников опасности, идентифицированных в рамках СОУТ и оценки профессиональных рисков (Безопасные методы и приемы выполнени",
+        "passed_at": {
+            "date": "2029-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2029-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 90,
+        "full_name": "employee90",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение безопасным методам и приемам выполнения работ повышенной опасности, к которым предъявляются дополнительные требования в соответствии с нормативно правовыми актами, содержащими государственные нормативные требования охраны труда(пп. В  п. 46",
+        "passed_at": {
+            "date": "2033-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2033-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 91,
+        "full_name": "employee91",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "очно, перенос с марта, Организация и ведение аварийно-спасательных работ (переаттестация) ИТР",
+        "passed_at": {
+            "date": "2031-10-20 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2031-10-20 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 92,
+        "full_name": "employee92",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Дистанционное обучение, Информационная безопасность автоматизированных систем управления технологическими процессами (дистанционное обучение)",
+        "passed_at": {
+            "date": "2029-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2029-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 93,
+        "full_name": "employee93",
+        "category": "Специалист",
+        "position": "техник",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обращение с отходами I–IV класса опасности (ИТР)",
+        "passed_at": {
+            "date": "2032-09-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2032-09-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 94,
+        "full_name": "employee94",
+        "category": "Специалист",
+        "position": "инженер по пожарной безопасности 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "программа обучения по охране труда",
+        "passed_at": {
+            "date": "2026-03-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2026-03-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 95,
+        "full_name": "employee95",
+        "category": "Специалист",
+        "position": "инженер по пожарной безопасности 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Курс «Безопасность в нефтяной и газовой промышленности» (дистанционное)",
+        "passed_at": {
+            "date": "2020-11-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2020-11-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 96,
+        "full_name": "employee96",
+        "category": "Специалист",
+        "position": "инженер по пожарной безопасности 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Охрана труда",
+        "passed_at": {
+            "date": "2020-01-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2020-01-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 97,
+        "full_name": "employee97",
+        "category": "Специалист",
+        "position": "инженер по пожарной безопасности 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение и проверка знаний по охране труда",
+        "passed_at": {
+            "date": "2030-11-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2030-11-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 98,
+        "full_name": "employee98",
+        "category": "Специалист",
+        "position": "инженер по пожарной безопасности 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "СС, Работы на высоте (верхолазные работы)",
+        "passed_at": {
+            "date": "2024-03-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2024-03-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 99,
+        "full_name": "employee99",
+        "category": "Специалист",
+        "position": "инженер по пожарной безопасности 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ДО_обязательное_СС, Курс «Пожарно-технический минимум для руководителей и ответственных за пожарную безопасность в учреждениях (офисах)» (дистанционное)_x000D_\n",
+        "passed_at": {
+            "date": "2021-04-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2021-04-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 100,
+        "full_name": "employee100",
+        "category": "Специалист",
+        "position": "инженер по пожарной безопасности 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ДО_целевое, Курс «Пожарно-технический минимум для руководителей и специалистов организаций ответственных за обеспечение пожарной безопасности» (дистанционное)_x000D_\n",
+        "passed_at": {
+            "date": "2021-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2021-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 101,
+        "full_name": "employee101",
+        "category": "Специалист",
+        "position": "инженер по пожарной безопасности 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "перенос с апреля по отпуску, Обучение и проверка знаний по охране труда",
+        "passed_at": {
+            "date": "2024-05-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2024-05-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 102,
+        "full_name": "employee102",
+        "category": "Специалист",
+        "position": "инженер по пожарной безопасности 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Организация работы комиссий по ЧС и ОПБ (дистанционное)",
+        "passed_at": {
+            "date": "2028-10-21 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2028-10-21 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 103,
+        "full_name": "employee103",
+        "category": "Специалист",
+        "position": "инженер по пожарной безопасности 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "СС_вне графика, Пожарная безопасность (дистанционное обучение)",
+        "passed_at": {
+            "date": "2031-12-07 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2031-12-07 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 104,
+        "full_name": "employee104",
+        "category": "Специалист",
+        "position": "инженер по пожарной безопасности 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Организация работы комиссий по ЧС и ОПБ (дистанционное)",
+        "passed_at": {
+            "date": "2025-02-17 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2025-02-17 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 105,
+        "full_name": "employee105",
+        "category": "Специалист",
+        "position": "инженер по пожарной безопасности 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение и проверка знаний по охране труда",
+        "passed_at": {
+            "date": "2032-05-21 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2032-05-21 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 106,
+        "full_name": "employee106",
+        "category": "Специалист",
+        "position": "инженер по пожарной безопасности 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ДО_обязательное, Курс «Пожарно-технический минимум для руководителей и специалистов организаций ответственных за обеспечение пожарной безопасности» (дистанционное)_x000D_\n",
+        "passed_at": {
+            "date": "2028-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2028-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 107,
+        "full_name": "employee107",
+        "category": "Специалист",
+        "position": "инженер по пожарной безопасности 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "интенсив на платформе «Quiz Lab», Организация и проведение закупок",
+        "passed_at": {
+            "date": "2031-08-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2031-08-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 108,
+        "full_name": "employee108",
+        "category": "Специалист",
+        "position": "инженер по пожарной безопасности 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обеспечение экологической безопасности руководителями и специалистами общехозяйственных систем управления (дистанционное обучение)",
+        "passed_at": {
+            "date": "2032-10-29 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2032-10-29 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 109,
+        "full_name": "employee109",
+        "category": "Специалист",
+        "position": "инженер по пожарной безопасности 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Организация работы комиссий по ЧС и ОПБ (дистанционное)",
+        "passed_at": {
+            "date": "2033-03-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2033-03-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 110,
+        "full_name": "employee110",
+        "category": "Специалист",
+        "position": "инженер по пожарной безопасности 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Культура и приверженность производственной безопасности",
+        "passed_at": {
+            "date": "2028-11-18 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2028-11-18 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 111,
+        "full_name": "employee111",
+        "category": "Специалист",
+        "position": "инженер по пожарной безопасности 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "дистанционно, Газоопасные работы",
+        "passed_at": {
+            "date": "2025-02-17 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2025-02-17 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 112,
+        "full_name": "employee112",
+        "category": "Специалист",
+        "position": "инженер по пожарной безопасности 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Поведенческий аудит безопасности",
+        "passed_at": {
+            "date": "2033-03-17 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2033-03-17 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 113,
+        "full_name": "employee113",
+        "category": "Специалист",
+        "position": "инженер по пожарной безопасности 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Оказание первой помощи пострадавшим на_x000D_\n производстве",
+        "passed_at": {
+            "date": "2025-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2025-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 114,
+        "full_name": "employee114",
+        "category": "Специалист",
+        "position": "инженер по пожарной безопасности 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "вне графика, Подготовка преподавателей, обучающих приемам оказания первой помощи",
+        "passed_at": {
+            "date": "2032-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2032-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 115,
+        "full_name": "employee115",
+        "category": "Специалист",
+        "position": "инженер по пожарной безопасности 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Работы на высоте (верхолазные работы)",
+        "passed_at": {
+            "date": "2027-09-15 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2027-09-15 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 116,
+        "full_name": "employee116",
+        "category": "Специалист",
+        "position": "инженер по пожарной безопасности 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "только ИТР, Требования промышленной безопасности",
+        "passed_at": {
+            "date": "2037-06-28 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2037-06-28 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 117,
+        "full_name": "employee117",
+        "category": "Специалист",
+        "position": "инженер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение по охране труда и проверке знаний требований охраны труда работников организации",
+        "passed_at": {
+            "date": "2019-11-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2019-11-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 118,
+        "full_name": "employee118",
+        "category": "Специалист",
+        "position": "инженер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "обязательное, Курс «Охрана труда для руководителей и специалистов организаций» (дистанционное)",
+        "passed_at": {
+            "date": "2020-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2020-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 119,
+        "full_name": "employee119",
+        "category": "Специалист",
+        "position": "инженер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обеспечение экологической безопасности при работах в области обращения лиц с опасными отходами",
+        "passed_at": {
+            "date": "2026-09-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2026-09-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 120,
+        "full_name": "employee120",
+        "category": "Специалист",
+        "position": "инженер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение по охране труда и проверке знаний требований охраны труда работников организации",
+        "passed_at": {
+            "date": "2024-02-16 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2024-02-16 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 121,
+        "full_name": "employee121",
+        "category": "Специалист",
+        "position": "инженер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Работа с опасными отходами (дистанционное обучение)",
+        "passed_at": {
+            "date": "2022-11-29 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2022-11-29 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 122,
+        "full_name": "employee122",
+        "category": "Специалист",
+        "position": "инженер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Работы на высоте (2 группа)",
+        "passed_at": {
+            "date": "2029-08-07 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2029-08-07 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 123,
+        "full_name": "employee123",
+        "category": "Специалист",
+        "position": "инженер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ДО_обязательное, Курс «Пожарно-технический минимум для руководителей и специалистов организаций ответственных за обеспечение пожарной безопасности» (дистанционное)_x000D_\n",
+        "passed_at": {
+            "date": "2027-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2027-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 124,
+        "full_name": "employee124",
+        "category": "Специалист",
+        "position": "инженер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "дистанционное, Обучение и проверка знаний по охране труда",
+        "passed_at": {
+            "date": "2029-02-18 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2029-02-18 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 125,
+        "full_name": "employee125",
+        "category": "Специалист",
+        "position": "инженер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ДЗ 19.02.2022_x000D_\n 2000/00101ф (А.С. Пыкин), Безопасность строительства и осуществление строительного контроля при выполнении строительно-монтажных работ на объектах магистральных газопроводов",
+        "passed_at": {
+            "date": "2026-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2026-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 126,
+        "full_name": "employee126",
+        "category": "Специалист",
+        "position": "инженер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Качество и безопасность проведения испытаний и измерений в электроустановках_x000D_\n",
+        "passed_at": {
+            "date": "2033-11-03 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2033-11-03 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 127,
+        "full_name": "employee127",
+        "category": "Специалист",
+        "position": "инженер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Культура и приверженность производственной безопасности",
+        "passed_at": {
+            "date": "2035-11-18 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2035-11-18 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 128,
+        "full_name": "employee128",
+        "category": "Специалист",
+        "position": "инженер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Поведенческий аудит безопасности",
+        "passed_at": {
+            "date": "2026-12-12 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2026-12-12 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 129,
+        "full_name": "employee129",
+        "category": "Специалист",
+        "position": "инженер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "дистант, Обучение по общим вопросам охраны труда и функционирования системы управления охраной труда (пп. А п. 46 ПП РФ № 2464)",
+        "passed_at": {
+            "date": "2030-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2030-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 130,
+        "full_name": "employee130",
+        "category": "Специалист",
+        "position": "инженер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "дистант, Обучение безопасным методам и приемам выполнения работ при воздействии вредных и опасных производственных факторов, источников опасности, идентифицированных в рамках СОУТ и оценки профессиональных рисков (Безопасные методы и приемы выполнени",
+        "passed_at": {
+            "date": "2028-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2028-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 131,
+        "full_name": "employee131",
+        "category": "Специалист",
+        "position": "инженер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение безопасным методам и приемам выполнения работ повышенной опасности, к которым предъявляются дополнительные требования в соответствии с нормативно правовыми актами, содержащими государственные нормативные требования охраны труда(пп. В  п. 46",
+        "passed_at": {
+            "date": "2034-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2034-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 132,
+        "full_name": "employee132",
+        "category": "Специалист",
+        "position": "инженер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Работы на высоте",
+        "passed_at": {
+            "date": "2030-05-17 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2030-05-17 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 133,
+        "full_name": "employee133",
+        "category": "Специалист",
+        "position": "инженер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "только ИТР, Требования промышленной безопасности",
+        "passed_at": {
+            "date": "2032-08-02 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2032-08-02 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 134,
+        "full_name": "employee134",
+        "category": "Специалист",
+        "position": "инженер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Курс «Баланс работы и личной жизни» (дистанционное)",
+        "passed_at": {
+            "date": "2033-12-10 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2033-12-10 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 135,
+        "full_name": "employee135",
+        "category": "Специалист",
+        "position": "инженер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Курс «Лидерство и мотивация в работе руководителя» (дистанционное)",
+        "passed_at": {
+            "date": "2034-12-10 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2034-12-10 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 136,
+        "full_name": "employee136",
+        "category": "Специалист",
+        "position": "инженер по охране труда и промышленной безопасности 2 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Учебно-методический сбор по итогам работы и обеспечения  функционирования СГЗ Общества в 2012 годуи задачам на 2013 год",
+        "passed_at": {
+            "date": "2019-12-20 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2019-12-20 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 137,
+        "full_name": "employee137",
+        "category": "Специалист",
+        "position": "инженер по охране труда и промышленной безопасности 2 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Учебно-методический сбор с работниками постоянно действующих органов управления СГЗ по итогам деятельности в 2013 году, направления ее совершенствования и задачам на 2014 год",
+        "passed_at": {
+            "date": "2015-12-19 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2015-12-19 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 138,
+        "full_name": "employee138",
+        "category": "Специалист",
+        "position": "инженер по охране труда и промышленной безопасности 2 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Интегрированная система менеджмента в соответствии с требованиями корпоративного стандарта СТО Газпром  9001-2012, ISO 14001,OHSAS 18001. Внутренний аудит",
+        "passed_at": {
+            "date": "2021-07-11 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2021-07-11 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 139,
+        "full_name": "employee139",
+        "category": "Специалист",
+        "position": "инженер по охране труда и промышленной безопасности 2 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Курс «Охрана труда для руководителей и специалистов организаций» (дистанционное)",
+        "passed_at": {
+            "date": "2021-12-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2021-12-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 140,
+        "full_name": "employee140",
+        "category": "Специалист",
+        "position": "инженер по охране труда и промышленной безопасности 2 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение по охране труда и проверке знаний требований охраны труда работников организации",
+        "passed_at": {
+            "date": "2020-11-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2020-11-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 141,
+        "full_name": "employee141",
+        "category": "Специалист",
+        "position": "инженер по охране труда и промышленной безопасности 2 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Предаттестационная подготовка по промышленной безопасности",
+        "passed_at": {
+            "date": "2023-12-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2023-12-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 142,
+        "full_name": "employee142",
+        "category": "Специалист",
+        "position": "инженер по охране труда и промышленной безопасности 2 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "обязательное, Курс «Охрана труда для руководителей и специалистов организаций» (дистанционное)",
+        "passed_at": {
+            "date": "2024-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2024-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 143,
+        "full_name": "employee143",
+        "category": "Специалист",
+        "position": "инженер по охране труда и промышленной безопасности 2 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "охрана труда и безопасность технологических процессов и производств",
+        "passed_at": {
+            "date": "2029-06-19 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2029-06-19 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 144,
+        "full_name": "employee144",
+        "category": "Специалист",
+        "position": "инженер по охране труда и промышленной безопасности 2 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение по охране труда и проверке знаний требований охраны труда работников организации",
+        "passed_at": {
+            "date": "2023-11-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2023-11-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 145,
+        "full_name": "employee145",
+        "category": "Специалист",
+        "position": "инженер по охране труда и промышленной безопасности 2 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Пожарно-технический минимум",
+        "passed_at": {
+            "date": "2026-05-09 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2026-05-09 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 146,
+        "full_name": "employee146",
+        "category": "Специалист",
+        "position": "инженер по охране труда и промышленной безопасности 2 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ДО_обязательное, Курс «Пожарно-технический минимум для руководителей и ответственных за пожарную безопасность в учреждениях (офисах)» (дистанционное)_x000D_\n",
+        "passed_at": {
+            "date": "2022-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2022-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 147,
+        "full_name": "employee147",
+        "category": "Специалист",
+        "position": "инженер по охране труда и промышленной безопасности 2 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Целевое (доп. лимиты), Поведенческий аудит безопасности",
+        "passed_at": {
+            "date": "2026-12-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2026-12-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 148,
+        "full_name": "employee148",
+        "category": "Специалист",
+        "position": "инженер по охране труда и промышленной безопасности 2 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ДО_обязательное, Курс «Пожарно-технический минимум для руководителей и специалистов организаций ответственных за обеспечение пожарной безопасности» (дистанционное)_x000D_\n",
+        "passed_at": {
+            "date": "2023-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2023-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 149,
+        "full_name": "employee149",
+        "category": "Специалист",
+        "position": "инженер по охране труда и промышленной безопасности 2 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение и проверка знаний по охране труда",
+        "passed_at": {
+            "date": "2030-09-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2030-09-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 150,
+        "full_name": "employee150",
+        "category": "Специалист",
+        "position": "инженер по охране труда и промышленной безопасности 2 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Предаттестационная подготовка по промышленной безопасности",
+        "passed_at": {
+            "date": "2028-10-29 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2028-10-29 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 151,
+        "full_name": "employee151",
+        "category": "Специалист",
+        "position": "инженер по охране труда и промышленной безопасности 2 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "дистанционно, Газоопасные работы",
+        "passed_at": {
+            "date": "2027-02-17 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2027-02-17 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 152,
+        "full_name": "employee152",
+        "category": "Специалист",
+        "position": "инженер по охране труда и промышленной безопасности 2 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Оказание первой помощи пострадавшим на_x000D_\n производстве",
+        "passed_at": {
+            "date": "2031-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2031-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 153,
+        "full_name": "employee153",
+        "category": "Специалист",
+        "position": "инженер по охране труда и промышленной безопасности 2 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "вне графика, Подготовка преподавателей, обучающих приемам оказания первой помощи",
+        "passed_at": {
+            "date": "2028-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2028-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 154,
+        "full_name": "employee154",
+        "category": "Специалист",
+        "position": "инженер по охране труда и промышленной безопасности 2 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "дистант, Обучение по общим вопросам охраны труда и функционирования системы управления охраной труда (пп. А п. 46 ПП РФ № 2464)",
+        "passed_at": {
+            "date": "2027-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2027-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 155,
+        "full_name": "employee155",
+        "category": "Специалист",
+        "position": "инженер по охране труда и промышленной безопасности 2 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "дистант, Обучение безопасным методам и приемам выполнения работ при воздействии вредных и опасных производственных факторов, источников опасности, идентифицированных в рамках СОУТ и оценки профессиональных рисков (Безопасные методы и приемы выполнени",
+        "passed_at": {
+            "date": "2032-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2032-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 156,
+        "full_name": "employee156",
+        "category": "Специалист",
+        "position": "инженер по охране труда и промышленной безопасности 2 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение безопасным методам и приемам выполнения работ повышенной опасности, к которым предъявляются дополнительные требования в соответствии с нормативно правовыми актами, содержащими государственные нормативные требования охраны труда(пп. В  п. 46",
+        "passed_at": {
+            "date": "2030-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2030-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 157,
+        "full_name": "employee157",
+        "category": "Специалист",
+        "position": "инженер по охране труда и промышленной безопасности 2 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение и проверка знаний по охране труда",
+        "passed_at": {
+            "date": "2036-08-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2036-08-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 158,
+        "full_name": "employee158",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ДО_обязательное, Курс «Пожарно-технический минимум для руководителей и специалистов организаций ответственных за обеспечение пожарной безопасности» (дистанционное)_x000D_\n",
+        "passed_at": {
+            "date": "2022-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2022-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 159,
+        "full_name": "employee159",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ДЗ 19.02.2022_x000D_\n 2000/00101ф (А.С. Пыкин), Безопасность строительства и осуществление строительного контроля при выполнении строительно-монтажных работ на объектах магистральных газопроводов",
+        "passed_at": {
+            "date": "2029-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2029-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 160,
+        "full_name": "employee160",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Культура и приверженность производственной безопасности",
+        "passed_at": {
+            "date": "2032-11-18 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2032-11-18 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 161,
+        "full_name": "employee161",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Поведенческий аудит безопасности",
+        "passed_at": {
+            "date": "2035-12-12 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2035-12-12 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 162,
+        "full_name": "employee162",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Дистанционное обучение, Информационная безопасность автоматизированных систем управления технологическими процессами (дистанционное обучение)",
+        "passed_at": {
+            "date": "2036-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2036-06-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 163,
+        "full_name": "employee163",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "дистант, Обучение по общим вопросам охраны труда и функционирования системы управления охраной труда (пп. А п. 46 ПП РФ № 2464)",
+        "passed_at": {
+            "date": "2030-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2030-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 164,
+        "full_name": "employee164",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "дистант, Обучение безопасным методам и приемам выполнения работ при воздействии вредных и опасных производственных факторов, источников опасности, идентифицированных в рамках СОУТ и оценки профессиональных рисков (Безопасные методы и приемы выполнени",
+        "passed_at": {
+            "date": "2024-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2024-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 165,
+        "full_name": "employee165",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение безопасным методам и приемам выполнения работ повышенной опасности, к которым предъявляются дополнительные требования в соответствии с нормативно правовыми актами, содержащими государственные нормативные требования охраны труда(пп. В  п. 46",
+        "passed_at": {
+            "date": "2032-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2032-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 166,
+        "full_name": "employee166",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "только ИТР, Требования промышленной безопасности",
+        "passed_at": {
+            "date": "2036-08-02 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2036-08-02 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 167,
+        "full_name": "employee167",
+        "category": "Специалист",
+        "position": "инженер 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Дистанционное обучение, Информационная безопасность автоматизированных систем управления технологическими процессами (дистанционное обучение)",
+        "passed_at": {
+            "date": "2030-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2030-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 168,
+        "full_name": "employee168",
+        "category": "Специалист",
+        "position": "инженер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Курс «Р7-Офис. Как начать работу» (дистанционное)",
+        "passed_at": {
+            "date": "2035-12-10 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2035-12-10 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 169,
+        "full_name": "employee169",
+        "category": "Специалист",
+        "position": "инженер",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "только ИТР, Требования промышленной безопасности",
+        "passed_at": {
+            "date": "2036-02-14 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2036-02-14 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 170,
+        "full_name": "employee170",
+        "category": "Специалист",
+        "position": "инженер 2 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Замена Менлыкаева С.В. от 19.01.2022 №2000/00030ф, Электромонтер охранно-пожарной сигнализации СМ",
+        "passed_at": {
+            "date": "2026-08-15 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2026-08-15 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 171,
+        "full_name": "employee171",
+        "category": "Специалист",
+        "position": "инженер 2 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Эксплуатация средств защиты информации на объектах КИИ",
+        "passed_at": {
+            "date": "2034-12-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2034-12-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 172,
+        "full_name": "employee172",
+        "category": "Специалист",
+        "position": "инженер по комплектации оборудования 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ДО_обязательное, Курс «Охрана труда для руководителей и специалистов организаций» (дистанционное)",
+        "passed_at": {
+            "date": "2025-10-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2025-10-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 173,
+        "full_name": "employee173",
+        "category": "Специалист",
+        "position": "инженер по комплектации оборудования 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Ориентация на результат",
+        "passed_at": {
+            "date": "2029-09-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2029-09-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 174,
+        "full_name": "employee174",
+        "category": "Специалист",
+        "position": "инженер по комплектации оборудования 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ДО_обязательное, Курс «Пожарно-технический минимум для руководителей и специалистов организаций ответственных за обеспечение пожарной безопасности» (дистанционное)_x000D_\n",
+        "passed_at": {
+            "date": "2029-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2029-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 175,
+        "full_name": "employee175",
+        "category": "Специалист",
+        "position": "инженер по комплектации оборудования 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "интенсив на платформе «Quiz Lab», Организация и проведение закупок",
+        "passed_at": {
+            "date": "2022-08-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2022-08-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 176,
+        "full_name": "employee176",
+        "category": "Специалист",
+        "position": "инженер по комплектации оборудования 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "дистант, Обучение по общим вопросам охраны труда и функционирования системы управления охраной труда (пп. А п. 46 ПП РФ № 2464)",
+        "passed_at": {
+            "date": "2035-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2035-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 177,
+        "full_name": "employee177",
+        "category": "Специалист",
+        "position": "инженер по комплектации оборудования 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "дистант, Обучение безопасным методам и приемам выполнения работ при воздействии вредных и опасных производственных факторов, источников опасности, идентифицированных в рамках СОУТ и оценки профессиональных рисков (Безопасные методы и приемы выполнени",
+        "passed_at": {
+            "date": "2026-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2026-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 178,
+        "full_name": "employee178",
+        "category": "Специалист",
+        "position": "инженер по комплектации оборудования 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение безопасным методам и приемам выполнения работ повышенной опасности, к которым предъявляются дополнительные требования в соответствии с нормативно правовыми актами, содержащими государственные нормативные требования охраны труда(пп. В  п. 46",
+        "passed_at": {
+            "date": "2036-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2036-08-31 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 179,
+        "full_name": "employee179",
+        "category": "Специалист",
+        "position": "инженер по комплектации оборудования 1 категории",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ИТР_Организация и обеспечение хранения материально-технических ресурсов на складах ООО «Газпром трансгаз Томск",
+        "passed_at": {
+            "date": "2035-05-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2035-05-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 180,
+        "full_name": "employee180",
+        "category": "Рабочий",
+        "position": "оператор технологических установок 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Оператор газораспределительной станции ПК",
+        "passed_at": {
+            "date": "2029-02-22 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2029-02-22 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 181,
+        "full_name": "employee181",
+        "category": "Рабочий",
+        "position": "оператор технологических установок 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Работа с опасными отходами (дистанционное обучение)",
+        "passed_at": {
+            "date": "2026-11-29 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2026-11-29 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 182,
+        "full_name": "employee182",
+        "category": "Рабочий",
+        "position": "оператор технологических установок 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ДО_обязательное, Курс «Пожарно-технический минимум для руководителей и специалистов организаций ответственных за обеспечение пожарной безопасности» (дистанционное)_x000D_\n",
+        "passed_at": {
+            "date": "2024-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2024-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 183,
+        "full_name": "employee183",
+        "category": "Рабочий",
+        "position": "оператор технологических установок 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обращение с отходами I–IV класса опасности (Рабочие)",
+        "passed_at": {
+            "date": "2028-09-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2028-09-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 184,
+        "full_name": "employee184",
+        "category": "Рабочий",
+        "position": "электромонтер по ремонту и обслуживанию электрооборудования 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Работы на высоте с применением средств подмащивания",
+        "passed_at": {
+            "date": "2029-04-18 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2029-04-18 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 185,
+        "full_name": "employee185",
+        "category": "Рабочий",
+        "position": "электромонтер по ремонту и обслуживанию электрооборудования 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Работы на высоте (2 группа)",
+        "passed_at": {
+            "date": "2035-05-17 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2035-05-17 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 186,
+        "full_name": "employee186",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2013-02-03 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2013-02-03 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 187,
+        "full_name": "employee187",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2021-09-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2021-09-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 188,
+        "full_name": "employee188",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2014-09-26 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2014-09-26 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 189,
+        "full_name": "employee189",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2019-04-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2019-04-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 190,
+        "full_name": "employee190",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2022-04-09 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2022-04-09 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 191,
+        "full_name": "employee191",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Техническая учеба рабочих",
+        "passed_at": {
+            "date": "2016-12-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2016-12-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 192,
+        "full_name": "employee192",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2022-03-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2022-03-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 193,
+        "full_name": "employee193",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2018-03-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2018-03-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 194,
+        "full_name": "employee194",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2022-03-22 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2022-03-22 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 195,
+        "full_name": "employee195",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2020-03-14 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2020-03-14 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 196,
+        "full_name": "employee196",
+        "category": "Рабочий",
+        "position": "кладовщик 3 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Рабочие_Организация и обеспечение хранения материально-технических ресурсов на складах ООО «Газпром трансгаз Томск",
+        "passed_at": {
+            "date": "2032-05-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2032-05-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 197,
+        "full_name": "employee197",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "№ 20/0388 от 09.08.12 замена Вакансии, Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2016-09-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2016-09-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 198,
+        "full_name": "employee198",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2024-09-26 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2024-09-26 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 199,
+        "full_name": "employee199",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2015-04-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2015-04-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 200,
+        "full_name": "employee200",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2018-04-09 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2018-04-09 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 201,
+        "full_name": "employee201",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2027-03-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2027-03-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 202,
+        "full_name": "employee202",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2018-03-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2018-03-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 203,
+        "full_name": "employee203",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2025-03-22 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2025-03-22 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 204,
+        "full_name": "employee204",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2024-03-14 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2024-03-14 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 205,
+        "full_name": "employee205",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Письмо № 2000/00107ф от 19.02.2016, Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2024-03-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2024-03-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 206,
+        "full_name": "employee206",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2027-03-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2027-03-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 207,
+        "full_name": "employee207",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2026-03-22 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2026-03-22 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 208,
+        "full_name": "employee208",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2029-03-14 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2029-03-14 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 209,
+        "full_name": "employee209",
+        "category": "Рабочий",
+        "position": "машинист экскаватора 6 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "№ 20/0388 от 09.08.12, Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2017-09-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2017-09-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 210,
+        "full_name": "employee210",
+        "category": "Рабочий",
+        "position": "машинист экскаватора 6 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2019-09-26 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2019-09-26 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 211,
+        "full_name": "employee211",
+        "category": "Рабочий",
+        "position": "машинист экскаватора 6 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2018-04-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2018-04-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 212,
+        "full_name": "employee212",
+        "category": "Рабочий",
+        "position": "машинист экскаватора 6 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2024-04-09 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2024-04-09 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 213,
+        "full_name": "employee213",
+        "category": "Рабочий",
+        "position": "машинист экскаватора 6 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Техническая учеба рабочих",
+        "passed_at": {
+            "date": "2020-12-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2020-12-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 214,
+        "full_name": "employee214",
+        "category": "Рабочий",
+        "position": "машинист экскаватора 6 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2022-03-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2022-03-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 215,
+        "full_name": "employee215",
+        "category": "Рабочий",
+        "position": "машинист экскаватора 6 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2027-03-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2027-03-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 216,
+        "full_name": "employee216",
+        "category": "Рабочий",
+        "position": "машинист экскаватора 6 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2025-03-22 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2025-03-22 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 217,
+        "full_name": "employee217",
+        "category": "Рабочий",
+        "position": "машинист экскаватора 6 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2028-03-14 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2028-03-14 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 218,
+        "full_name": "employee218",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Замена на Абронина Б.П., Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2016-09-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2016-09-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 219,
+        "full_name": "employee219",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2021-04-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2021-04-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 220,
+        "full_name": "employee220",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2020-04-09 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2020-04-09 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 221,
+        "full_name": "employee221",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2026-03-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2026-03-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 222,
+        "full_name": "employee222",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2018-03-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2018-03-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 223,
+        "full_name": "employee223",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2025-03-22 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2025-03-22 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 224,
+        "full_name": "employee224",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2028-03-14 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2028-03-14 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 225,
+        "full_name": "employee225",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Первоначальная подготовка спасателей на право ведения поисково-спасательных работ",
+        "passed_at": {
+            "date": "2036-06-02 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2036-06-02 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 226,
+        "full_name": "employee226",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2018-02-03 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2018-02-03 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 227,
+        "full_name": "employee227",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2016-09-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2016-09-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 228,
+        "full_name": "employee228",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2016-09-26 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2016-09-26 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 229,
+        "full_name": "employee229",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2016-04-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2016-04-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 230,
+        "full_name": "employee230",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2026-04-09 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2026-04-09 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 231,
+        "full_name": "employee231",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2019-03-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2019-03-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 232,
+        "full_name": "employee232",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2021-03-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2021-03-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 233,
+        "full_name": "employee233",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обучение по охране труда и проверке знаний требований охраны труда работников организации",
+        "passed_at": {
+            "date": "2026-02-16 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2026-02-16 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 234,
+        "full_name": "employee234",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2024-03-22 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2024-03-22 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 235,
+        "full_name": "employee235",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2020-03-14 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2020-03-14 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 236,
+        "full_name": "employee236",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "№ 20/0388 от 09.08.12, Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2020-09-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2020-09-27 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 237,
+        "full_name": "employee237",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2015-09-26 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2015-09-26 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 238,
+        "full_name": "employee238",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2025-04-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2025-04-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 239,
+        "full_name": "employee239",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2020-04-09 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2020-04-09 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 240,
+        "full_name": "employee240",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2020-03-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2020-03-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 241,
+        "full_name": "employee241",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2024-03-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2024-03-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 242,
+        "full_name": "employee242",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2021-03-22 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2021-03-22 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 243,
+        "full_name": "employee243",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2027-03-14 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2027-03-14 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 244,
+        "full_name": "employee244",
+        "category": "Рабочий",
+        "position": "обходчик линейный 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Техническая учеба рабочих",
+        "passed_at": {
+            "date": "2021-12-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2021-12-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 245,
+        "full_name": "employee245",
+        "category": "Рабочий",
+        "position": "обходчик линейный 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Оператор газораспределительной станции СМ",
+        "passed_at": {
+            "date": "2026-03-17 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2026-03-17 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 246,
+        "full_name": "employee246",
+        "category": "Рабочий",
+        "position": "обходчик линейный 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ДО_обязательное, Курс «Пожарно-технический минимум для руководителей и специалистов организаций ответственных за обеспечение пожарной безопасности» (дистанционное)_x000D_\n",
+        "passed_at": {
+            "date": "2029-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2029-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 247,
+        "full_name": "employee247",
+        "category": "Рабочий",
+        "position": "обходчик линейный 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Оператор газораспределительной станции СМ",
+        "passed_at": {
+            "date": "2032-10-12 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2032-10-12 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 248,
+        "full_name": "employee248",
+        "category": "Рабочий",
+        "position": "электромонтер по ремонту и обслуживанию электрооборудования 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Техническая учеба рабочих",
+        "passed_at": {
+            "date": "2015-12-12 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2015-12-12 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 249,
+        "full_name": "employee249",
+        "category": "Рабочий",
+        "position": "электромонтер по ремонту и обслуживанию электрооборудования 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Техническая учеба рабочих",
+        "passed_at": {
+            "date": "2020-12-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2020-12-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 250,
+        "full_name": "employee250",
+        "category": "Рабочий",
+        "position": "электромонтер по ремонту и обслуживанию электрооборудования 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Обеспечение экологической безопасности при работах в области обращения лиц с опасными отходами",
+        "passed_at": {
+            "date": "2023-09-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2023-09-25 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 251,
+        "full_name": "employee251",
+        "category": "Рабочий",
+        "position": "электромонтер по ремонту и обслуживанию электрооборудования 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Работа с опасными отходами (дистанционное обучение)",
+        "passed_at": {
+            "date": "2020-11-29 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2020-11-29 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 252,
+        "full_name": "employee252",
+        "category": "Рабочий",
+        "position": "электромонтер по ремонту и обслуживанию электрооборудования 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Нехватка лимитов, перенос с 2019, Слесарь-ремонтник СМ",
+        "passed_at": {
+            "date": "2030-02-26 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2030-02-26 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 253,
+        "full_name": "employee253",
+        "category": "Рабочий",
+        "position": "электромонтер по ремонту и обслуживанию электрооборудования 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Работы на высоте (2 группа)",
+        "passed_at": {
+            "date": "2027-08-07 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2027-08-07 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 254,
+        "full_name": "employee254",
+        "category": "Рабочий",
+        "position": "электромонтер по ремонту и обслуживанию электрооборудования 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ДО_обязательное, Курс «Пожарно-технический минимум для руководителей и специалистов организаций ответственных за обеспечение пожарной безопасности» (дистанционное)_x000D_\n",
+        "passed_at": {
+            "date": "2025-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2025-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 255,
+        "full_name": "employee255",
+        "category": "Рабочий",
+        "position": "электромонтер по ремонту и обслуживанию электрооборудования 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Работы на высоте с применением средств подмащивания",
+        "passed_at": {
+            "date": "2035-04-18 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2035-04-18 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 256,
+        "full_name": "employee256",
+        "category": "Рабочий",
+        "position": "обходчик линейный 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Оператор газораспределительной станции СМ",
+        "passed_at": {
+            "date": "2021-02-02 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2021-02-02 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 257,
+        "full_name": "employee257",
+        "category": "Рабочий",
+        "position": "обходчик линейный 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Замена ИТР, Работа с опасными отходами (дистанционное обучение)",
+        "passed_at": {
+            "date": "2023-11-29 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2023-11-29 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 258,
+        "full_name": "employee258",
+        "category": "Рабочий",
+        "position": "обходчик линейный 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "ДО_обязательное, Курс «Пожарно-технический минимум для руководителей и специалистов организаций ответственных за обеспечение пожарной безопасности» (дистанционное)_x000D_\n",
+        "passed_at": {
+            "date": "2024-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2024-04-30 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 259,
+        "full_name": "employee259",
+        "category": "Рабочий",
+        "position": "обходчик линейный 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Оператор газораспределительной станции ПК",
+        "passed_at": {
+            "date": "2032-02-01 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2032-02-01 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 260,
+        "full_name": "employee260",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2024-03-22 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2024-03-22 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 261,
+        "full_name": "employee261",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2030-03-14 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2030-03-14 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 262,
+        "full_name": "employee262",
+        "category": "Рабочий",
+        "position": "электромонтер станционного оборудования телефонной связи 4 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "замена Сабурова А.С. по письму № 2000/00178ф от 28.03.2024, Работы на высоте (2 группа)",
+        "passed_at": {
+            "date": "2031-05-17 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2031-05-17 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 263,
+        "full_name": "employee263",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2022-04-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2022-04-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 264,
+        "full_name": "employee264",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2026-04-09 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2026-04-09 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 265,
+        "full_name": "employee265",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Техническая учеба рабочих",
+        "passed_at": {
+            "date": "2017-12-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2017-12-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 266,
+        "full_name": "employee266",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2021-03-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2021-03-24 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 267,
+        "full_name": "employee267",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2019-03-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2019-03-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 268,
+        "full_name": "employee268",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2027-03-22 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2027-03-22 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    },
+    {
+        "id": 269,
+        "full_name": "employee269",
+        "category": "Рабочий",
+        "position": "водитель автомобиля 5 разряда",
+        "branch": "Иркутское ЛПУМГ",
+        "permit": "Технический минимум по правилам дорожного движения",
+        "passed_at": {
+            "date": "2023-03-14 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "expired_at": {
+            "date": "2023-03-14 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "status": "Просрочен"
+    }
+]
