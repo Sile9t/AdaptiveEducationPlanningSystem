@@ -4,20 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\Branch;
 use App\Models\EmployeeCategory;
+use App\Models\FileType;
 use App\Models\Permit;
 use App\Models\PriorityDTO;
 use App\Models\PriorityStatus;
 use App\Models\TrainingProgram;
+use App\Services\FileService;
+use App\Services\MeiliSearchService;
 use Carbon\Carbon;
 use DateTime;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Storage;
 use Meilisearch\Client;
-use Meilisearch\Endpoints\Indexes;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Shared\Date;
 
@@ -33,7 +34,11 @@ class PriorityController extends Controller
      *      operationId="checkData",
      *      @OA\Response(
      *          response=200,
-     *          description="Successful operation",
+     *          description="Data is available",
+     *      ),
+     *      @OA\Response(
+     *          response=204,
+     *          description="No available data",
      *      ),
      *      security={{"bearerAuth":{}}}
      *  )
@@ -43,18 +48,10 @@ class PriorityController extends Controller
     public function checkData()
     {
         $userId = Auth::user()->id;
-        $userIdHash = hash('sha256', $userId);
-        $fileName = $userIdHash . '_' . '5366.xlsx';
-
-        $folderPath = self::uploadFolderName . '/'. $userIdHash;
-        $filePath = $folderPath . '/' . $fileName;
         
-        // $meiliSearchClient = new Client(env('MEILISEARCH_HOST'), env('MEILISEARCH_KEY'));
-        // $index = $meiliSearchClient->index('training_programs');
-        // $programs = TrainingProgram::all()->toArray();
-        // $index->addDocuments($programs);
+        $fileService = FileService::create($userId);
+        $file = $fileService->checkFileExistsByType(FileType::file5366);
 
-        $file = Storage::path($filePath);
         if (! $file) {
             return  response()->json([
                 'message' => 'No available data',
@@ -64,36 +61,6 @@ class PriorityController extends Controller
         return response()->json([
             'message' => 'Data is available',
         ]);
-
-        // $redisKey = hash('sha256', "priority$userId");
-        
-        // $redis = Redis::client();
-        // $redis->del($redisKey);
-        
-        // self::processFile($file, $userId, $index);
-        
-        // $collection = collect(json_decode(Redis::get($redisKey)));
-        
-        // $sortedCollection = $collection->sortBy(request()->get('sort', 'full_name'));
-        
-        // $groupedColection = $sortedCollection->groupBy('status');
-        // $flattenAfterGrouping = $groupedColection->flatten(1);
-        // $data = $flattenAfterGrouping;
-
-        // $perPage = request()->get('take', 25);
-        // $currentPage = request()->get('page', 1);
-        // $paginator = new LengthAwarePaginator(
-        //     $data->forPage($currentPage, $perPage),
-        //     $data->count(),
-        //     $perPage,
-        //     $currentPage,
-        //     [
-        //         'path' => request()->url(),
-        //         'query' => request()->query()
-        //     ]
-        // );
-
-        // return response()->json($paginator);
     }
 
     /**
@@ -143,10 +110,7 @@ class PriorityController extends Controller
             ]);
         }
 
-        $userIdHash = hash('sha256', Auth::user()->id);
-        $fileName = $userIdHash . '_' . '5366.xlsx';
-        $folderPath = self::uploadFolderName . '/'. $userIdHash;
-        $file->storeAs($folderPath, $fileName);
+        FileService::create(Auth::user()->id)->storeFileByType( FileType::file5366, $file);
 
         return response()->json([
             'message' => 'File uploaded successfully.'
@@ -278,16 +242,12 @@ class PriorityController extends Controller
     public function getPriorities(Request $request)
     {
         $userId = Auth::user()->id;
-        $userIdHash = hash('sha256', $userId);
         $redisKey = hash('sha256', "priority$userId");
         
         $redis = Redis::client();
-        $meiliSearchClient = new Client(env('MEILISEARCH_HOST'), env('MEILISEARCH_KEY'));
-        $index = $meiliSearchClient->index('training_programs');
-
-        
         if (! $redis->exists($redisKey)) {
-            self::processFile($file, $userId, $index);
+            $file = FileService::create($userId)->getFilePathByType(FileType::file5366);
+            self::processFile($file, $userId);
         }
 
         $collection = collect(json_decode(Redis::get($redisKey)));
@@ -340,8 +300,7 @@ class PriorityController extends Controller
             'Специалисты' => 'Специалист'
         ];
 
-        $meiliSearchClient = new Client(env('MEILISEARCH_HOST'), env('MEILISEARCH_KEY'));
-        $index = $meiliSearchClient->index('training_programs');
+        $index = MeiliSearchService::create()->getIndex('training_programs');
         
         $redisKey = hash('sha256', "priority$userId");
 
@@ -396,7 +355,6 @@ class PriorityController extends Controller
                 $position = $worksheet->getCell($requiredColumns[2] . $rowIndex)->getValue();
 
                 $passed_at = Carbon::createFromDate(self::getDate($worksheet->getCell($requiredColumns[3] . $rowIndex)->getValue()))->addYears(array_rand(range(0, 10)));
-                // $passed_at = now()->addDays(array_rand(range(-50, 50)))->addYears(range(-2, 1));
                 $periodicity = $permits
                     ->first(
                         fn ($permit) => 
