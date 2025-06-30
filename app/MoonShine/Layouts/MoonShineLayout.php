@@ -56,9 +56,11 @@ final class MoonShineLayout extends AppLayout
         return [
             ...parent::menu(),
             
-            MenuGroup::make('Main', [
+            MenuGroup::make('Users', [
                 MenuItem::make('Users', UserResource::class)->icon('users')->translatable('menu'),
                 MenuItem::make('Roles', RoleResource::class)->icon('bookmark')->translatable('menu'),
+            ])->translatable('menu'),
+            MenuGroup::make('Directories', [
                 MenuItem::make('Branches', BranchResource::class)->icon('user-group')->translatable('menu'),
                 MenuGroup::make('Training', [
                     MenuItem::make('Programs', TrainingProgramResource::class)->translatable('menu'),
@@ -83,18 +85,18 @@ final class MoonShineLayout extends AppLayout
 
         // $colorManager->primary('#00000');
 
-        // $colorManager->bulkAssign([
+        $colorManager->bulkAssign([
         //     'primary' => '#1A4FDA',
         //     'secondary' => '#0D80EC',
         //     'body' => '#1A4FDA',
 
-        //     'dark' => [
+            'dark' => [
         //         50 => '#1A5DDA',
         //         100 => '#FFFFFF',  //dividers
         //         200 => '#FFFFFF',  //dividers
         //         300 => '#0D80EC',  //borders
                 
-        //         400 => '#FFFFFF',  //dropdowns, btns, paginations
+                400 => '#FFFFFF',  //dropdowns, btns, paginations
                 
         //         500 => '#0D80EC',  //btn bg
         //         600 => '#1A5DDA',  //table rows
@@ -102,12 +104,12 @@ final class MoonShineLayout extends AppLayout
         //         700 => '#0D80EC',  //content bg
         //         800 => '#0D80EC',  //sidebar bg
         //         900 => '#0D80EC',  //bg
-        //     ],
-        // ]);
+            ],
+        ]);
 
-        $colorManager->primary('#2B61EC');
-        $colorManager->secondary('#0D80EC');
-        // $colorManager->background('#1A4FDA');
+        $colorManager->primary('#138CFE');
+        $colorManager->secondary('#138CFE');
+        // $colorManager->background('#E2E3E7');
         // $colorManager->tableRow('#0D80EC');
         // $colorManager->borders('#006CD8');
         // $colorManager->dropdowns('#006CD8');

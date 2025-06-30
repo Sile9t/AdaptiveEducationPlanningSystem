@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Laravel\Scout\Searchable;
 
 class TrainingProgram extends Model
 {
-    use HasFactory;
+    use HasFactory, Searchable;
 
     /**
      * The attributes that are mass assignable.
@@ -47,5 +48,12 @@ class TrainingProgram extends Model
     public function trainingEvents():HasMany
     {
         return $this->hasMany(TrainingEvent::class, 'program_id');
+    }
+    
+    public function toSearchableArray(): array
+    {
+        $array = $this->toArray();
+        
+        return $array;
     }
 }

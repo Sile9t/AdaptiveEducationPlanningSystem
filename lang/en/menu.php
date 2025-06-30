@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'Directories' => 'Directories',
     'Main' => 'Main',
     'Users' => 'Users',
     'Roles' => 'Roles',
