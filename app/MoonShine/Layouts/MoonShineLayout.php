@@ -56,19 +56,17 @@ final class MoonShineLayout extends AppLayout
     protected function menu(): array
     {
         return [
-            ...parent::menu(
-                MenuGroup::make(static fn () => __('moonshine::ui.resource.admin'), [
-                    MenuItem::make(
-                        static fn () => __('moonshine::ui.resource.admins_title'),
-                        MoonShineUserResource::class
-                    ),
-                    MenuItem::make(
-                        static fn () => __('moonshine::ui.resource.role_title'),
-                        MoonShineUserRoleResource::class
-                    ),
-                ]),
-            ),
-
+            MenuGroup::make(static fn () => __('moonshine::ui.resource.admin'), [
+                MenuItem::make(
+                    static fn () => __('moonshine::ui.resource.admins_title'),
+                    MoonShineUserResource::class
+                ),
+                MenuItem::make(
+                    static fn () => __('moonshine::ui.resource.role_title'),
+                    MoonShineUserRoleResource::class
+                ),
+            ]),
+            
             MenuGroup::make('Users', [
                 MenuItem::make('Users', UserResource::class)->translatable('menu'),
                 MenuItem::make('Roles', RoleResource::class)->translatable('menu'),
