@@ -15,7 +15,7 @@ class AuthenticateController extends Controller
 {
     /**
      * @OA\Post(
-     *      tags={"api"},
+     *      tags={"api", "auth"},
      *      path="/api/login",
      *      operationId="login",
      *      @OA\RequestBody(
@@ -104,7 +104,7 @@ class AuthenticateController extends Controller
 
     /**
      *  @OA\Post(
-     *      tags={"api"},
+     *      tags={"api", "auth"},
      *      path="/api/logout",
      *      operationId="logout",
      *      @OA\Response(

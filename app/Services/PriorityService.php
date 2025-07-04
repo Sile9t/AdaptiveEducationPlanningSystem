@@ -63,8 +63,7 @@ class PriorityService
         $sheetNames = $spreadsheet->getSheetNames();
         
         $priorities = array();
-        $errors = array();
-
+        
         for ($sheetIndex=0; $sheetIndex < count($sheets); $sheetIndex++) { 
             $worksheet = $sheets[$sheetIndex];
             $sheetNameAsCategory = $sheetNames[$sheetIndex];
@@ -72,10 +71,11 @@ class PriorityService
             
             $currentCategory = $this->categories->first(fn ($category, $key) => strcasecmp($category['name'], $sheetNameAsCategory) == 0);
             if (! isset($currentCategory) || $currentCategory == '') continue;
-
+            
             $rowCount = $worksheet->getHighestRow();
             
             for ($rowIndex=4; $rowIndex < $rowCount; $rowIndex++) { 
+                $errors = array();
                 $programTitle = self::getProgramTitleFromExcelRow($worksheet, $rowIndex);
                 
                 if ((! isset($programTitle) || $programTitle === '')) {
@@ -119,10 +119,11 @@ class PriorityService
                 }
 
                 $full_name = $worksheet->getCell(self::requiredColumns[1] . $rowIndex)->getValue();
-                if (! isset($full_name) || $full_name === '') array_push($errors, self::passibleErrors['full_name']);
+                // if (! isset($full_name) || $full_name === '') array_push($errors, self::passibleErrors['full_name']);
 
                 if (count($errors) == 0) {
                     $id = PriorityDTO::count();
+                    $full_name = $full_name ?? "Employee$id";
                     $priority = PriorityDTO::create(
                         $full_name,
                         $currentCategory->name,
