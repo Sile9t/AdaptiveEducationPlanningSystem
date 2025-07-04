@@ -78,6 +78,7 @@ return [
         'role_name'        => 'Title',
         'role_title'       => 'Roles',
         'system'           => 'System',
+        'admin'            => 'Admin',
     ],
     'save'            => 'Save',
     'saved'           => 'Saved',
