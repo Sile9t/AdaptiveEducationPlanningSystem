@@ -265,8 +265,8 @@ class PriorityController extends Controller
      *      ),
      *      @OA\Response(
      *          response=500,
-     *          dseciption="Internal server error",
-     *          @OA|JsonContent(
+     *          description="Internal server error",
+     *          @OA\JsonContent(
      *              type="string",
      *          ),
      *      ),
