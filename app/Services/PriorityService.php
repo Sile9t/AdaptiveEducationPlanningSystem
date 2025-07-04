@@ -11,19 +11,30 @@ use App\Models\TrainingProgram;
 use Carbon\Carbon;
 use DateTime;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Support\Facades\Date;
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Shared\Date;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
 class PriorityService
 {
     const inputFileType = "Xlsx";
     const requiredColumns = [ 'B', 'D', 'E', 'L', 'T', 'U', 'V', 'X'];
+    
+    const errorColumnIndex = 'Z';
+    const passibleErrors = [
+        'program' => 'Не указана программа ("Доп. информация 1", "Доп. информация 2", "Учебная программа")',
+        'branch' => 'Не указан "Филиал"',
+        'position' => 'Не указана "Должность"',
+        'passed_at' => 'Не указана дата ("Дата окончания")',
+        'full_name' => 'Не указано "ФИО"',
+    ];
+    
     const mapCategory = [
         'Руководители' => 'Руководитель',
         'Рабочие' => 'Рабочий',
         'Специалисты' => 'Специалист'
     ];
+    
     private int $userId;
     private Collection $categories;
     private Collection $permits;
@@ -43,71 +54,97 @@ class PriorityService
     {
         $index = $this->meili->getIndex('training_programs');
         
-        $reader = IOFactory::createReader($this::inputFileType);
+        $reader = IOFactory::createReader(self::inputFileType);
         $reader->getReadDataOnly(true);
         $spreadsheet = $reader->load($filePath);
+        $writer = IOFactory::createWriter($spreadsheet, self::inputFileType);
 
         $sheets = $spreadsheet->getAllSheets();
         $sheetNames = $spreadsheet->getSheetNames();
         
         $priorities = array();
-
+        
         for ($sheetIndex=0; $sheetIndex < count($sheets); $sheetIndex++) { 
             $worksheet = $sheets[$sheetIndex];
             $sheetNameAsCategory = $sheetNames[$sheetIndex];
-            $sheetNameAsCategory = $mapCategory[$sheetNameAsCategory] ?? $sheetNameAsCategory;
+            $sheetNameAsCategory = self::mapCategory[$sheetNameAsCategory] ?? $sheetNameAsCategory;
             
             $currentCategory = $this->categories->first(fn ($category, $key) => strcasecmp($category['name'], $sheetNameAsCategory) == 0);
             if (! isset($currentCategory) || $currentCategory == '') continue;
-
+            
             $rowCount = $worksheet->getHighestRow();
             
             for ($rowIndex=4; $rowIndex < $rowCount; $rowIndex++) { 
+                $errors = array();
                 $programTitle = self::getProgramTitleFromExcelRow($worksheet, $rowIndex);
                 
-                if (! isset($programTitle) || $programTitle === '') continue;
+                if ((! isset($programTitle) || $programTitle === '')) {
+                    array_push($errors, self::passibleErrors['program']);
+                }
+                else {
+                    $hits = $index->search( '\''. $programTitle . '\'', [
+                        'distinct' => 'title',
+                        'matchingStrategy' => 'frequency',
+                        'showRankingScore' => true,
+                    ])->getHits();
+    
+                    if (count($hits) == 0) {
+                        array_push($errors, "Программа \"$programTitle\" не найдена");
+                    }
+                    else {
+                        $program = $this->programs->where('id', '==', $hits[0]['id'])->first();
+                    }
+                }
                 
-                $hits = $index->search( '\''. $programTitle . '\'', [
-                    'distinct' => 'title',
-                    'matchingStrategy' => 'frequency',
-                    'showRankingScore' => true,
-                ])->getHits();
-
-                if (count($hits) == 0) continue;
-
-                $program = $this->programs->where('id', '==', $hits[0]['id'])->first();
                 
                 $branch = $worksheet->getCell(self::requiredColumns[0] . $rowIndex)->getValue();
+                if ((! isset($branch) || $branch === '')) array_push($errors, self::passibleErrors['branch']);
                 $position = $worksheet->getCell(self::requiredColumns[2] . $rowIndex)->getValue();
+                if ((! isset($position) || $position === '')) array_push($errors, self::passibleErrors['position']);
 
                 $passed_at = Carbon::createFromDate(self::getDate($worksheet->getCell(self::requiredColumns[3] . $rowIndex)->getValue()))->addYears(array_rand(range(0, 10)));
-                $periodicity = $this->permits
-                    ->first(
-                        fn ($permit) => 
-                            $permit['program_id'] == $program->id 
-                            && $permit['category_id'] == $currentCategory->id,
-                    )['periodicity_years'];
-                $expired_at = $passed_at->addYears($periodicity);
-                
-                $status = self::getPriorityStatusForExpiredDate($expired_at);
-                
-                $id = PriorityDTO::count();
-                $full_name = "employee$id";
-                $priority = PriorityDTO::create(
-                    $full_name,
-                    $currentCategory->name,
-                    $position,
-                    $branch,
-                    $programTitle,
-                    $passed_at->toDate(),
-                    $expired_at->toDate(),
-                    $status
-                );
-                
-                $priorityState = $priority->toArray();
-                array_push($priorities, $priorityState);
+                if (! isset($passed_at) || $passed_at === '') {
+                    array_push($errors, self::passibleErrors['passed_at']);
+                }
+                else if (isset($program) && $program !== '') {
+                    $periodicity = $this->permits
+                        ->first(
+                            fn ($permit) => 
+                                $permit['program_id'] == $program->id 
+                                && $permit['category_id'] == $currentCategory->id,
+                        )['periodicity_years'];
+                    $expired_at = $passed_at->addYears($periodicity);
+                    
+                    $status = self::getPriorityStatusForExpiredDate($expired_at);
+                }
+
+                $full_name = $worksheet->getCell(self::requiredColumns[1] . $rowIndex)->getValue();
+                // if (! isset($full_name) || $full_name === '') array_push($errors, self::passibleErrors['full_name']);
+
+                if (count($errors) == 0) {
+                    $id = PriorityDTO::count();
+                    $full_name = $full_name ?? "Employee$id";
+                    $priority = PriorityDTO::create(
+                        $full_name,
+                        $currentCategory->name,
+                        $position,
+                        $branch,
+                        $programTitle,
+                        $passed_at->toDate(),
+                        $expired_at->toDate(),
+                        $status
+                    );
+
+                    $priorityState = $priority->toArray();
+                    array_push($priorities, $priorityState);
+                }
+                else {
+                    $errorsText = implode(", ", $errors);
+                    $worksheet->getCell(self::errorColumnIndex . $rowIndex)->setValue($errorsText);
+                }
             }
         }
+        $writer->save($filePath);
         
         return $priorities;
     }
@@ -141,5 +178,9 @@ class PriorityService
         }
 
         return $programTitle;
+    }
+
+    private function isEmpty(string $value) {
+        return (! isset($value) || $value === '');
     }
 }

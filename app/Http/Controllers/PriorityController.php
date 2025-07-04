@@ -9,6 +9,7 @@ use App\Services\PriorityService;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Storage;
@@ -115,11 +116,21 @@ class PriorityController extends Controller
      *      path="/api/priorities/all",
      *      operationId="getPriorities",
      *      @OA\Parameter(
+     *          name="calculate",
+     *          description="Wheter to calculate priorities collection",
+     *          in="query",
+     *          @OA\Schema(
+     *              type="boolean",
+     *              example=false,
+     *          ),
+     *      ),
+     *      @OA\Parameter(
      *          name="page",
      *          description="Current page number",
      *          in="query",
      *          @OA\Schema(
-     *              type="integer"
+     *              type="integer",
+     *              example=1,
      *          ),
      *      ),
      *      @OA\Parameter(
@@ -127,7 +138,25 @@ class PriorityController extends Controller
      *          description="How many items to get",
      *          in="query",
      *          @OA\Schema(
-     *              type="integer"
+     *              type="integer",
+     *              example=25,
+     *          ),
+     *      ),
+     *      @OA\Parameter(
+     *          name="filter",
+     *          description="Filter items by value",
+     *          in="query",
+     *          @OA\Schema(
+     *              type="string",
+     *          ),
+     *      ),
+     *      @OA\Parameter(
+     *          name="groupByState",
+     *          description="Whether group items by group or not",
+     *          in="query",
+     *          @OA\Schema(
+     *              type="boolean",
+     *              example=false,
      *          ),
      *      ),
      *      @OA\Parameter(
@@ -137,14 +166,17 @@ class PriorityController extends Controller
      *          @OA\Schema(
      *              type="array",
      *              @OA\Items(
+     *                  maxItems=1,
      *                  @OA\Property(
      *                      property="column",
      *                      type="string",
+     *                      example="full_name"
      *                  ),
      *                  @OA\Property(
-     *                      property="direction",
-     *                      type="string",
-     *                  )
+     *                      property="descending",
+     *                      type="boolean",
+     *                      example=false,
+     *                  ),
      *              ),
      *          ),
      *      ),
@@ -157,6 +189,7 @@ class PriorityController extends Controller
      *              @OA\Property(
      *                  property="current_page",
      *                  type="integer",
+     *                  example=1,
      *              ),
      *              @OA\Property(
      *                  property="data",
@@ -171,11 +204,13 @@ class PriorityController extends Controller
      *                  property="from",
      *                  type="integer",
      *                  description="First item index",
+     *                  example=1,
      *              ),
      *              @OA\Property(
      *                  property="last_page",
      *                  type="integer",
      *                  description="Last page index",
+     *                  example=10,
      *              ),
      *              @OA\Property(
      *                  property="last_page_url",
@@ -195,7 +230,7 @@ class PriorityController extends Controller
      *                      ),
      *                      @OA\Property(
      *                          property="active",
-     *                          type="bool",
+     *                          type="boolean",
      *                      )
      *                  )
      *              ),
@@ -218,12 +253,21 @@ class PriorityController extends Controller
      *              @OA\Property(
      *                  property="to",
      *                  type="integer",
-     *                  description="Last item index"
+     *                  description="Last item index",
+     *                  example=25,
      *              ),
      *              @OA\Property(
      *                  property="total",
      *                  type="integer",
+     *                  example=250,
      *              ),
+     *          ),
+     *      ),
+     *      @OA\Response(
+     *          response=500,
+     *          dseciption="Internal server error",
+     *          @OA|JsonContent(
+     *              type="string",
      *          ),
      *      ),
      *      security={{"bearerAuth":{}}}
@@ -235,30 +279,62 @@ class PriorityController extends Controller
     {
         $userId = Auth::user()->id;
         $redisKey = hash('sha256', "priority$userId");
-        
+        $calculate = $request->get('calculate', false);
+
         try {
             $redis = Redis::client();
-            if (! $redis->exists($redisKey)) {
+            if ($calculate || ! $redis->exists($redisKey)) {
                 $file = FileService::create($userId)->getFilePathByType(FileType::file5366);
 
                 $priorityService = new PriorityService($userId, $this->meili);
-                $priorities = $priorityService->getDataFromAndWriteErrorsIntoFile($file);
+                $priorities = json_encode($priorityService->getDataFromAndWriteErrorsIntoFile($file));
                 
                 Redis::set($redisKey, $priorities);
                 Redis::expire($redisKey, 24*60*60);
             }
     
-            $dataFromRedis = Redis::get($redisKey);
-            $collection = collect(json_decode($dataFromRedis));
+            $dataFromRedis = json_decode(Redis::get($redisKey));
+            $collection = collect($dataFromRedis);
         } catch (Exception $e) {
-            $collection = collect(Storage::json('priorities.json'));            
+            return response()->json(
+                $e->getMessage(),
+                500
+            );            
         }
         
-        $sortedCollection = $collection->sortBy($request->get('sort', 'full_name'));
-        
-        $groupedColection = $sortedCollection->groupBy('status');
-        $flattenAfterGrouping = $groupedColection->flatten(1);
-        $data = $flattenAfterGrouping;
+        $paginator = self::paginate($request, $collection);
+
+        return response()->json($paginator);
+    }
+
+    /**
+     * Paginate pririties collection
+     */
+    private function paginate(Request $request, Collection $collection) {
+        if (count($collection) > 0) {
+            $filterValue = trim($request->get('filter', null));
+            if ($filterValue !== null && $filterValue !== "") $collection = $collection->where(function ($item, $key) use ($filterValue) {
+                return 
+                    str_contains($item->full_name, $filterValue)
+                    || str_contains($item->category, $filterValue)
+                    || str_contains($item->position, $filterValue)
+                    || str_contains($item->branch, $filterValue)
+                    || str_contains($item->permit, $filterValue)
+                ;
+            });
+            
+            if (count($collection) > 0) {
+                $sort = $request->get('sort', ['full_name', false]);
+                $collection = $collection->sortBy($sort);
+            
+                $grouping = $request->get('groupByState', false);
+                if ($grouping) {
+                    $collection = $collection->groupBy('status')->flatten(1);
+                } 
+            }
+        }
+
+        $data = $collection;
 
         $perPage = $request->get('take', 25);
         $currentPage = $request->get('page', 1);
@@ -272,7 +348,7 @@ class PriorityController extends Controller
                 'query' => $request->query()
             ]
         );
-
-        return response()->json($paginator);
+        
+        return $paginator;
     }
 }

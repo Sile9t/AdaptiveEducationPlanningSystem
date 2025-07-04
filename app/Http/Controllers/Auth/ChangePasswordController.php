@@ -15,7 +15,7 @@ class ChangePasswordController extends Controller
 {
     /**
      * @OA\Post(
-     *      tags={"api"},
+     *      tags={"api", "auth"},
      *      path="/api/change-password",
      *      operationId="changePassword",
      *      @OA\RequestBody(

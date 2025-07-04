@@ -39,9 +39,18 @@ class FileService
     public function storeFileByType(FileType $fileType, UploadedFile $file)
     {
         $userIdHash = hash('sha256', $this->userId);
-        $fileName = $userIdHash . '_' . $fileType->value;
-        $folderPath = $this::uploadFolderName . '/'. $userIdHash;
+        $fileName = $fileType->value;
+        $folderPath = $this::uploadFolderName . '\\'. $userIdHash;
 
         $file->storeAs($folderPath, $fileName);
+    }
+    
+    public function put(array $data)
+    {
+        $userIdHash = hash('sha256', $this->userId);
+        $fileName = 'priorities.json';
+        $filePath = $this::uploadFolderName . '\\' . $userIdHash . '\\' . $fileName;
+
+        Storage::put($filePath, json_encode($data));
     }
 }
