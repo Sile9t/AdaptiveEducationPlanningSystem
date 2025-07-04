@@ -13,6 +13,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Storage;
+use Predis\Connection\Resource\Exception\StreamInitException;
 
 class PriorityController extends Controller
 {
@@ -288,6 +289,7 @@ class PriorityController extends Controller
 
                 $priorityService = new PriorityService($userId, $this->meili);
                 $priorities = json_encode($priorityService->getDataFromAndWriteErrorsIntoFile($file));
+                Storage::put('priorities.json', $priorities);
                 
                 Redis::set($redisKey, $priorities);
                 Redis::expire($redisKey, 24*60*60);
@@ -295,7 +297,13 @@ class PriorityController extends Controller
     
             $dataFromRedis = json_decode(Redis::get($redisKey));
             $collection = collect($dataFromRedis);
-        } catch (Exception $e) {
+        } 
+        catch (StreamInitException $e) {
+            $json_data = Storage::read('priorities.json');
+            $decoded_data = json_decode($json_data);
+            $collection = collect($decoded_data);
+        } 
+        catch (Exception $e) {
             return response()->json(
                 $e->getMessage(),
                 500
