@@ -152,8 +152,8 @@ class PriorityController extends Controller
      *          ),
      *      ),
      *      @OA\Parameter(
-     *          name="groupByState",
-     *          description="Whether group items by group or not",
+     *          name="groupByStatus",
+     *          description="Whether group items by status or not",
      *          in="query",
      *          @OA\Schema(
      *              type="boolean",
