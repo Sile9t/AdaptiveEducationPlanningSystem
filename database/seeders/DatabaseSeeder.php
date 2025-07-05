@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             BranchSeeder::class,
             TrainingProgramSeeder::class,
             EmployeeCategorySeeder::class,
-            PermitSeeder::class,
+            // PermitSeeder::class,
         ]);
 
         // \App\Models\User::factory(10)->create();
