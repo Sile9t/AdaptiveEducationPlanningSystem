@@ -23,7 +23,7 @@ class PriorityController extends Controller
     /**
      *  @OA\Get(
      *      tags={"api", "priorities"},
-     *      path="/api/priorities/check",
+     *      path="/priorities/check",
      *      operationId="checkData",
      *      @OA\Response(
      *          response=200,
@@ -59,7 +59,7 @@ class PriorityController extends Controller
     /**
      * @OA\Post(
      *      tags={"api", "priorities"},
-     *      path="/api/priorities/upload",
+     *      path="/priorities/upload",
      *      operationId="prioritiesUpload",
      *      @OA\RequestBody(
      *          description="Handle priority excel upload",
@@ -113,7 +113,7 @@ class PriorityController extends Controller
     /**
      *  @OA\Get(
      *      tags={"api", "priorities"},
-     *      path="/api/priorities/all",
+     *      path="/priorities/all",
      *      operationId="getPriorities",
      *      @OA\Parameter(
      *          name="calculate",
@@ -350,5 +350,36 @@ class PriorityController extends Controller
         );
         
         return $paginator;
+    }
+    
+    /**
+     *  @OA\Get(
+     *      tags={"api", "priorities"},
+     *      path="/priorities/download",
+     *      operationId="priorityDownload",
+     *      @OA\Response(
+     *          response=200,
+     *          description="File download",
+     *          @OA\MediaType(
+     *              mediaType="application/octet-stream",
+     *              @OA\Schema(
+     *                  type="object",
+     *                  @OA\Property(
+     *                      property="file",
+     *                      type="string",
+     *                      format="binary"
+     *                  ),
+     *              )
+     *          )
+     *      ),
+     *      security={{"bearerAuth":{}}}
+     *  )
+     * 
+     * Handle an incoming priority download request.
+     */
+    public function download(Request $request)
+    {
+        $path = FileService::create(Auth::user()->id)->getFilePathByType(FileType::file5366);
+        return response()->download($path);
     }
 }
