@@ -39,8 +39,6 @@ use App\MoonShine\Resources\TrainingProgramAliasResource;
 use App\MoonShine\Resources\UserResource;
 use App\MoonShine\Resources\EmployeeCategoryResource;
 use App\MoonShine\Resources\EmployeeResource;
-use App\MoonShine\Resources\MoonShineUserResource;
-use App\MoonShine\Resources\MoonShineUserRoleResource;
 use App\MoonShine\Resources\PermitResource;
 use App\MoonShine\Resources\TrainingEventResource;
 
@@ -56,27 +54,23 @@ final class MoonShineLayout extends AppLayout
     protected function menu(): array
     {
         return [
-            MenuGroup::make(static fn () => __('moonshine::ui.resource.admin'), [
-                MenuItem::make(
-                    static fn () => __('moonshine::ui.resource.admins_title'),
-                    MoonShineUserResource::class
-                ),
-                MenuItem::make(
-                    static fn () => __('moonshine::ui.resource.role_title'),
-                    MoonShineUserRoleResource::class
-                ),
-            ]),
+            ...parent::menu(),
             
             MenuGroup::make('Users', [
-                MenuItem::make('Users', UserResource::class)->translatable('menu'),
-                MenuItem::make('Roles', RoleResource::class)->translatable('menu'),
+                MenuItem::make('Users', UserResource::class)->icon('users')->translatable('menu'),
+                MenuItem::make('Roles', RoleResource::class)->icon('bookmark')->translatable('menu'),
             ])->translatable('menu'),
-
             MenuGroup::make('Directories', [
-                MenuItem::make('Branches', BranchResource::class)->translatable('menu'),
-                MenuItem::make('Training Programs', TrainingProgramResource::class)->translatable('menu'),
-                MenuItem::make('Training Events', TrainingEventResource::class)->translatable('menu'),
-                MenuItem::make('Employee Categories', EmployeeCategoryResource::class)->translatable('menu'),
+                MenuItem::make('Branches', BranchResource::class)->icon('user-group')->translatable('menu'),
+                MenuGroup::make('Training', [
+                    MenuItem::make('Programs', TrainingProgramResource::class)->translatable('menu'),
+                    MenuItem::make('Program Aliases', TrainingProgramAliasResource::class)->translatable('menu'),
+                    MenuItem::make('Events', TrainingEventResource::class)->translatable('menu'),
+                ])->translatable('menu'),
+                MenuGroup::make('Staff', [
+                    MenuItem::make('Employees', EmployeeResource::class)->translatable('menu'),
+                    MenuItem::make('Employee Categories', EmployeeCategoryResource::class)->translatable('menu'),
+                ])->translatable('menu'),
                 MenuItem::make('Permits', PermitResource::class)->translatable('menu'),
             ])->translatable('menu'),
         ];

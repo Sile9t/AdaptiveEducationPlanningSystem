@@ -94,7 +94,7 @@ return [
     ],
 
     // Localizations
-    'locale' => 'ru',
+    'locale' => 'en',
     'locale_key' => ChangeLocale::KEY,
     'locales' => [
         // en
