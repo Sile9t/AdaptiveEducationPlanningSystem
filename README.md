@@ -51,7 +51,7 @@ AEPS (Adaptive Edication Planning System) - программа для плани
 - **Backend**: [Алексей Побединский](https://rabota.by/resume/c3db36f7ff0c93e2d30039ed1f4a66726b645a)
 - **QA**: Екатерина Дралова
 
-<!-- ## Инструкция по установке Backend части:
+## Инструкция по установке Backend части:
 1. Перейдите в директорию созданную для проекта и выполните команду:
 > [!WARNING]
 > Для выполнения этой команды нужен [Git](https://git-scm.com/downloads)
@@ -72,4 +72,4 @@ npm -i
 3. После того как все пакеты установятся выполните команду для создания записи администратора, указав свои [email], [username] и [password]:
 ```
 php artisan moonshine:user -u email -N username -p password
-``` -->
+```
