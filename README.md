@@ -64,7 +64,7 @@ git clone https://github.com/Sile9t/AdaptiveEducationPlanningSystem.git
 ```
 2. Далее открывает проект в среде разработки и выполняем команды для установки всех зависимых пакетов
 > [!WARNING]
-> Для этого у вас предварительно должны быть установлены PHP(v8.2), Laravel(v10) [Git](https://git-scm.com/downloads)
+> Для этого у вас предварительно должны быть установлены PHP(v8.2), Laravel(v10)
 ```
 composer install
 npm -i
