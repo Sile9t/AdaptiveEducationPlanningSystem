@@ -139,8 +139,8 @@ return [
     */
 
     'meilisearch' => [
-        'host' => env('MEILISEARCH_HOST', 'http://localhost:7700'),
-        'key' => env('MEILISEARCH_KEY'),
+        'host' => env('MEILI_HOST', 'http://localhost:7700'),
+        'key' => env('MEILI_MASTER_KEY'),
         'index-settings' => [
             TrainingProgram::class => [
                 'searchableAttributes' => ['title'],
