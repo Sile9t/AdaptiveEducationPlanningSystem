@@ -31,8 +31,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
     'meili' => [
-        'host' => env('MEILISEARCH_HOST'),
-        'key' => env('MEILISEARCH_KEY'),
+        'host' => env('MEILI_HOST'),
+        'key' => env('MEILI_MASTER_KEY'),
     ],
 
 ];

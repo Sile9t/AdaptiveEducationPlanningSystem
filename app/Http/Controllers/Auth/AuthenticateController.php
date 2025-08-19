@@ -58,8 +58,10 @@ class AuthenticateController extends Controller
         
         $user = MoonshineUser::with('moonshineUserRole')->where('email',$request->email)->first();
         $role = is_null($user) ? null : $user->moonshineUserRole->name;
-        $user = $user ?? User::with("role")->where('email', $request->email)->first();
-        $role = $role ?? (is_null($user) ? null : ($user->role->name));
+        if (is_null($user)) {
+            $user = User::with("role")->where('email', $request->email)->first();
+            $role = is_null($user) ? null : $user->role->name;
+        }
         
         if (is_null($user)) {
             return response()->json([
